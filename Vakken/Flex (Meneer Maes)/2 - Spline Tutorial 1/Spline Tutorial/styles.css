@@ -1,0 +1,38 @@
+html {
+    background-color: beige;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    display: flex;
+}
+
+body {
+    background-color: beige;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    display: flex;
+}
+main {
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    text-shadow: 0 0 10px white;
+    margin: auto;
+    padding: 0;
+}
+
+p {
+    font-weight: 2000;
+}
+
+spline-viewer {
+    width: auto;
+    height: auto;
+}
+
+footer {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
