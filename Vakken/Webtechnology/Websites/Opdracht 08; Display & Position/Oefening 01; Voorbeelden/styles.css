@@ -1,0 +1,120 @@
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    padding: 0px;
+    margin: 0;
+}
+
+h1, h2 {
+    color: #333;
+}
+.tekst-position {
+    margin: 20px;
+}
+code {
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 2px 4px;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+}
+
+.example {
+    border: 1px solid black;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.block {
+    display: block;
+    background-color: lightblue;
+}
+
+.inline-block {
+    display: inline-block;
+    background-color: lightgreen;
+}
+
+.inline {
+    display: inline;
+    background-color: lightcoral;
+    margin-right: 10px;
+}
+
+.none {
+    display: none;
+}
+
+.absolute-container {
+    position: relative;
+    height: 150px; 
+    margin-bottom: 20px;
+}
+
+.absolute {
+    position: absolute;
+    top: 250px; 
+    left: 50px;
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.fixed {
+    position: fixed;
+    top: 400px; 
+    right: 10px;
+    background-color: lightgreen;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.relative {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background-color: lightcoral;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.static {
+    position: static;
+    background-color: lightyellow;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+.container {
+    padding: 20px;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Your Own Adventure</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🕹️ Choose Your Own Adventure</h1>
+
+    <!-- Introductie / Startscherm -->
+    <div id="intro" class="scene">
+      <img src="https://via.placeholder.com/600x300?text=Black+Mirror+Bandersnatch" alt="Bandersnatch" class="banner" />
+      <p>
+        Welkom bij je eigen interactieve verhaal, geïnspireerd op <em>Black Mirror: Bandersnatch</em>.  
+        Maak een keuze en ontdek hoe het verhaal verdergaat!
+      </p>
+      <button class="choice-btn" id="startBtn">Start Avontuur</button>
+    </div>
+
+    <!-- Scène 1 -->
+    <div id="scene1" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=Scene+1" alt="Scene 1" class="banner" />
+      <p>
+        Je zit achter je computer te werken aan een belangrijk project.  
+        Opeens begint het scherm te flikkeren. Je hebt een kopje thee naast je staan.  
+        Wat doe je?
+      </p>
+      <button class="choice-btn" id="choice1A">Gooi thee over de computer</button>
+      <button class="choice-btn" id="choice1B">Vernietig de computer</button>
+    </div>
+
+    <!-- Scène 2A: Thee -->
+    <div id="scene2A" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=Scene+2A" alt="Scene 2A" class="banner" />
+      <p>
+        Je gooit de thee over je computer. Het apparaat begint te knetteren en valt uit.  
+        Je werk is weg en het scherm is nu zwart. Je kunt:
+      </p>
+      <button class="choice-btn" id="choice2A1">Schreeuwen in frustratie</button>
+      <button class="choice-btn" id="choice2A2">Rustig blijven en opnieuw beginnen</button>
+    </div>
+
+    <!-- Scène 2B: Vernietigen -->
+    <div id="scene2B" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=Scene+2B" alt="Scene 2B" class="banner" />
+      <p>
+        Je haalt een hamer en slaat de computer aan diggelen.  
+        Je voelt een korte opluchting, maar je bent nu wel je project kwijt...
+      </p>
+      <button class="choice-btn" id="choice2B1">Het is de moeite waard, einde</button>
+      <button class="choice-btn" id="choice2B2">Spijt: nieuwe computer kopen</button>
+    </div>
+
+    <!-- Einde A1: Frustratie -->
+    <div id="endA1" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=End+A1" alt="End A1" class="banner" />
+      <p>
+        Je schreeuwt zo hard dat de buren komen klagen. De computer is kapot en  
+        je humeur is niet meer te redden. Dit is het einde van je avontuur...
+      </p>
+      <button class="choice-btn" id="restartA1">Opnieuw Proberen</button>
+    </div>
+
+    <!-- Einde A2: Rustig -->
+    <div id="endA2" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=End+A2" alt="End A2" class="banner" />
+      <p>
+        Je blijft kalm, zet de computer uit en besluit de schade te herstellen.  
+        Uiteindelijk slaag je erin om alles opnieuw te installeren en leer je een wijze les. Einde!
+      </p>
+      <button class="choice-btn" id="restartA2">Opnieuw Proberen</button>
+    </div>
+
+    <!-- Einde B1: De moeite waard -->
+    <div id="endB1" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=End+B1" alt="End B1" class="banner" />
+      <p>
+        Je voelt een vreemde voldoening. Soms moet je alles kapotmaken om opnieuw te kunnen beginnen.  
+        Misschien niet zo verstandig, maar hé: je hebt nu wel een goed verhaal om te vertellen.
+      </p>
+      <button class="choice-btn" id="restartB1">Opnieuw Proberen</button>
+    </div>
+
+    <!-- Einde B2: Spijt -->
+    <div id="endB2" class="scene hidden">
+      <img src="https://via.placeholder.com/600x300?text=End+B2" alt="End B2" class="banner" />
+      <p>
+        Je hebt spijt van je daad en koopt de volgende dag een nieuwe computer.  
+        Een dure les, maar hopelijk kun je nu met meer rust verder werken!
+      </p>
+      <button class="choice-btn" id="restartB2">Opnieuw Proberen</button>
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

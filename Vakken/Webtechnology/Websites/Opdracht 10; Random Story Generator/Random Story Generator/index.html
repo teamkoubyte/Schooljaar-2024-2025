@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Verhaal Generator</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 Random Verhaal Generator</h1>
+
+    <form id="formulier" class="frame">
+      <div class="input-row">
+        <div class="input-group">
+          <label><strong>Jouw naam:</strong></label>
+          <input type="text" id="naamTextfield" placeholder="Vul je naam in" />
+        </div>
+
+        <div class="input-group">
+          <label><strong>Vijand:</strong></label>
+          <label class="radio-option">
+            <input type="radio" name="enemy" value="Drakenheer" checked> Drakenheer
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="enemy" value="Schaduwpriester"> Schaduwpriester
+          </label>
+        </div>
+
+        <div class="input-group">
+          <label><strong>Wapens:</strong></label>
+          <label class="checkbox-option">
+            <input type="checkbox" value="Zwaard"> Zwaard
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" value="Boog"> Boog
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" value="Toverstaf"> Toverstaf
+          </label>
+        </div>
+      </div>
+
+      <button id="toonVerhaal">🎬 Start Verhaal</button>
+    </form>
+
+    <div id="verhaal" class="frame verborgen">
+      <p id="verhaalTekst"></p>
+
+      <button id="nieuwVerhaal">🔄 Nieuw Verhaal</button>
+      <button id="terugNaarGenerator">🔙 Terug naar de Generator</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
