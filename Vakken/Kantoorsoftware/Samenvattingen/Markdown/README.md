@@ -16,6 +16,9 @@
 - [Horizontale Lijnen](#horizontale-lijnen)
 - [HTML in Markdown](#html-in-markdown)
 - [Geavanceerde Functies](#geavanceerde-functies)
+- [Markdown Varianten](#markdown-varianten)
+- [Editors en Tools](#editors-en-tools)
+- [Tips en Trucs](#tips-en-trucs)
 - [Handige Bronnen](#handige-bronnen)
 
 ## 🚀 Introductie tot Markdown
@@ -81,7 +84,6 @@ Koptekst niveau 2
 ~~Doorgestreepte tekst~~
 ```
 
-Resultaat:
 *Cursieve tekst* of _Cursieve tekst_
 
 **Vetgedrukte tekst** of __Vetgedrukte tekst__
@@ -108,6 +110,12 @@ Resultaat:
 + Voor ongeordende lijsten
 ```
 
+- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+- Item 3
+
 ### Geordende (genummerde) lijst
 
 ```markdown
@@ -118,6 +126,12 @@ Resultaat:
    2. Subitem 3.2
 ```
 
+1. Eerste item
+2. Tweede item
+3. Derde item
+   1. Subitem 3.1
+   2. Subitem 3.2
+
 ### Takenlijst
 
 ```markdown
@@ -125,6 +139,10 @@ Resultaat:
 - [ ] Onvoltooide taak
 - [ ] Nog een taak
 ```
+
+- [x] Voltooide taak
+- [ ] Onvoltooide taak
+- [ ] Nog een taak
 
 ## 🔗 Links
 
@@ -136,13 +154,21 @@ Resultaat:
 [Link met titel](https://www.example.com "Titel tekst")
 ```
 
+[Link tekst](https://www.example.com)
+
+[Link met titel](https://www.example.com "Titel tekst")
+
 ### Referentie links
 
 ```markdown
 [Link tekst][referentie-id]
 
-[referentie-id]: https://www.example.com
+[Andere link tekst][referentie-id]
+
+[referentie-id]: https://www.example.com "Optionele titel"
 ```
+
+Dit is handig als je dezelfde link meerdere keren gebruikt in je document.
 
 ### Automatische links
 
@@ -151,7 +177,25 @@ Resultaat:
 <email@example.com>
 ```
 
+<https://www.example.com>
+<email@example.com>
+
+### Relatieve links
+
+```markdown
+[Ga naar README](./README.md)
+[Bekijk afbeelding](./images/logo.png)
+```
+
+### Anker links (intern binnen het document)
+
+```markdown
+[Ga naar Introductie](#introductie-tot-markdown)
+```
+
 ## 🖼️ Afbeeldingen
+
+### Basis syntax
 
 ```markdown
 ![Alternatieve tekst](url-naar-afbeelding.jpg)
@@ -159,10 +203,31 @@ Resultaat:
 ![Alternatieve tekst](url-naar-afbeelding.jpg "Titel tekst")
 ```
 
-Afbeelding met link:
+### Afbeelding met link
 
 ```markdown
 [![Alternatieve tekst](afbeelding-url.jpg)](link-url)
+```
+
+### Afbeelding als referentie
+
+```markdown
+![Alternatieve tekst][afbeelding-id]
+
+[afbeelding-id]: url-naar-afbeelding.jpg "Optionele titel"
+```
+
+### Lokale afbeeldingen vs URL's
+
+```markdown
+![Lokale afbeelding](./images/logo.png)
+![Internet afbeelding](https://example.com/images/logo.png)
+```
+
+### Afbeelding formaat/grootte (met HTML)
+
+```markdown
+<img src="afbeelding.jpg" alt="Alternatieve tekst" width="200" height="100">
 ```
 
 ## 💻 Codeblokken
@@ -173,13 +238,19 @@ Afbeelding met link:
 Gebruik de `print()` functie in Python.
 ```
 
-### Code blokken met indentatie
+Gebruik de `print()` functie in Python.
+
+### Code blokken met indentatie (4 spaties of 1 tab)
 
 ```markdown
     # Dit is een codeblok
     def hello_world():
         print("Hello, World!")
 ```
+
+    # Dit is een codeblok
+    def hello_world():
+        print("Hello, World!")
 
 ### Code blokken met backticks
 
@@ -189,3 +260,4 @@ Gebruik de `print()` functie in Python.
 def hello_world():
     print("Hello, World!")
 ```
+````
