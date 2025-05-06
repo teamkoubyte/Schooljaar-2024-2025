@@ -140,17 +140,17 @@ Andere mogelijkheid om te vergelijken is met de instructie switch. Onderstaand v
 ```php
 <?php
 switch ($i) {
-	  case 0:
-	   echo "i is gelijk aan 0";
-	   break;
-	  case 1:
-	   echo "i is gelijk aan 1";
-	   break;
-	  case 2:
-	   echo "i is gelijk aan 2";
-	   break;
-			default:
-				echo "i is niet gelijk aan 0,1 of 2";
+case 0:
+ echo "i is gelijk aan 0";
+	break;
+case 1:
+ echo "i is gelijk aan 1";
+	break;
+case 2:
+	echo "i is gelijk aan 2";
+	break;
+default:
+	echo "i is niet gelijk aan 0,1 of 2";
 }
 ?>
 ```
