@@ -61,11 +61,11 @@ In PHP moet men het type variabele niet vooraf declareren. Je kan zelf tussen ty
 
 ```php
 <?php
-	$getal1 = 6;
-	$getal2 = 50;
-	$kommagetal = 45.454;
-	$naam = "Peter De Grote";
-  $getrouwd = false;
+$getal1 = 6;
+$getal2 = 50;
+$kommagetal = 45.454;
+$naam = "Peter De Grote";
+$getrouwd = false;
 ?>
 ```
 
@@ -78,18 +78,18 @@ Je kan een variabele wel afdrukken als je met apostrofs werkt indien je deze ond
 
 ```php
 <?php
-	$getal1 = 6;
-	// Voorbeeld 1
-	echo "Het is getal is $getal1!";
-	// Er wordt nu afgedrukt:   Het is getal is 6!
+$getal1 = 6;
+// Voorbeeld 1
+echo "Het is getal is $getal1!";
+// Er wordt nu afgedrukt:   Het is getal is 6!
 
-	// Voorbeeld 2
-	echo 'Het is getal is $getal1.';
-	// Er wordt nu afgedrukt:   Het is getal is $getal1!
+// Voorbeeld 2
+echo 'Het is getal is $getal1.';
+// Er wordt nu afgedrukt:   Het is getal is $getal1!
 
-	// Voorbeeld 3
-  echo 'Het is getal is ' . $getal1 . '!';
-	// Er wordt nu afgedrukt:   Het is getal is 6!
+// Voorbeeld 3
+ echo 'Het is getal is ' . $getal1 . '!';
+// Er wordt nu afgedrukt:   Het is getal is 6!
 ?>
 ```
 
@@ -101,9 +101,9 @@ We willen afdrukken dat a groter is dan b als variabele $a groter is dan variabe
 
 ```php
 <?php
-	if ($a > $b) {
-		echo "a is groter dan b";
-	}
+if ($a > $b) {
+	echo "a is groter dan b";
+}
 ?>
 ```
 
@@ -111,11 +111,11 @@ We willen afdrukken dat a groter is dan b als variabele $a groter is dan variabe
 
 ```php
 <?php
-	if ($a > $b) {
-		echo "a is groter dan b";
-	} else{
-		echo "a is niet groter dan b";
-	} 
+if ($a > $b) {
+	echo "a is groter dan b";
+} else{
+	echo "a is niet groter dan b";
+} 
 ?>
 ```
 
@@ -123,13 +123,13 @@ We willen de drie verschillende mogelijkheden afdrukken: a groter dan b, a gelij
 
 ```php
 <?php
-	if ($a > $b) {
-		echo "a is groter dan b";
-	} elseif ($a==$b){
-		echo "a is gelijk aan b";
-	} else {
-		echo "a is kleiner dan b";
-  }
+if ($a > $b) {
+	echo "a is groter dan b";
+} elseif ($a==$b){
+	echo "a is gelijk aan b";
+} else {
+	echo "a is kleiner dan b";
+}
 ?>
 ```
 
@@ -139,18 +139,18 @@ Andere mogelijkheid om te vergelijken is met de instructie switch. Onderstaand v
 
 ```php
 <?php
-	switch ($i) {
-	    case 0:
-	        echo "i is gelijk aan 0";
-	        break;
-	    case 1:
-	        echo "i is gelijk aan 1";
-	        break;
-	    case 2:
-	        echo "i is gelijk aan 2";
-	        break;
-			default:
-					echo "i is niet gelijk aan 0,1 of 2";
+switch ($i) {
+case 0:
+ echo "i is gelijk aan 0";
+	break;
+case 1:
+ echo "i is gelijk aan 1";
+	break;
+case 2:
+	echo "i is gelijk aan 2";
+	break;
+default:
+	echo "i is niet gelijk aan 0,1 of 2";
 }
 ?>
 ```
@@ -167,9 +167,9 @@ Onderstaand voorbeeld drukt de getallen van 1 tot en met 10 af.  Na elke loop wo
 
 ```php
 <?php
-	for ($i = 1; $i <= 10; $i++) {
-	    echo $i;
-	}
+for ($i = 1; $i <= 10; $i++) {
+	 echo $i;
+}
 ?>
 ```
 
@@ -177,12 +177,12 @@ Onderstaand voorbeeld doet hetzelfde en maakt nu gebruik van "break" waardoor er
 
 ```php
 <?php
-	for ($i = 1; ; $i++){ 
-		if ($i > 10){
-			 break;
-		} 
-	  echo $i;
-  }
+for ($i = 1; ; $i++){ 
+	if ($i > 10){
+		break;
+} 
+	 echo $i;
+}
 ?>
 ```
 
@@ -197,7 +197,7 @@ Het afdrukken van getallen van 1 tot 10 zou er dan bijvoorbeeld zo kunnen uitzie
 $i=1;
 while ($i <= 10) { 
 	echo $i++; 
-   /* Merk op dat eerst $i afgedrukt wordt en dat er dan pas 1
+/* Merk op dat eerst $i afgedrukt wordt en dat er dan pas 1
 		  bijgeteld wordt bij $i */
 }
 ?>
@@ -221,11 +221,11 @@ Het grootste verschil tussen de WHILE en de DO-WHILE is dat bij de DO-WHILE de c
 
 ```php
 <?php
-    $i=1;
-    do{
-        echo $i;
-        $i++;
-    } while ($i<=10);
+$i=1;
+do{
+ echo $i;
+ $i++;
+} while ($i<=10);
 ?>
 ```
 ---
