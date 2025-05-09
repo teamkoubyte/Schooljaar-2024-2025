@@ -1,12 +1,12 @@
 <?php
-include "connectie.php";
-echo "<h1>Record verwijderen</h1>";
-    $sql = "DELETE FROM leerlingen WHERE id =".$_GET['tewissen'];
-    if ($mysqli->query($sql)) {
-        echo "Record succesvol gewist.";
+include "connect.php";
+echo "<h1>Record Verwijderen</h1>";
+    $sql = "DELETE FROM klasgenoot WHERE Nummer = " . $_GET['teVerwijderen'];
+    if($mysqli->query($sql)){
+        echo "Record is verwijderd";
     } else {
-        echo "Error record wissen: " . $mysqli->error;
+        echo "ERROR: " . $mysqli->error;
     }
-    $mysqli->close();
-    print "<br><a href='index.php'>Ga terug naar de lijst</a>";
+        $mysqli->close();
+        print "<br><a href='index.php'>Terug naar overzicht</a>"
 ?>
