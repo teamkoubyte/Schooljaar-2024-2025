@@ -3,114 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Website Voorbeeld</title>
+    <title>Responsive Design</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">WebDesign</div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Over ons</a></li>
-                    <li><a href="#">Diensten</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <button class="hamburger">☰</button>
-            </nav>
-        </div>
+        <div class="title">Website</div>
+        
+        <input type="checkbox" id="hamburger-schakelaar">
+        <label for="hamburger-schakelaar" class="hamburger-icon">&#9776;</label>
+        
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Over ons</a>
+            <a href="#">Diensten</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Welkom op onze Responsive Website</h1>
-            <p>Ontdek hoe wij jouw online aanwezigheid kunnen versterken met professionele webdesign oplossingen die perfect werken op elk apparaat.</p>
-            <a href="#" class="cta-button">Neem contact op</a>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h2>Onze diensten</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Webdesign</h3>
-                    <p>Professionele websites die perfect werken op alle apparaten en schermformaten.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>E-commerce</h3>
-                    <p>Online winkels met gebruiksvriendelijke interfaces en veilige betalingsmogelijkheden.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>SEO Optimalisatie</h3>
-                    <p>Verbeter je zichtbaarheid in zoekmachines en trek meer bezoekers aan.</p>
-                </div>
+    
+    <main>
+        <h1>Welkom op mijn website</h1>
+        <p>Dit is een voorbeeld van mijn responsive website.</p><br>
+        <div class="tekstblokken">
+            <div class="tekstblok klein">
+                <p>Dit is het tekstblok dat 10% van de breedte van de pagina inneemt.</p>
+            </div>
+            <div class="tekstblok groot">
+                <p>Dit is het tekstblok dat 30% van de breedte van de pagina inneemt.</p>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>WebDesign</h3>
-                    <p>Wij maken websites die werken op elk apparaat en helpen je online doelen te bereiken.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Over ons</a></li>
-                        <li><a href="#">Diensten</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>info@webdesign.nl</li>
-                        <li>+31 123 456 789</li>
-                        <li>Designstraat 123, Amsterdam</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bottom-footer">
-                <p>&copy; 2025 WebDesign. Alle rechten voorbehouden.</p>
-            </div>
-        </div>
-    </footer>
-
-    <nav class="bottom-nav">
-        <ul>
-            <li>
-                <a href="#">
-                    <div class="icon">🏠</div>
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">ℹ️</div>
-                    Over
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">📋</div>
-                    Diensten
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">📱</div>
-                    Contact
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <script src="script.js"></script>
+    </main>
 </body>
 </html>
