@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberbeveiliging Diensten | Koubyte</title>
+    <meta name="description" content="Betaalbare en eenvoudige cyberbeveiliging voor particulieren en kleine bedrijven. Bescherm je gegevens en apparaten tegen digitale bedreigingen.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Animate on Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Aangepaste stijlen voor cyberbeveiliging pagina */
+        .cyber-hero {
+            background: linear-gradient(135deg, #1c1543, #2e2157, #3e2d6e);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 150px 0 100px;
+            margin-bottom: 60px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: 5px solid #5331c8;
+        }
+        
+        .cyber-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .cyber-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+        
+        .cyber-hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #a388ff, #5331c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
+        }
+        
+        .cyber-hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .cyber-hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+        
+        .cyber-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+        
+        .cyber-stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cyber-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cyber-stat-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #5331c8;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 10px rgba(83, 49, 200, 0.3);
+        }
+        
+        .cyber-stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .btn-cyber {
+            background: linear-gradient(90deg, #6a41ed, #5331c8);
+            border: none;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(83, 49, 200, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-cyber::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn-cyber:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(83, 49, 200, 0.5);
+        }
+        
+        .btn-cyber:hover::before {
+            left: 100%;
+        }
+
+        .btn-cyber-outline {
+            background: transparent;
+            border: 2px solid #5331c8;
+            color: #5331c8;
+            padding: 13px 33px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-cyber-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgba(83, 49, 200, 0.1);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-cyber-outline:hover {
+            background-color: transparent;
+            transform: translateY(-3px);
+        }
+        
+        .btn-cyber-outline:hover::before {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <span class="logo-text">Kou<span class="accent">byte</span></span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list" id="navLinks">
+                    <li><a href="../index.html#diensten" class="nav-link">Diensten</a></li>
+                    <li><a href="../index.html#pakketten" class="nav-link">Pakketten</a></li>
+                    <li><a href="../index.html#over-mij" class="nav-link">Over Mij</a></li>
+                    <li><a href="../index.html#afspraak" class="nav-link">Afspraak Maken</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="../privacybeleid.html">Privacy</a></li>
+                    <li><a href="../voorwaarden.html">Algemene Voorwaarden</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-toggle" id="hamburger" aria-label="Menu openen">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="cyber-hero">
+        <div class="container">
+            <div class="cyber-hero-content">
+                <h1 class="cyber-hero-title">Cyberbeveiliging Diensten</h1>
+                <p class="cyber-hero-subtitle">Betaalbare, gebruiksvriendelijke beveiliging voor jouw digitale leven.</p>
+                
+                <div class="cyber-hero-buttons">
+                    <a href="#diensten" class="btn btn-cyber">Onze Beveiligingsdiensten</a>
+                    <a href="../index.html#afspraak" class="btn btn-cyber-outline">Beveiligingsscan Aanvragen</a>
+                </div>
+                
+                <div class="cyber-hero-stats">
+                    <div class="cyber-stat">
+                        <div class="cyber-stat-value">100%</div>
+                        <div class="cyber-stat-label">Beveiligingsscore</div>
+                    </div>
+                    <div class="cyber-stat">
+                        <div class="cyber-stat-value">24/7</div>
+                        <div class="cyber-stat-label">Beveiligingsmonitoring</div>
+                    </div>
+                    <div class="cyber-stat">
+                        <div class="cyber-stat-value">0</div>
+                        <div class="cyber-stat-label">Geslaagde aanvallen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content van cybersecurity.html -->
+    <!-- Voordelen Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">De digitale wereld beveiligen</h2>
+                <p class="section-subtitle">Bescherm je digitale leven met eenvoudige maar effectieve beveiligingsmaatregelen</p>
+            </div>
+            
+            <div class="row service-intro">
+                <div class="col-md-6" data-aos="fade-right">
+                    <p>In onze digitale wereld is het belangrijk om je gegevens en apparaten te beschermen tegen online bedreigingen. Koubyte biedt toegankelijke cyberbeveiligingsdiensten voor particulieren en kleine bedrijven, zonder ingewikkeld jargon.</p>
+                    
+                    <div class="cyber-threat-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Veelvoorkomende bedreigingen</h4>
+                        <ul class="cyber-threat-list">
+                            <li><span class="threat-type">Phishing:</span> Pogingen om je te misleiden en persoonlijke gegevens te stelen</li>
+                            <li><span class="threat-type">Malware:</span> Schadelijke software die je apparaten kan beschadigen</li>
+                            <li><span class="threat-type">Ransomware:</span> Gijzelsoftware die je bestanden versleutelt tot je losgeld betaalt</li>
+                            <li><span class="threat-type">Zwakke wachtwoorden:</span> Makkelijk te raden toegangscodes tot je accounts</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Met Koubyte's cyberbeveiligingsdiensten krijg je praktische oplossingen die je digitale veiligheid versterken zonder je dagelijkse werkzaamheden te verstoren.</p>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="cyber-image-container">
+                        <img src="../assets/images/services/cyber-hero.jpg" alt="Cyberbeveiliging Solutions" class="img-fluid rounded shadow">
+                        <div class="cyber-image-overlay">
+                            <div class="cyber-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="customer-review">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Koubyte heeft onze digitale beveiliging enorm verbeterd. Ze hebben alles in begrijpelijke taal uitgelegd en praktische maatregelen geïmplementeerd die echt werken."</p>
+                        <div class="review-author">— Sandra Martens, Eigenaar Lokale Winkel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Onze Beveiligingsdiensten</h2>
+                <p class="section-subtitle">Praktische oplossingen voor digitale bescherming</p>
+            </div>
+
+            <div class="cyber-services-grid">
+                <!-- Beveiligingsscan -->
+                <div class="cyber-service-card" data-aos="fade-up">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <h3>Cybersecurity Scan</h3>
+                    <p>Een uitgebreide controle van je digitale apparaten en netwerk om kwetsbaarheden te identificeren.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Volledige systeemscan</li>
+                        <li><i class="fas fa-check-circle"></i> Identificatie van kwetsbaarheden</li>
+                        <li><i class="fas fa-check-circle"></i> Netwerkveiligheidscontrole</li>
+                        <li><i class="fas fa-check-circle"></i> Rapport met aanbevelingen</li>
+                    </ul>
+                    <a href="../index.html#afspraak" class="btn-service-details">Aanvragen <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Antivirus & Malware Bescherming -->
+                <div class="cyber-service-card featured-service" data-aos="fade-up">
+                    <div class="service-tag">Populair</div>
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <h3>Antivirus & Malware Bescherming</h3>
+                    <p>Installatie en configuratie van betrouwbare beveiliging tegen virussen en andere schadelijke software.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Premium antivirussoftware</li>
+                        <li><i class="fas fa-check-circle"></i> Real-time bescherming</li>
+                        <li><i class="fas fa-check-circle"></i> Automatische updates</li>
+                        <li><i class="fas fa-check-circle"></i> Jaarlijkse controle</li>
+                    </ul>
+                    <a href="../index.html#afspraak" class="btn-service-details special">Aanvragen <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Wachtwoordbeheer -->
+                <div class="cyber-service-card" data-aos="fade-up">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                    </div>
+                    <h3>Wachtwoordbeheer</h3>
+                    <p>Implementatie van veilig wachtwoordbeheer zodat je sterke unieke wachtwoorden kunt gebruiken zonder ze te vergeten.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Wachtwoordkluis instellen</li>
+                        <li><i class="fas fa-check-circle"></i> Sterke wachtwoorden genereren</li>
+                        <li><i class="fas fa-check-circle"></i> Multi-factor authenticatie</li>
+                        <li><i class="fas fa-check-circle"></i> Veilige wachtwoorddeling</li>
+                    </ul>
+                    <a href="../index.html#afspraak" class="btn-service-details">Aanvragen <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Data Backup -->
+                <div class="cyber-service-card" data-aos="fade-up">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                    </div>
+                    <h3>Data Backup & Recovery</h3>
+                    <p>Beveiliging van je belangrijke gegevens met automatische backups en eenvoudig herstel bij dataverlies.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Geautomatiseerde backups</li>
+                        <li><i class="fas fa-check-circle"></i> Cloud en lokale opties</li>
+                        <li><i class="fas fa-check-circle"></i> Versleutelde opslag</li>
+                        <li><i class="fas fa-check-circle"></i> Herstelprocedure instellen</li>
+                    </ul>
+                    <a href="../index.html#afspraak" class="btn-service-details">Aanvragen <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Phishing Preventie -->
+                <div class="cyber-service-card" data-aos="fade-up">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                    </div>
+                    <h3>Phishing Preventie</h3>
+                    <p>Bescherming en training om phishingaanvallen te herkennen en te voorkomen.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> E-mailfiltering instellen</li>
+                        <li><i class="fas fa-check-circle"></i> Bewustwordingstraining</li>
+                        <li><i class="fas fa-check-circle"></i> Gesimuleerde phishingtests</li>
+                        <li><i class="fas fa-check-circle"></i> Rapportagetools</li>
+                    </ul>
+                    <a href="../index.html#afspraak" class="btn-service-details">Aanvragen <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Beveiligde WiFi -->
+                <div class="cyber-service-card" data-aos="fade-up">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                    </div>
+                    <h3>Beveiligde WiFi Netwerken</h3>
+                    <p>Optimalisatie van je draadloze netwerk voor maximale veiligheid en prestaties.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> WiFi encryptie instellen</li>
+                        <li><i class="fas fa-check-circle"></i> Routerconfiguratie</li>
+                        <li><i class="fas fa-check-circle"></i> Gastennetwerk opzetten</li>
+                        <li><i class="fas fa-check-circle"></i> Firmware updates</li>
+                    </ul>
+                    <a href="../index.html#afspraak" class="btn-service-details">Aanvragen <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Plan Section -->
+    <section class="section cyber-process-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Jouw Digitale Beschermingsplan</h2>
+                <p class="section-subtitle">Hoe we je helpen om digitaal veilig te blijven</p>
+            </div>
+
+            <div class="cyber-process-container">
+                <div class="cyber-process-timeline"></div>
+                
+                <div class="cyber-process-step" data-aos="fade-right">
+                    <div class="cyber-process-number">1</div>
+                    <div class="cyber-process-content">
+                        <div class="cyber-step-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Beveiligingsscan & Analyse</h3>
+                        <p>We beginnen met een grondige analyse van je huidige beveiligingssituatie om kwetsbaarheden en risico's in kaart te brengen.</p>
+                        <ul class="cyber-process-deliverables">
+                            <li><i class="fas fa-file-alt"></i> Beveiligingsrapport</li>
+                            <li><i class="fas fa-list-ol"></i> Prioriteitenlijst</li>
+                            <li><i class="fas fa-comment-dots"></i> Bespreking van resultaten</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-process-step" data-aos="fade-left">
+                    <div class="cyber-process-number">2</div>
+                    <div class="cyber-process-content">
+                        <div class="cyber-step-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Beveiligingsplan Op Maat</h3>
+                        <p>Op basis van de scan ontwikkelen we een gepersonaliseerd beveiligingsplan dat aansluit bij jouw specifieke behoeften en budget.</p>
+                        <ul class="cyber-process-deliverables">
+                            <li><i class="fas fa-file-contract"></i> Aangepast actieplan</li>
+                            <li><i class="fas fa-euro-sign"></i> Kostenraming</li>
+                            <li><i class="fas fa-calendar-alt"></i> Implementatieschema</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-process-step" data-aos="fade-right">
+                    <div class="cyber-process-number">3</div>
+                    <div class="cyber-process-content">
+                        <div class="cyber-step-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Implementatie</h3>
+                        <p>We implementeren de gekozen beveiligingsmaatregelen op een manier die minimale verstoring veroorzaakt voor je dagelijkse activiteiten.</p>
+                        <ul class="cyber-process-deliverables">
+                            <li><i class="fas fa-shield-alt"></i> Beveiligingssoftware installatie</li>
+                            <li><i class="fas fa-lock"></i> Wachtwoordbeheer setup</li>
+                            <li><i class="fas fa-server"></i> Backup configuratie</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-process-step" data-aos="fade-left">
+                    <div class="cyber-process-number">4</div>
+                    <div class="cyber-process-content">
+                        <div class="cyber-step-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Training & Documentatie</h3>
+                        <p>We voorzien je van de kennis en vaardigheden om veilig te blijven in de digitale wereld, inclusief duidelijke documentatie van alle geïmplementeerde maatregelen.</p>
+                        <ul class="cyber-process-deliverables">
+                            <li><i class="fas fa-book"></i> Beveiligingshandboek</li>
+                            <li><i class="fas fa-chalkboard-teacher"></i> Persoonlijke training</li>
+                            <li><i class="fas fa-file-pdf"></i> Stap-voor-stap gidsen</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-process-step" data-aos="fade-right">
+                    <div class="cyber-process-number">5</div>
+                    <div class="cyber-process-content">
+                        <div class="cyber-step-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Doorlopende Ondersteuning</h3>
+                        <p>We houden je beveiligingsmaatregelen up-to-date en bieden ondersteuning wanneer je die nodig hebt, zodat je digitaal beschermd blijft.</p>
+                        <ul class="cyber-process-deliverables">
+                            <li><i class="fas fa-calendar-check"></i> Geplande controles</li>
+                            <li><i class="fas fa-headset"></i> Ondersteuning bij vragen</li>
+                            <li><i class="fas fa-bell"></i> Beveiligingsupdates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cyber-cta-section">
+        <div class="container">
+            <div class="cyber-cta-container" data-aos="fade-up">
+                <div class="cyber-cta-bg"></div>
+                <div class="cyber-cta-content">
+                    <div class="cyber-cta-badge">
+                        <span>Beperkte Aanbieding</span>
+                    </div>
+                    <h2 class="cyber-cta-title">Gratis Beveiligingsscan</h2>
+                    <p class="cyber-cta-text">Ontdek hoe veilig jouw digitale omgeving echt is. Ontvang een gratis basis beveiligingsscan en persoonlijk advies over hoe je je cyberveiligheid kunt verbeteren.</p>
+                    
+                    <div class="cyber-cta-features">
+                        <div class="cyber-cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Apparaatcontrole</span>
+                        </div>
+                        <div class="cyber-cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Wachtwoordsterkte</span>
+                        </div>
+                        <div class="cyber-cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Antiviruscheck</span>
+                        </div>
+                        <div class="cyber-cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>WiFi veiligheid</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-cta-buttons">
+                        <a href="../index.html#afspraak" class="btn-cta-primary">Vraag Gratis Scan Aan</a>
+                        <a href="../index.html#pakketten-security" class="btn-cta-secondary">Bekijk Beveiligingspakketten</a>
+                    </div>
+                    
+                    <div class="cyber-cta-guarantee">
+                        <i class="fas fa-shield-check"></i>
+                        <p>Geen verplichtingen, geen verborgen kosten</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer cyber-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" data-aos="fade-right">
+                    <span class="logo-text">Kou<span class="accent">byte</span></span>
+                    <p class="footer-tagline">IT-oplossingen die werken voor jou</p>
+                    
+                    <div class="cyber-trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Gecertificeerd</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Betrouwbaar</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>Persoonlijk</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Diensten</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="it-helpdesk.html">IT Helpdesk</a></li>
+                            <li><a href="webontwikkeling.html">Webontwikkeling</a></li>
+                            <li><a href="cyberbeveiliging.html">Cyberbeveiliging</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Bedrijf</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="../index.html#over-mij">Over Mij</a></li>
+                            <li><a href="../index.html#contact">Contact</a></li>
+                            <li><a href="../privacybeleid.html">Privacy</a></li>
+                            <li><a href="../voorwaarden.html">Algemene Voorwaarden</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Contact</h3>
+                        <ul class="footer-contact-list">
+                            <li><i class="fas fa-map-marker-alt"></i> Mechelen, België</li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+32484522662">+32 484 52 26 62</a></li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:info@koubyte.be">info@koubyte.be</a></li>
+                        </ul>
+                        
+                        <div class="footer-newsletter">
+                            <h4>Blijf op de hoogte</h4>
+                            <p>Ontvang IT tips en updates</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Uw e-mailadres" required>
+                                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="200">
+                <p class="copyright">&copy; 2025 Koubyte. Alle rechten voorbehouden.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/koubyte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/koubyte" target="_blank" rel="noopener" aria-label="X (Twitter)" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://linkedin.com/in/koubyte" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/koubyte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back To Top Button -->
+    <a href="#" class="back-to-top" aria-label="Terug naar boven">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html> 

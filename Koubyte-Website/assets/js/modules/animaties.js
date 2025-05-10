@@ -1,23 +1,23 @@
 /**
- * Animations Module
+ * Animaties Module
  * Beheert alle animaties en visuele effecten
  */
 
-function initScrollAnimations() {
+function initAnimaties() {
   // Animeer elementen bij scrollen
-  initRevealAnimations();
+  initOnthulAnimaties();
   
   // Animeer counter/statistieken
-  initCounterAnimations();
+  initTellerAnimaties();
   
   // Type writer effect (indien gebruikt)
-  initTypeWriter();
+  initTypeMachine();
 }
 
 /**
  * Animeer elementen wanneer ze in beeld komen
  */
-function initRevealAnimations() {
+function initOnthulAnimaties() {
   const revealElements = document.querySelectorAll(
     '.reveal-slide-up, .reveal-slide-down, .reveal-slide-left, ' +
     '.reveal-slide-right, .reveal-fade-in, .reveal-scale'
@@ -25,7 +25,7 @@ function initRevealAnimations() {
   
   if (revealElements.length === 0) return;
   
-  const revealOnScroll = function() {
+  const onthulBijScrollen = function() {
     for (let i = 0; i < revealElements.length; i++) {
       const windowHeight = window.innerHeight;
       const elementTop = revealElements[i].getBoundingClientRect().top;
@@ -38,16 +38,16 @@ function initRevealAnimations() {
   };
   
   // Voer één keer uit bij laden
-  revealOnScroll();
+  onthulBijScrollen();
   
   // Voer uit bij scrollen
-  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('scroll', onthulBijScrollen);
 }
 
 /**
  * Animeer statistieken counters
  */
-function initCounterAnimations() {
+function initTellerAnimaties() {
   const stats = document.querySelectorAll('.stat-number');
   
   if (stats.length === 0) return;
@@ -62,18 +62,18 @@ function initCounterAnimations() {
         if (entry.isIntersecting) {
           let current = 0;
           
-          const updateCounter = () => {
+          const updateTeller = () => {
             current += step;
             
             if (current < target) {
               stat.textContent = Math.floor(current);
-              requestAnimationFrame(updateCounter);
+              requestAnimationFrame(updateTeller);
             } else {
               stat.textContent = target;
             }
           };
           
-          updateCounter();
+          updateTeller();
           observer.unobserve(entry.target);
         }
       });
@@ -86,7 +86,7 @@ function initCounterAnimations() {
 /**
  * Type writer effect (indien gebruikt)
  */
-function initTypeWriter() {
+function initTypeMachine() {
   const typeElements = document.querySelectorAll('.typewriter');
   
   if (typeElements.length === 0) return;

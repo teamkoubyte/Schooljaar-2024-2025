@@ -1,26 +1,26 @@
 /**
- * Navigation Module
+ * Navigatie Module
  * Beheert menu, hamburger en navigatie gedrag
  */
 
-function initNavigation() {
+function initNavigatie() {
   // Hamburger menu functies
-  initMobileMenu();
+  initMobielMenu();
   
   // Header scroll effecten
   initHeaderScroll();
   
   // Smooth scroll voor anker links
-  initSmoothScroll();
+  initSoepelScroll();
   
   // Active link markeren
-  highlightCurrentPage();
+  markerHuidigePagina();
 }
 
 /**
  * Initialiseer mobiel menu
  */
-function initMobileMenu() {
+function initMobielMenu() {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   
@@ -78,9 +78,9 @@ function initHeaderScroll() {
 }
 
 /**
- * Smooth scroll voor anker links
+ * Soepel scroll voor anker links
  */
-function initSmoothScroll() {
+function initSoepelScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       // Alleen verwerken als het een interne link is
@@ -107,7 +107,7 @@ function initSmoothScroll() {
 /**
  * Markeer huidige pagina in het menu
  */
-function highlightCurrentPage() {
+function markerHuidigePagina() {
   const navLinks = document.querySelectorAll('.nav-link');
   const currentPath = window.location.pathname;
   

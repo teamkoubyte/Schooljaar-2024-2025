@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   
   <!-- Leaflet CSS voor kaart -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
@@ -230,52 +230,77 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer cyber-footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
+        <div class="footer-logo" data-aos="fade-right">
           <span class="logo-text">Kou<span class="accent">byte</span></span>
-          <p>IT & Web oplossingen op maat</p>
+          <p class="footer-tagline">IT-oplossingen die werken voor jou</p>
+          
+          <div class="cyber-trust-badges">
+            <div class="trust-badge">
+              <i class="fas fa-certificate"></i>
+              <span>Gecertificeerd</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-shield-alt"></i>
+              <span>Betrouwbaar</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fas fa-hand-holding-heart"></i>
+              <span>Persoonlijk</span>
+            </div>
+          </div>
         </div>
         
-        <div class="footer-links">
+        <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
           <div class="footer-links-column">
-            <h4>Snelle links</h4>
-            <ul>
-              <li><a href="index.html#diensten">Diensten</a></li>
-              <li><a href="index.html#pakketten">Pakketten</a></li>
+            <h3 class="footer-links-title">Diensten</h3>
+            <ul class="footer-links-list">
+              <li><a href="services/it-helpdesk.html">IT Helpdesk</a></li>
+              <li><a href="services/webontwikkeling.html">Webontwikkeling</a></li>
+              <li><a href="services/cyberbeveiliging.html">Cyberbeveiliging</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links-column">
+            <h3 class="footer-links-title">Bedrijf</h3>
+            <ul class="footer-links-list">
               <li><a href="index.html#over-mij">Over Mij</a></li>
-              <li><a href="index.html#afspraak">Afspraak Maken</a></li>
               <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="privacy.html" class="active">Privacybeleid</a></li>
+              <li><a href="terms.html">Algemene Voorwaarden</a></li>
             </ul>
           </div>
           
           <div class="footer-links-column">
-            <h4>Diensten</h4>
-            <ul>
-              <li><a href="index.html#pakketten-it">IT Helpdesk</a></li>
-              <li><a href="index.html#pakketten-web">Web Development</a></li>
-              <li><a href="index.html#pakketten-security">Cybersecurity</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-links-column">
-            <h4>Contact</h4>
-            <ul>
+            <h3 class="footer-links-title">Contact</h3>
+            <ul class="footer-contact-list">
+              <li><i class="fas fa-map-marker-alt"></i> Mechelen, België</li>
               <li><i class="fas fa-phone"></i> <a href="tel:+32484522662">+32 484 52 26 62</a></li>
               <li><i class="fas fa-envelope"></i> <a href="mailto:info@koubyte.be">info@koubyte.be</a></li>
-              <li><i class="fas fa-map-marker-alt"></i> Mechelen, België</li>
             </ul>
+            
+            <div class="footer-newsletter">
+              <h4>Blijf op de hoogte</h4>
+              <p>Ontvang IT tips en updates</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Uw e-mailadres" required>
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
       
-      <div class="footer-bottom">
-        <p>&copy; 2025 Koubyte. Alle rechten voorbehouden.</p>
-        <ul class="footer-legal">
-          <li><a href="privacy.html" class="active">Privacybeleid</a></li>
-          <li><a href="terms.html">Algemene voorwaarden</a></li>
-        </ul>
+      <div class="footer-bottom" data-aos="fade-up" data-aos-delay="200">
+        <p class="copyright">&copy; 2025 Koubyte. Alle rechten voorbehouden.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/koubyte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/koubyte" target="_blank" rel="noopener" aria-label="X (Twitter)" class="social-link"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://linkedin.com/in/koubyte" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/koubyte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
       </div>
     </div>
   </footer>
@@ -287,6 +312,399 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <style>
+    /* Verbeterde navigatiestijl */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .header.scrolled {
+      padding: 8px 0;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #2c3e50;
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover .logo-text {
+      transform: scale(1.05);
+    }
+    
+    .logo-text .accent {
+      color: #1751E8;
+    }
+    
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 5px;
+    }
+    
+    .nav-link {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 15px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #1751E8;
+      background: rgba(23, 81, 232, 0.08);
+    }
+    
+    .nav-link.active {
+      color: #1751E8;
+      background: rgba(23, 81, 232, 0.08);
+      font-weight: 600;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #1751E8;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 30px;
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .hamburger {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #2c3e50;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+    
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: #2c3e50;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .hamburger::before {
+      top: -8px;
+    }
+    
+    .hamburger::after {
+      bottom: -8px;
+    }
+    
+    /* Aanpassing voor page-header padding door fixed navbar */
+    .page-header {
+      padding-top: 120px;
+      padding-bottom: 40px;
+    }
+    
+    @media (max-width: 992px) {
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        opacity: 0;
+        z-index: 100;
+      }
+      
+      .main-nav.active {
+        max-height: 500px;
+        opacity: 1;
+      }
+      
+      .nav-list {
+        flex-direction: column;
+        padding: 20px;
+      }
+      
+      .nav-link {
+        padding: 12px 15px;
+        display: block;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .mobile-menu-toggle.active .hamburger {
+        background: transparent;
+      }
+      
+      .mobile-menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      
+      .mobile-menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+      }
+    }
+    
+    /* Footer stijlen */
+    .cyber-footer {
+      background: #1e3a5f;
+      color: white;
+      padding-top: 70px;
+    }
+    
+    .cyber-footer .footer-content {
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .cyber-footer .logo-text {
+      color: white;
+    }
+    
+    .cyber-footer .footer-tagline {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 15px 0;
+    }
+    
+    .cyber-trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 15px;
+      border-radius: 30px;
+    }
+    
+    .trust-badge i {
+      color: #0288D1;
+      margin-right: 8px;
+    }
+    
+    .trust-badge span {
+      font-size: 0.9rem;
+    }
+    
+    .cyber-footer .footer-links-title {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .cyber-footer .footer-links-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: #0288D1;
+    }
+    
+    .cyber-footer .footer-links-list,
+    .cyber-footer .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .cyber-footer .footer-links-list li,
+    .cyber-footer .footer-contact-list li {
+      margin-bottom: 15px;
+    }
+    
+    .cyber-footer .footer-links-list a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .cyber-footer .footer-links-list a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .cyber-footer .footer-contact-list li {
+      display: flex;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .cyber-footer .footer-contact-list li i {
+      margin-right: 10px;
+      color: #0288D1;
+    }
+
+    .cyber-footer .footer-contact-list li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cyber-footer .footer-contact-list li a:hover {
+      color: white;
+    }
+    
+    .footer-newsletter {
+      margin-top: 30px;
+    }
+    
+    .footer-newsletter h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+    
+    .footer-newsletter p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      border-radius: 50px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 12px 15px;
+      color: white;
+      outline: none;
+    }
+    
+    .newsletter-form input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .newsletter-form button {
+      background: #0288D1;
+      border: none;
+      color: white;
+      padding: 0 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+      background: #01579B;
+    }
+    
+    .cyber-footer .footer-bottom {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cyber-footer .copyright {
+      color: rgba(255, 255, 255, 0.5);
+      margin: 0;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-left: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: #0288D1;
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 992px) {
+      .cyber-footer .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cyber-footer .copyright {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+
+  <!-- JavaScript -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>

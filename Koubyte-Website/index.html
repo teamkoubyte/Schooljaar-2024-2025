@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Koubyte | IT & Web oplossingen op maat</title>
-  <meta name="description" content="IT helpdesk, webontwikkeling en cybersecurity diensten voor particulieren en bedrijven in Mechelen en omgeving.">
+  <title>Koubyte | Persoonlijke IT & Web hulp</title>
+  <meta name="description" content="Betaalbare IT-hulp, eenvoudige websites en basisbescherming voor particulieren en kleine bedrijven in Mechelen. Jouw digitale problemen, mijn passie!">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,12 +18,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   
-  <!-- Leaflet CSS voor kaart -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+  <!-- Animate on Scroll Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+  
   <!-- Header -->
   <header class="header">
     <div class="container">
@@ -34,7 +35,7 @@
       </div>
       
       <nav class="main-nav">
-        <ul class="nav-list">
+        <ul class="nav-list" id="navLinks">
           <li><a href="#diensten" class="nav-link">Diensten</a></li>
           <li><a href="#pakketten" class="nav-link">Pakketten</a></li>
           <li><a href="#over-mij" class="nav-link">Over Mij</a></li>
@@ -43,334 +44,381 @@
         </ul>
       </nav>
       
-      <button class="mobile-menu-toggle" aria-label="Menu openen">
+      <button class="mobile-menu-toggle" id="hamburger" aria-label="Menu openen">
         <span class="hamburger"></span>
       </button>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero gradient-hero">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">IT-oplossingen die werken voor jou</h1>
-        <p class="hero-text">Professionele IT support, webontwikkeling en cybersecurity diensten voor particulieren en kleine bedrijven.</p>
-        <div class="hero-buttons">
-          <a href="#pakketten" class="btn btn-primary">Bekijk pakketten</a>
-          <a href="#afspraak" class="btn btn-outline">Maak een afspraak</a>
+      <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="hero-title">Persoonlijke IT & Web oplossingen</h1>
+        <p class="hero-text" data-aos="fade-up" data-aos-delay="200">
+          Koubyte biedt freelance IT-diensten in Mechelen. Wij helpen particulieren en kleine bedrijven met computerproblemen, websites bouwen en digitale beveiliging. <strong>Geen jargon, gewoon duidelijke oplossingen.</strong>
+        </p>
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+          <a href="#diensten" class="btn btn-outline">Bekijk onze diensten</a>
+          <a href="#afspraak" class="btn btn-primary">Plan een gesprek</a>
         </div>
       </div>
     </div>
+    
+    <div class="dots-pattern" style="bottom: 10%; right: 5%;"></div>
+    <div class="dots-pattern" style="top: 15%; left: 5%;"></div>
   </section>
-
+  
   <!-- Diensten Section -->
-  <section id="diensten" class="section section-diensten">
+  <section id="diensten" class="section shape-background">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Mijn Diensten</h2>
-        <p class="section-subtitle">Professionele IT-oplossingen voor al jouw digitale behoeften</p>
+      <div class="section-header" data-aos="fade-up">
+        <span class="badge-accent">Wat wij voor je kunnen doen</span>
+        <h2 class="section-title">Onze Diensten</h2>
+        <p class="section-subtitle">Praktische IT-oplossingen voor jouw digitale behoeften</p>
       </div>
       
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card interactive-card pulse-border" data-aos="fade-up" data-aos-delay="100">
           <div class="service-icon">
             <i class="fas fa-desktop"></i>
           </div>
-          <h3 class="service-title">IT Helpdesk</h3>
-          <p class="service-description">Snelle en betrouwbare IT-ondersteuning voor al je computer- en netwerkproblemen.</p>
+          <h3 class="service-title">IT Hulp</h3>
+          <p class="service-description">Persoonlijke IT-ondersteuning voor particulieren en kleine bedrijven. Wij lossen je computerproblemen snel en vriendelijk op.</p>
           <ul class="service-features">
-            <li><i class="fas fa-check"></i> Computer reparatie en onderhoud</li>
-            <li><i class="fas fa-check"></i> Software installatie en configuratie</li>
-            <li><i class="fas fa-check"></i> Netwerkproblemen oplossen</li>
-            <li><i class="fas fa-check"></i> Data back-up en herstel</li>
+            <li><i class="fas fa-check"></i> Computer & laptop problemen</li>
+            <li><i class="fas fa-check"></i> Virus verwijdering</li>
+            <li><i class="fas fa-check"></i> Data backup hulp</li>
+            <li><i class="fas fa-check"></i> Wifi-netwerk verbetering</li>
           </ul>
-          <a href="services/it-helpdesk.html" class="btn btn-secondary">Meer info</a>
+          <a href="services/it-helpdesk.html" class="btn btn-secondary">Meer over IT Hulp</a>
         </div>
         
-        <div class="service-card">
+        <div class="service-card interactive-card animated-gradient-border" data-aos="fade-up" data-aos-delay="200">
           <div class="service-icon">
-            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-code"></i>
           </div>
-          <h3 class="service-title">Web Development</h3>
-          <p class="service-description">Op maat gemaakte websites die jouw online aanwezigheid versterken.</p>
+          <h3 class="service-title">Websites</h3>
+          <p class="service-description">Betaalbare en effectieve websites voor zelfstandigen en kleine bedrijven. Modern, gebruiksvriendelijk en mobiel-vriendelijk.</p>
           <ul class="service-features">
-            <li><i class="fas fa-check"></i> Responsive website ontwerp</li>
-            <li><i class="fas fa-check"></i> Webshops en e-commerce</li>
-            <li><i class="fas fa-check"></i> Content Management Systemen</li>
-            <li><i class="fas fa-check"></i> Website onderhoud en updates</li>
+            <li><i class="fas fa-check"></i> Moderne websites</li>
+            <li><i class="fas fa-check"></i> Webshops</li>
+            <li><i class="fas fa-check"></i> Website updates</li>
+            <li><i class="fas fa-check"></i> Wordpress beheer</li>
           </ul>
-          <a href="services/web-development.html" class="btn btn-secondary">Meer info</a>
+          <a href="services/webontwikkeling.html" class="btn btn-secondary">Meer over Websites</a>
         </div>
         
-        <div class="service-card">
+        <div class="service-card interactive-card pulse-border" data-aos="fade-up" data-aos-delay="300">
           <div class="service-icon">
             <i class="fas fa-shield-alt"></i>
           </div>
-          <h3 class="service-title">Cybersecurity</h3>
-          <p class="service-description">Bescherm je digitale gegevens tegen bedreigingen en hacks.</p>
+          <h3 class="service-title">Digitale Beveiliging</h3>
+          <p class="service-description">Bescherm je computer en gegevens tegen virussen en andere digitale bedreigingen met eenvoudige beveiligingsmaatregelen.</p>
           <ul class="service-features">
-            <li><i class="fas fa-check"></i> Security audits</li>
-            <li><i class="fas fa-check"></i> Antivirus en malware bescherming</li>
-            <li><i class="fas fa-check"></i> Veilige data back-up oplossingen</li>
-            <li><i class="fas fa-check"></i> Beveiligingstraining</li>
+            <li><i class="fas fa-check"></i> Basis veiligheidscheck</li>
+            <li><i class="fas fa-check"></i> Antivirus installatie</li>
+            <li><i class="fas fa-check"></i> Veilig wachtwoordbeheer</li>
+            <li><i class="fas fa-check"></i> Phishing preventie</li>
           </ul>
-          <a href="services/cybersecurity.html" class="btn btn-secondary">Meer info</a>
+          <a href="services/cyberbeveiliging.html" class="btn btn-secondary">Meer over Beveiliging</a>
+        </div>
+      </div>
+      
+      <div class="stats-container" data-aos="fade-up">
+        <div class="stat-card">
+          <div class="stat-value">100+</div>
+          <div class="stat-label">Tevreden klanten</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">95%</div>
+          <div class="stat-label">Klanttevredenheid</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">5+</div>
+          <div class="stat-label">Jaren ervaring</div>
         </div>
       </div>
     </div>
   </section>
+  
+  <div class="section-divider">
+    <div class="divider-tilt"></div>
+  </div>
 
-  <!-- Pakketten Section -->
-  <section id="pakketten" class="section section-pakketten">
+  <!-- Over Mij Section -->
+  <section id="over-mij" class="section section-light">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Mijn Pakketten</h2>
-        <p class="section-subtitle">Kies het pakket dat bij je past</p>
-      </div>
-      
-      <!-- Tabs voor pakketcategorieën -->
-      <div class="tabs">
-        <button class="tab-btn active" data-target="pakketten-it">IT Helpdesk</button>
-        <button class="tab-btn" data-target="pakketten-web">Web Development</button>
-        <button class="tab-btn" data-target="pakketten-security">Cybersecurity</button>
-      </div>
-      
-      <!-- IT Helpdesk Pakketten -->
-      <div id="pakketten-it" class="tab-content active">
-        <div class="packages-grid">
-          <div class="package-card">
-            <div class="package-header">
-              <h3 class="package-title">Basis Support</h3>
-              <div class="package-price">€60<span>/uur</span></div>
+      <div class="about-content">
+        <div class="about-text" data-aos="fade-up">
+          <div class="section-header">
+            <span class="badge-accent">Over Mij</span>
+            <h2 class="section-title">Persoonlijke aanpak</h2>
+          </div>
+          <p class="about-description">
+            Koubyte biedt een persoonlijke aanpak voor IT-problemen en webontwikkeling. Met een stevige achtergrond in computerwetenschappen en ervaring in verschillende IT-bedrijven, helpen wij particulieren en kleine bedrijven in Mechelen.
+          </p>
+          <p class="about-description">
+            Onze missie is simpel: IT-diensten aanbieden die betaalbaar en begrijpelijk zijn. Geen technisch jargon, gewoon praktische oplossingen. Of het nu gaat om een computerherstel, een nieuwe website of cyberbeveiligingadvies, we zorgen ervoor dat het proces transparant en stressvrij is.
+          </p>
+          
+          <div class="about-credentials interactive-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="credentials-icon">
+              <i class="fas fa-certificate"></i>
             </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> Computer diagnostiek</li>
-                <li><i class="fas fa-check"></i> Software installatie</li>
-                <li><i class="fas fa-check"></i> Virus verwijdering</li>
-                <li><i class="fas fa-check"></i> Data recovery</li>
-                <li><i class="fas fa-check"></i> Email instellen</li>
-              </ul>
-              <p class="package-note">Perfect voor eenmalige problemen en snelle oplossingen.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
+            <div class="credentials-content">
+              <h4>Gecertificeerde IT Professionals</h4>
+              <p>Met diverse certificeringen en meer dan 5 jaar ervaring in IT-ondersteuning en webontwikkeling</p>
             </div>
           </div>
           
-          <div class="package-card featured">
-            <div class="package-badge">Populair</div>
-            <div class="package-header">
-              <h3 class="package-title">Home Office</h3>
-              <div class="package-price">€149<span>/maand</span></div>
-            </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> 3 uur support per maand</li>
-                <li><i class="fas fa-check"></i> Remote en on-site support</li>
-                <li><i class="fas fa-check"></i> Netwerkoptimalisatie</li>
-                <li><i class="fas fa-check"></i> Maandelijkse gezondheidscheck</li>
-                <li><i class="fas fa-check"></i> Gratis telefonisch advies</li>
-                <li><i class="fas fa-check"></i> Prioriteitsbehandeling</li>
-              </ul>
-              <p class="package-note">Ideaal voor thuiswerkers en kleine kantoren.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
-          </div>
-          
-          <div class="package-card">
-            <div class="package-header">
-              <h3 class="package-title">Zakelijk</h3>
-              <div class="package-price">€299<span>/maand</span></div>
-            </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> 8 uur support per maand</li>
-                <li><i class="fas fa-check"></i> 24/7 prioriteit support</li>
-                <li><i class="fas fa-check"></i> Volledig netwerkbeheer</li>
-                <li><i class="fas fa-check"></i> Server monitoring</li>
-                <li><i class="fas fa-check"></i> Wekelijkse back-ups</li>
-                <li><i class="fas fa-check"></i> Inventarisatie van apparatuur</li>
-                <li><i class="fas fa-check"></i> Documentatie</li>
-              </ul>
-              <p class="package-note">Uitgebreide ondersteuning voor groeiende bedrijven.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Web Development Pakketten -->
-      <div id="pakketten-web" class="tab-content">
-        <div class="packages-grid">
-          <div class="package-card">
-            <div class="package-header">
-              <h3 class="package-title">Starter Website</h3>
-              <div class="package-price">€599<span>/eenmalig</span></div>
-            </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> Tot 5 pagina's</li>
-                <li><i class="fas fa-check"></i> Responsive design</li>
-                <li><i class="fas fa-check"></i> Contactformulier</li>
-                <li><i class="fas fa-check"></i> SEO basisoptimalisatie</li>
-                <li><i class="fas fa-check"></i> Google Maps integratie</li>
-                <li><i class="fas fa-check"></i> Social media links</li>
-              </ul>
-              <p class="package-note">Perfect voor kleine bedrijven en persoonlijke websites.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
-          </div>
-          
-          <div class="package-card featured">
-            <div class="package-badge">Populair</div>
-            <div class="package-header">
-              <h3 class="package-title">Business Website</h3>
-              <div class="package-price">€999<span>/eenmalig</span></div>
-            </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> Tot 10 pagina's</li>
-                <li><i class="fas fa-check"></i> Responsive design</li>
-                <li><i class="fas fa-check"></i> CMS (WordPress)</li>
-                <li><i class="fas fa-check"></i> Contactformulier</li>
-                <li><i class="fas fa-check"></i> SEO optimalisatie</li>
-                <li><i class="fas fa-check"></i> Google Analytics</li>
-                <li><i class="fas fa-check"></i> 2 revisierondes</li>
-                <li><i class="fas fa-check"></i> 1 uur training</li>
-              </ul>
-              <p class="package-note">Complete oplossing voor bedrijven.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
-          </div>
-          
-          <div class="package-card">
-            <div class="package-header">
-              <h3 class="package-title">E-commerce</h3>
-              <div class="package-price">€1899<span>/eenmalig</span></div>
-            </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> WooCommerce/Shopify</li>
-                <li><i class="fas fa-check"></i> Tot 50 producten</li>
-                <li><i class="fas fa-check"></i> Betalingsgateway integratie</li>
-                <li><i class="fas fa-check"></i> Productcategorieën</li>
-                <li><i class="fas fa-check"></i> Productfilters</li>
-                <li><i class="fas fa-check"></i> Responsive design</li>
-                <li><i class="fas fa-check"></i> SEO optimalisatie</li>
-                <li><i class="fas fa-check"></i> 3 uur training</li>
-              </ul>
-              <p class="package-note">Complete webwinkel voor je producten.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
-          </div>
+          <ul class="modern-feature-list" data-aos="fade-up" data-aos-delay="150">
+            <li>Snelle responstijd. We begrijpen hoe frustrerend IT-problemen kunnen zijn en streven ernaar snel te reageren.</li>
+            <li>Gebruiksvriendelijke oplossingen. We zoeken altijd naar de meest eenvoudige en effectieve aanpak voor jouw behoeften.</li>
+            <li>Transparante communicatie. We leggen duidelijk uit wat we doen en waarom, zodat je altijd op de hoogte bent.</li>
+          </ul>
         </div>
         
-        <div class="packages-footer">
-          <p>Alle websites worden inclusief hosting voor het eerste jaar geleverd. Daarna €120/jaar.</p>
-          <p>Onderhoudspakketten beschikbaar vanaf €39/maand.</p>
-        </div>
-      </div>
-      
-      <!-- Cybersecurity Pakketten -->
-      <div id="pakketten-security" class="tab-content">
-        <div class="packages-grid">
-          <div class="package-card">
-            <div class="package-header">
-              <h3 class="package-title">Basis Beveiliging</h3>
-              <div class="package-price">€149<span>/eenmalig</span></div>
+        <div class="about-values" data-aos="fade-up" data-aos-delay="200">
+          <div class="value-card interactive-card">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
             </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> Computer security scan</li>
-                <li><i class="fas fa-check"></i> Antivirus installatie</li>
-                <li><i class="fas fa-check"></i> Firewall configuratie</li>
-                <li><i class="fas fa-check"></i> Wachtwoordbeheer</li>
-                <li><i class="fas fa-check"></i> Basisbeveiliging advies</li>
-              </ul>
-              <p class="package-note">Essentiële beveiliging voor je computer.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
+            <h4>Persoonlijke aanpak</h4>
+            <p>Direct contact en oplossingen op maat voor jouw specifieke situatie</p>
           </div>
           
-          <div class="package-card featured">
-            <div class="package-badge">Populair</div>
-            <div class="package-header">
-              <h3 class="package-title">Home Office Security</h3>
-              <div class="package-price">€249<span>/eenmalig</span></div>
+          <div class="value-card interactive-card">
+            <div class="value-icon">
+              <i class="fas fa-euro-sign"></i>
             </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> Volledige security audit</li>
-                <li><i class="fas fa-check"></i> Premium antivirus</li>
-                <li><i class="fas fa-check"></i> VPN installatie</li>
-                <li><i class="fas fa-check"></i> Router beveiliging</li>
-                <li><i class="fas fa-check"></i> Back-up systeem</li>
-                <li><i class="fas fa-check"></i> 2FA instellen</li>
-                <li><i class="fas fa-check"></i> 1 uur security training</li>
-              </ul>
-              <p class="package-note">Complete beveiliging voor thuiswerkers.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
+            <h4>Eerlijke prijzen</h4>
+            <p>Transparante tarieven zonder verborgen kosten of onverwachte verrassingen</p>
           </div>
           
-          <div class="package-card">
-            <div class="package-header">
-              <h3 class="package-title">Business Security</h3>
-              <div class="package-price">€99<span>/maand/apparaat</span></div>
+          <div class="value-card interactive-card">
+            <div class="value-icon">
+              <i class="fas fa-language"></i>
             </div>
-            <div class="package-body">
-              <ul class="package-features">
-                <li><i class="fas fa-check"></i> Continue monitoring</li>
-                <li><i class="fas fa-check"></i> Endpoint protection</li>
-                <li><i class="fas fa-check"></i> Automatische updates</li>
-                <li><i class="fas fa-check"></i> Netwerk monitoring</li>
-                <li><i class="fas fa-check"></i> Maandelijkse security scans</li>
-                <li><i class="fas fa-check"></i> Incident response</li>
-                <li><i class="fas fa-check"></i> Remote back-ups</li>
-                <li><i class="fas fa-check"></i> Security rapportages</li>
-              </ul>
-              <p class="package-note">Uitgebreide beveiliging voor bedrijven.</p>
-              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak maken</a>
-            </div>
+            <h4>Duidelijke communicatie</h4>
+            <p>Geen technisch jargon - we leggen alles uit in begrijpelijke taal</p>
           </div>
         </div>
       </div>
     </div>
   </section>
   
-  <!-- Over Mij Section -->
-  <section id="over-mij" class="section section-about">
+  <div class="section-divider">
+    <div class="divider-tilt"></div>
+  </div>
+  
+  <!-- Call to Action Section -->
+  <section class="cta-section gradient-hero">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Over Mij</h2>
-        <p class="section-subtitle">Leer de persoon achter Koubyte kennen</p>
+      <div class="cta-content" data-aos="fade-up">
+        <h2 class="cta-title">Digitale problemen? Wij helpen je graag!</h2>
+        <p class="cta-text">Neem vandaag nog contact op voor een vrijblijvend gesprek over jouw IT-behoeften</p>
+        <div class="cta-buttons">
+          <a href="#afspraak" class="btn btn-primary btn-pulse"><i class="fas fa-calendar-alt"></i> Maak een afspraak</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-comment-dots"></i> Stel een vraag</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dots-pattern" style="bottom: 10%; left: 5%;"></div>
+    <div class="dots-pattern" style="top: 20%; right: 8%;"></div>
+  </section>
+
+  <!-- Pakketten Section -->
+  <section id="pakketten" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="badge-accent">Prijsplannen</span>
+        <h2 class="section-title">Onze Pakketten</h2>
+        <p class="section-subtitle">Eenvoudige en betaalbare oplossingen voor jouw behoeften</p>
       </div>
       
-      <div class="about-content">
-        <div class="about-text">
-          <p>Hallo! Ik ben de oprichter van Koubyte, een gepassioneerde IT-specialist met twee jaar ervaring in het ondersteunen van particulieren en kleine bedrijven met hun IT-behoeften.</p>
-          
-          <p>Na het afronden van mijn IT-opleiding heb ik ervaring opgedaan in verschillende sectoren, van helpdesk support tot web development en cybersecurity. Ik geloof in persoonlijke service, duidelijke communicatie en oplossingen die echt werken voor jouw specifieke situatie.</p>
-          
-          <p>Mijn doel is om technologie toegankelijk te maken voor iedereen. Of je nu hulp nodig hebt met je computer, een nieuwe website wilt of je gegevens beter wilt beveiligen, ik sta voor je klaar met eerlijk advies en praktische oplossingen.</p>
-          
-          <div class="skills">
-            <div class="skill">
-              <span class="skill-name">IT Support</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 85%"></div>
-              </div>
+      <div class="tabs" data-aos="fade-up" data-aos-delay="100">
+        <button class="tab-btn active" data-tab="helpdesk-tab">IT Helpdesk</button>
+        <button class="tab-btn" data-tab="webdev-tab">Web Development</button>
+        <button class="tab-btn" data-tab="security-tab">Cybersecurity</button>
+      </div>
+      
+      <!-- IT Helpdesk Tab -->
+      <div id="helpdesk-tab" class="tab-content active">
+        <div class="packages-grid" data-aos="fade-up" data-aos-delay="150">
+          <!-- Basis Pakket -->
+          <div class="package-card">
+            <div class="package-header">
+              <h3 class="package-title">Basis IT Ondersteuning</h3>
+              <p class="package-price">€45<span>per service</span></p>
             </div>
-            <div class="skill">
-              <span class="skill-name">Web Development</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 80%"></div>
-              </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Computerreparatie & optimalisatie</li>
+                <li><i class="fas fa-check-circle"></i> Software installatie & updates</li>
+                <li><i class="fas fa-check-circle"></i> Virus & malware verwijdering</li>
+                <li><i class="fas fa-check-circle"></i> Data backup & herstel</li>
+                <li><i class="fas fa-check-circle"></i> Email hulp configuratie</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
             </div>
-            <div class="skill">
-              <span class="skill-name">Cybersecurity</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 75%"></div>
-              </div>
+          </div>
+          
+          <!-- Premium Pakket -->
+          <div class="package-card featured">
+            <div class="package-header">
+              <span class="package-badge">Populair</span>
+              <h3 class="package-title">Compleet IT Onderhoud</h3>
+              <p class="package-price">€75<span>per service</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Alles uit het Basis pakket</li>
+                <li><i class="fas fa-check-circle"></i> Netwerk & WiFi optimalisatie</li>
+                <li><i class="fas fa-check-circle"></i> Hardware-upgrades & installatie</li>
+                <li><i class="fas fa-check-circle"></i> Cloud storage & synchronisatie</li>
+                <li><i class="fas fa-check-circle"></i> Printer & smart home integratie</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+          
+          <!-- Business Pakket -->
+          <div class="package-card">
+            <div class="package-header">
+              <h3 class="package-title">Zakelijke IT Oplossing</h3>
+              <p class="package-price">€95<span>per service</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Alles uit het Compleet pakket</li>
+                <li><i class="fas fa-check-circle"></i> Zakelijke software configuratie</li>
+                <li><i class="fas fa-check-circle"></i> Server & NAS configuratie</li>
+                <li><i class="fas fa-check-circle"></i> Remote toegang & ondersteuning</li>
+                <li><i class="fas fa-check-circle"></i> Geavanceerde beveiliging</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Web Development Tab -->
+      <div id="webdev-tab" class="tab-content">
+        <div class="packages-grid" data-aos="fade-up" data-aos-delay="150">
+          <!-- Starter Website -->
+          <div class="package-card">
+            <div class="package-header">
+              <h3 class="package-title">Starter Website</h3>
+              <p class="package-price">€450<span>per website</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Professioneel ontwerp</li>
+                <li><i class="fas fa-check-circle"></i> Tot 5 pagina's</li>
+                <li><i class="fas fa-check-circle"></i> Mobiel responsief</li>
+                <li><i class="fas fa-check-circle"></i> SEO basisoptimalisatie</li>
+                <li><i class="fas fa-check-circle"></i> Contactformulier</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+          
+          <!-- Business Website -->
+          <div class="package-card featured">
+            <div class="package-header">
+              <span class="package-badge">Populair</span>
+              <h3 class="package-title">Business Website</h3>
+              <p class="package-price">€750<span>per website</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Premium ontwerp</li>
+                <li><i class="fas fa-check-circle"></i> Tot 10 pagina's</li>
+                <li><i class="fas fa-check-circle"></i> Content Management Systeem</li>
+                <li><i class="fas fa-check-circle"></i> Uitgebreide SEO optimalisatie</li>
+                <li><i class="fas fa-check-circle"></i> Social media integratie</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+          
+          <!-- E-commerce Website -->
+          <div class="package-card">
+            <div class="package-header">
+              <h3 class="package-title">E-commerce Website</h3>
+              <p class="package-price">€1200<span>per webshop</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Volledige webshop</li>
+                <li><i class="fas fa-check-circle"></i> Productcatalogus</li>
+                <li><i class="fas fa-check-circle"></i> Betaalsysteem integratie</li>
+                <li><i class="fas fa-check-circle"></i> Voorraad- en orderbeheer</li>
+                <li><i class="fas fa-check-circle"></i> Marketing & conversie tools</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cybersecurity Tab -->
+      <div id="security-tab" class="tab-content">
+        <div class="packages-grid" data-aos="fade-up" data-aos-delay="150">
+          <!-- Basis Beveiliging -->
+          <div class="package-card">
+            <div class="package-header">
+              <h3 class="package-title">Basis Beveiliging</h3>
+              <p class="package-price">€99<span>per apparaat</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Antivirusinstallatie</li>
+                <li><i class="fas fa-check-circle"></i> Firewallconfiguratie</li>
+                <li><i class="fas fa-check-circle"></i> Wachtwoordbeheer setup</li>
+                <li><i class="fas fa-check-circle"></i> Beveiligingsscanning</li>
+                <li><i class="fas fa-check-circle"></i> Basistraining</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+          
+          <!-- Home Office Security -->
+          <div class="package-card featured">
+            <div class="package-header">
+              <span class="package-badge">Populair</span>
+              <h3 class="package-title">Home Office Security</h3>
+              <p class="package-price">€175<span>per setup</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Alle Basis Beveiliging features</li>
+                <li><i class="fas fa-check-circle"></i> VPN installatie & configuratie</li>
+                <li><i class="fas fa-check-circle"></i> Veilige cloud backup</li>
+                <li><i class="fas fa-check-circle"></i> Netwerk beveiligingscheck</li>
+                <li><i class="fas fa-check-circle"></i> Dataversleuteling</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
+            </div>
+          </div>
+          
+          <!-- Business Security -->
+          <div class="package-card">
+            <div class="package-header">
+              <h3 class="package-title">Business Security</h3>
+              <p class="package-price">€250<span>per netwerk</span></p>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                <li><i class="fas fa-check-circle"></i> Alle Home Office features</li>
+                <li><i class="fas fa-check-circle"></i> Security beleid implementatie</li>
+                <li><i class="fas fa-check-circle"></i> Medewerker beveiligingstraining</li>
+                <li><i class="fas fa-check-circle"></i> Data breach preventie</li>
+                <li><i class="fas fa-check-circle"></i> Regelmatige beveiligingsaudits</li>
+              </ul>
+              <a href="#afspraak" class="btn btn-primary btn-block">Afspraak Maken</a>
             </div>
           </div>
         </div>
@@ -379,249 +427,316 @@
   </section>
 
   <!-- Afspraak Section -->
-  <section id="afspraak" class="section section-afspraak">
+  <section id="afspraak" class="section section-light">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Maak een Afspraak</h2>
-        <p class="section-subtitle">Plan een gesprek of service op een moment dat jou uitkomt</p>
+      <div class="section-header" data-aos="fade-up">
+        <span class="badge-accent">Plan nu</span>
+        <h2 class="section-title">Maak een afspraak</h2>
+        <p class="section-subtitle">Een eerste gesprek is altijd vrijblijvend en kosteloos</p>
       </div>
       
-      <div class="appointment-wrapper">
-        <div class="appointment-form-container">
-          <form id="appointmentForm" class="appointment-form">
-            <div class="form-group">
-              <label for="service">Dienst</label>
-              <select id="service" name="service" required>
-                <option value="" selected disabled>Selecteer een dienst</option>
-                <option value="it-helpdesk">IT Helpdesk</option>
-                <option value="web-development">Web Development</option>
-                <option value="cybersecurity">Cybersecurity</option>
-                <option value="consultation">Gratis consultatie (15 min)</option>
-              </select>
+      <div class="appointment-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="appointment-grid">
+          <div class="appointment-info">
+            <div class="appointment-steps">
+              <div class="appointment-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Neem contact op</h3>
+                  <p>Vul het formulier in of bel me direct om je probleem of vraag te bespreken</p>
+                </div>
+              </div>
+              
+              <div class="appointment-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Korte analyse</h3>
+                  <p>Ik luister naar je situatie en stel de juiste vragen om het probleem duidelijk in kaart te brengen</p>
+                </div>
+              </div>
+              
+              <div class="appointment-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Planning & offerte</h3>
+                  <p>We plannen een afspraak en je ontvangt een vrijblijvende prijsopgave zonder verrassingen</p>
+                </div>
+              </div>
             </div>
             
-            <div id="packageSelect" class="form-group hidden">
-              <label for="package">Pakket</label>
-              <select id="package" name="package">
-                <option value="" selected disabled>Selecteer eerst een dienst</option>
-              </select>
+            <div class="appointment-cta">
+              <h3>Direct hulp nodig?</h3>
+              <p>Bel me direct voor urgente IT-problemen</p>
+              <a href="tel:+32484522662" class="btn btn-primary"><i class="fas fa-phone-alt"></i> +32 484 52 26 62</a>
             </div>
-            
-            <div class="form-group">
-              <label for="appointmentDate">Datum</label>
-              <input type="date" id="appointmentDate" name="date" min="" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="appointmentTime">Tijd</label>
-              <select id="appointmentTime" name="time" required>
-                <option value="" selected disabled>Selecteer eerst een datum</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="name">Naam</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">Telefoonnummer</label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Toelichting (optioneel)</label>
-              <textarea id="message" name="message" rows="3"></textarea>
-            </div>
-            
-            <div class="form-group checkbox-group">
-              <input type="checkbox" id="privacy" name="privacy" required>
-              <label for="privacy">Ik ga akkoord met de privacyvoorwaarden</label>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-block">Afspraak bevestigen</button>
-          </form>
-        </div>
-        
-        <div class="appointment-info">
-          <h3>Beschikbaarheid</h3>
-          <p>Ik ben beschikbaar op werkdagen tussen 9:00 en 18:00. Voor spoedgevallen ben ik ook in het weekend bereikbaar.</p>
+          </div>
           
-          <h3>Werkwijze</h3>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Na je aanvraag neem ik binnen 24 uur contact met je op</li>
-            <li><i class="fas fa-check-circle"></i> Ik bevestig de afspraak per e-mail</li>
-            <li><i class="fas fa-check-circle"></i> On-site ondersteuning is mogelijk in Mechelen en omgeving</li>
-            <li><i class="fas fa-check-circle"></i> Remote ondersteuning is altijd mogelijk</li>
-          </ul>
-          
-          <h3>Direct contact</h3>
-          <p>Liever direct contact? Bel mij op <a href="tel:+32484522662">+32 484 52 26 62</a> of stuur een e-mail naar <a href="mailto:info@koubyte.be">info@koubyte.be</a></p>
+          <div class="appointment-form">
+            <h3>Afspraakformulier</h3>
+            <form id="appointmentForm" action="#" method="post">
+              <div class="form-group">
+                <label for="name" class="form-label">Naam</label>
+                <input type="text" id="name" name="name" placeholder="Uw naam" required>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input type="email" id="email" name="email" placeholder="uw@email.be" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone" class="form-label">Telefoonnummer</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+32 000 00 00 00">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="service" class="form-label">Dienst</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Selecteer een dienst</option>
+                  <option value="it-helpdesk">IT Helpdesk</option>
+                  <option value="webdevelopment">Webontwikkeling</option>
+                  <option value="security">Cyberbeveiliging</option>
+                  <option value="other">Anders</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="form-label">Uw vraag of probleem</label>
+                <textarea id="message" name="message" rows="4" placeholder="Beschrijf kort uw vraag of probleem..." required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <div class="checkbox-group">
+                  <input type="checkbox" id="privacy" name="privacy" required>
+                  <label for="privacy">Ik ga akkoord met het <a href="privacybeleid.html" target="_blank">privacybeleid</a></label>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-block">Versturen</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
   <!-- Contact Section -->
-  <section id="contact" class="section section-contact">
+  <section id="contact" class="section gradient-hero">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Heb je een vraag? Neem contact met me op</p>
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title" style="color: white;">Contact</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Neem contact op voor meer informatie</p>
       </div>
       
-      <div class="contact-content">
-        <div class="contact-form-container">
-          <form id="contactForm" class="contact-form">
-            <div class="form-group">
-              <label for="contactName">Naam</label>
-              <input type="text" id="contactName" name="name" required>
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-info">
+          <div class="contact-info-card glass-effect">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
             </div>
-            
-            <div class="form-group">
-              <label for="contactEmail">E-mail</label>
-              <input type="email" id="contactEmail" name="email" required>
+            <div class="contact-text">
+              <h3>Locatie</h3>
+              <p>Mechelen, België<br>Bereid om ter plaatse te komen in heel Mechelen en omgeving</p>
             </div>
-            
-            <div class="form-group">
-              <label for="contactSubject">Onderwerp</label>
-              <input type="text" id="contactSubject" name="subject" required>
+          </div>
+          
+          <div class="contact-info-card glass-effect">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
             </div>
-            
-            <div class="form-group">
-              <label for="contactMessage">Bericht</label>
-              <textarea id="contactMessage" name="message" rows="5" required></textarea>
+            <div class="contact-text">
+              <h3>E-mail</h3>
+              <p><a href="mailto:info@koubyte.be">info@koubyte.be</a><br>Reactie binnen 24 uur gegarandeerd</p>
             </div>
-            
-            <div class="form-group checkbox-group">
-              <input type="checkbox" id="contactPrivacy" name="privacy" required>
-              <label for="contactPrivacy">Ik ga akkoord met de privacyvoorwaarden</label>
+          </div>
+          
+          <div class="contact-info-card glass-effect">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
             </div>
-            
-            <button type="submit" class="btn btn-primary btn-block">Verstuur bericht</button>
-          </form>
+            <div class="contact-text">
+              <h3>Telefoon</h3>
+              <p><a href="tel:+32484522662">+32 484 52 26 62</a></p>
+              <p class="availability">Bereikbaar: Ma-Vr: 9:00 - 18:00</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-card glass-effect">
+            <div class="contact-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Social Media</h3>
+              <div class="contact-social">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="contact-info">
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h4>Locatie</h4>
-                <p>Mechelen, België</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div>
-                <h4>Telefoon</h4>
-                <p><a href="tel:+32484522662">+32 484 52 26 62</a></p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h4>E-mail</h4>
-                <p><a href="mailto:info@koubyte.be">info@koubyte.be</a></p>
-              </div>
-            </div>
+        <div class="contact-map glass-effect">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40137.317885257!2d4.4462207891788825!3d51.02772971438359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e59418440721%3A0x40099ab2f4d5130!2sMechelen!5e0!3m2!1snl!2sbe!4v1683442378135!5m2!1snl!2sbe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dots-pattern" style="bottom: 10%; right: 5%;"></div>
+    <div class="dots-pattern" style="top: 15%; left: 8%;"></div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="badge-accent">Veelgestelde vragen</span>
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-subtitle">Antwoorden op de meest gestelde vragen</p>
+      </div>
+      
+      <div class="faq-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Wat zijn de kosten voor een computer reparatie?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
           </div>
-          
-          <div class="social-links">
-            <h4>Volg mij</h4>
-            <div class="social-icons">
-              <a href="https://facebook.com/koubyte" target="_blank" class="social-icon" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://twitter.com/koubyte" target="_blank" class="social-icon" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://instagram.com/koubyte" target="_blank" class="social-icon" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://linkedin.com/in/koubyte" target="_blank" class="social-icon" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+          <div class="faq-answer">
+            <p>De kosten voor computerhulp hangen af van het type probleem. Eenvoudige problemen zoals software-installaties beginnen vanaf €45. Voor complexere problemen zoals virusverwijdering of hardware-reparaties gelden andere tarieven. Ik geef altijd vooraf een duidelijke prijsindicatie zodat je niet voor verrassingen komt te staan.</p>
           </div>
-          
-          <div id="map" class="contact-map"></div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Hoe lang duurt het om een website te maken?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Een eenvoudige website kan binnen 1-2 weken gereed zijn. Voor complexere websites met e-commerce functionaliteit moet je rekenen op 3-6 weken. De exacte doorlooptijd hangt af van de complexiteit, beschikbare content en revisierondes. Tijdens een vrijblijvend gesprek kunnen we een realistisch tijdspad bespreken.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Welke betaalmethoden accepteert u?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Je kunt betalen via bankoverschrijving, Payconiq, of contant. Voor grotere projecten zoals websites werken we meestal met een aanbetaling van 30% bij aanvang en het resterende bedrag bij oplevering.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Komt u aan huis voor computer reparaties?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Ja, ik kom aan huis in Mechelen en omgeving voor computerhulp. Dit is vaak de meest praktische oplossing omdat ik dan ook direct eventuele netwerk- of printerproblemen kan bekijken. Voor bepaalde reparaties kan het nodig zijn om de computer mee te nemen naar mijn werkplaats.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Kan ik mijn website zelf bijwerken na oplevering?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Absoluut! Alle websites die ik bouw worden geleverd met een gebruiksvriendelijk Content Management Systeem (CMS) waarmee je zelf teksten, afbeeldingen en zelfs pagina's kunt toevoegen of aanpassen. Je krijgt een persoonlijke instructie over het gebruik van het CMS bij de oplevering.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <span class="logo-text">Kou<span class="accent">byte</span></span>
-          <p>IT & Web oplossingen op maat</p>
-        </div>
-        
-        <div class="footer-links">
-          <div class="footer-links-column">
-            <h4>Snelle links</h4>
-            <ul>
-              <li><a href="#diensten">Diensten</a></li>
-              <li><a href="#pakketten">Pakketten</a></li>
-              <li><a href="#over-mij">Over Mij</a></li>
-              <li><a href="#afspraak">Afspraak Maken</a></li>
-              <li><a href="#contact">Contact</a></li>
+  <!-- Nieuwe Footer -->
+  <footer class="modern-footer">
+    <div class="footer-main">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Bedrijfsinfo kolom -->
+          <div class="footer-company-info">
+            <div class="footer-logo">
+              <span class="logo-text">Kou<span class="accent">byte</span></span>
+            </div>
+            <p class="footer-company-desc">Persoonlijke IT & Web oplossingen in Mechelen. Jouw digitale problemen, mijn passie!</p>
+            
+            <div class="footer-social">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          
+          <!-- Diensten kolom -->
+          <div class="footer-links-block">
+            <h4 class="footer-title">Diensten</h4>
+            <ul class="footer-links">
+              <li><a href="services/it-helpdesk.html"><i class="fas fa-angle-right"></i> IT Helpdesk</a></li>
+              <li><a href="services/webontwikkeling.html"><i class="fas fa-angle-right"></i> Webontwikkeling</a></li>
+              <li><a href="services/cyberbeveiliging.html"><i class="fas fa-angle-right"></i> Cyberbeveiliging</a></li>
+              <li><a href="#pakketten"><i class="fas fa-angle-right"></i> Service pakketten</a></li>
             </ul>
           </div>
           
-          <div class="footer-links-column">
-            <h4>Diensten</h4>
-            <ul>
-              <li><a href="services/it-helpdesk.html">IT Helpdesk</a></li>
-              <li><a href="services/web-development.html">Web Development</a></li>
-              <li><a href="services/cybersecurity.html">Cybersecurity</a></li>
+          <!-- Support kolom -->
+          <div class="footer-links-block">
+            <h4 class="footer-title">Support</h4>
+            <ul class="footer-links">
+              <li><a href="#afspraak"><i class="fas fa-angle-right"></i> Afspraak maken</a></li>
+              <li><a href="#faq"><i class="fas fa-angle-right"></i> Veelgestelde vragen</a></li>
+              <li><a href="voorwaarden.html"><i class="fas fa-angle-right"></i> Algemene voorwaarden</a></li>
+              <li><a href="privacybeleid.html"><i class="fas fa-angle-right"></i> Privacybeleid</a></li>
             </ul>
           </div>
           
-          <div class="footer-links-column">
-            <h4>Contact</h4>
-            <ul>
+          <!-- Contact kolom -->
+          <div class="footer-contact-block">
+            <h4 class="footer-title">Contact Info</h4>
+            <ul class="footer-contact-info">
+              <li><i class="fas fa-map-marker-alt"></i> Mechelen, België</li>
               <li><i class="fas fa-phone"></i> <a href="tel:+32484522662">+32 484 52 26 62</a></li>
               <li><i class="fas fa-envelope"></i> <a href="mailto:info@koubyte.be">info@koubyte.be</a></li>
-              <li><i class="fas fa-map-marker-alt"></i> Mechelen, België</li>
+              <li class="availability"><i class="fas fa-clock"></i> Bereikbaar: Ma-Vr: 9:00 - 18:00</li>
             </ul>
+            
+            <div class="footer-newsletter">
+              <h4 class="footer-title">Nieuwsbrief</h4>
+              <form class="newsletter-form">
+                <input type="email" placeholder="E-mailadres">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Koubyte. Alle rechten voorbehouden.</p>
-        <ul class="footer-legal">
-          <li><a href="privacy.html">Privacybeleid</a></li>
-          <li><a href="terms.html">Algemene voorwaarden</a></li>
-        </ul>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-container">
+        <div class="footer-copyright">
+          <p>&copy; 2024 Koubyte. Alle rechten voorbehouden.</p>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="privacybeleid.html">Privacy</a>
+          <a href="voorwaarden.html">Voorwaarden</a>
+          <a href="cookiebeleid.html">Cookie-beleid</a>
+        </div>
       </div>
     </div>
   </footer>
   
   <!-- Back To Top Button -->
-  <a href="#" class="back-to-top" aria-label="Terug naar boven">
+  <a href="#" class="back-to-top active" aria-label="Terug naar boven">
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
-</html>
+</html> 

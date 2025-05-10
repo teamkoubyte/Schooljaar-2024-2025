@@ -1,33 +1,33 @@
 /**
- * Forms Module
+ * Formulieren Module
  * Beheert alle formulieren, validatie en verzending
  */
 
-function initForms() {
+function initFormulieren() {
   // Initialiseer contact formulier
-  initContactForm();
+  initContactFormulier();
   
   // Initialiseer offerte formulier
-  initQuoteForm();
+  initOfferteFormulier();
   
   // Initialiseer feedback formulier
-  initFeedbackForm();
+  initFeedbackFormulier();
   
   // Algemene form validatie voor alle formulieren
-  initFormValidation();
+  initFormulierValidatie();
 }
 
 /**
  * Initialiseer contact formulier
  */
-function initContactForm() {
+function initContactFormulier() {
   const contactForm = document.getElementById('contactForm');
   
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      if (validateForm(contactForm)) {
+      if (valideerFormulier(contactForm)) {
         // Toon loading state
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -66,7 +66,7 @@ function initContactForm() {
 /**
  * Initialiseer offerte formulier
  */
-function initQuoteForm() {
+function initOfferteFormulier() {
   const quoteForm = document.getElementById('quoteForm');
   
   if (quoteForm) {
@@ -136,7 +136,7 @@ function initQuoteForm() {
     quoteForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      if (validateForm(quoteForm)) {
+      if (valideerFormulier(quoteForm)) {
         // Toon loading state
         const submitBtn = quoteForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -168,7 +168,7 @@ function initQuoteForm() {
 /**
  * Initialiseer feedback formulier
  */
-function initFeedbackForm() {
+function initFeedbackFormulier() {
   const feedbackForm = document.getElementById('feedbackForm');
   
   if (feedbackForm) {
@@ -192,7 +192,7 @@ function initFeedbackForm() {
     feedbackForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      if (validateForm(feedbackForm)) {
+      if (valideerFormulier(feedbackForm)) {
         // Implementeer hier je verzendlogica
         const formStatus = feedbackForm.querySelector('.form-status-message');
         formStatus.innerHTML = '<div class="alert alert-success">Bedankt voor je feedback!</div>';
@@ -210,7 +210,7 @@ function initFeedbackForm() {
 /**
  * Algemene form validatie functie
  */
-function initFormValidation() {
+function initFormulierValidatie() {
   // Live validatie op input change
   const forms = document.querySelectorAll('form');
   
@@ -219,12 +219,12 @@ function initFormValidation() {
     
     inputs.forEach(input => {
       input.addEventListener('blur', function() {
-        validateInput(input);
+        valideerInput(input);
       });
       
       input.addEventListener('input', function() {
         if (input.classList.contains('is-invalid')) {
-          validateInput(input);
+          valideerInput(input);
         }
       });
     });
@@ -236,7 +236,7 @@ function initFormValidation() {
  * @param {HTMLElement} input - Het input element om te valideren
  * @returns {boolean} - Is het veld geldig?
  */
-function validateInput(input) {
+function valideerInput(input) {
   const feedback = input.nextElementSibling?.classList.contains('form-feedback') 
     ? input.nextElementSibling 
     : document.createElement('div');
@@ -249,47 +249,56 @@ function validateInput(input) {
     return false;
   }
   
-  // Email check
+  // Email validatie
   if (input.type === 'email' && input.value.trim()) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(input.value)) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input.value)) {
       input.classList.add('is-invalid');
-      feedback.textContent = 'Voer een geldig e-mailadres in';
+      feedback.textContent = 'Vul een geldig e-mailadres in';
       feedback.className = 'form-feedback invalid-feedback';
       return false;
     }
   }
   
-  // Telefoon check
+  // Telefoonnummer validatie
   if (input.type === 'tel' && input.value.trim()) {
-    const phonePattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
-    if (!phonePattern.test(input.value)) {
+    // Basic validatie, kan worden aangepast op basis van wensen
+    const telRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    if (!telRegex.test(input.value.trim())) {
       input.classList.add('is-invalid');
-      feedback.textContent = 'Voer een geldig telefoonnummer in';
+      feedback.textContent = 'Vul een geldig telefoonnummer in';
       feedback.className = 'form-feedback invalid-feedback';
       return false;
     }
   }
   
-  // Alles goed, input is geldig
+  // Standaard: verwijder error styling
   input.classList.remove('is-invalid');
-  input.classList.add('is-valid');
-  feedback.textContent = '';
+  
+  // Voeg success styling toe als gewenst
+  if (input.value.trim()) {
+    input.classList.add('is-valid');
+  }
+  
   return true;
 }
 
 /**
- * Valideer een volledig formulier
- * @param {HTMLFormElement} form - Het formulier om te valideren
+ * Valideer een compleet formulier
+ * @param {HTMLFormElement} form - Het formulier element
  * @returns {boolean} - Is het formulier geldig?
  */
-function validateForm(form) {
+function valideerFormulier(form) {
   const inputs = form.querySelectorAll('input, select, textarea');
   let isValid = true;
   
+  // Valideer alle inputs
   inputs.forEach(input => {
-    if (!validateInput(input)) {
-      isValid = false;
+    if (input.hasAttribute('required')) {
+      const inputValid = valideerInput(input);
+      if (!inputValid) {
+        isValid = false;
+      }
     }
   });
   
