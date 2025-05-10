@@ -31,7 +31,7 @@ function initMobieleNavigatie() {
     const menuToggle = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const body = document.body;
-    
+
     // Verandert navigatie bij scrollen
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 100) {
@@ -76,8 +76,8 @@ function initMobieleNavigatie() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open');
             
             const overlay = document.querySelector('.nav-overlay');
             if (overlay) {
@@ -197,7 +197,7 @@ function initTabWisselaar() {
             });
             
             // Voeg actieve klasse toe aan huidige knop
-            this.classList.add('active');
+                this.classList.add('active');
             
             // Verberg alle inhoud eerst
             tabContents.forEach(content => {
@@ -253,22 +253,22 @@ function initNaarBoven() {
     const backToTopButton = document.querySelector('.back-to-top');
     
     if (backToTopButton) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
                 backToTopButton.classList.add('active');
-            } else {
+        } else {
                 backToTopButton.classList.remove('active');
-            }
-        });
-        
+        }
+    });
+    
         backToTopButton.addEventListener('click', function(e) {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    }
+    });
+}
 }
 
 /**
