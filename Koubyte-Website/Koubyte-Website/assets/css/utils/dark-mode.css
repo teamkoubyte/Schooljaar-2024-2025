@@ -1,0 +1,91 @@
+/* Dark Theme Support */
+.dark-theme {
+    --dark: #f8f9fa;
+    --light: #121212;
+    --primary: #5c7cfa;
+    --primary-dark: #4263eb;
+    --gray: #adb5bd;
+    --gray-dark: #e9ecef;
+    --gray-light: #495057;
+    
+    color-scheme: dark;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+  
+  .dark-theme .navbar {
+    background-color: #1e1e1e;
+    color: var(--dark);
+  }
+  
+  .dark-theme .navbar.glass {
+    background: rgba(30, 30, 30, 0.8);
+  }
+  
+  .dark-theme .logo {
+    color: var(--dark);
+  }
+  
+  .dark-theme .nav-links a {
+    color: var(--dark);
+  }
+  
+  .dark-theme .hamburger-line {
+    background-color: var(--dark);
+  }
+  
+  .dark-theme .service-card,
+  .dark-theme .testimonial-card,
+  .dark-theme .stat-card {
+    background-color: #1e1e1e;
+    color: var(--dark);
+  }
+  
+  .dark-theme .service-title {
+    color: var(--dark);
+  }
+  
+  .dark-theme .service-description,
+  .dark-theme .service-features li {
+    color: var(--gray);
+  }
+  
+  .dark-theme .floating-badge {
+    background-color: #1e1e1e;
+  }
+  
+  .dark-theme .floating-badge strong {
+    color: var(--dark);
+  }
+  
+  .dark-theme .form-control {
+    background-color: #2d2d2d;
+    border-color: #3d3d3d;
+    color: var(--dark);
+  }
+  
+  .dark-theme .form-label {
+    background-color: #2d2d2d;
+    color: var(--gray);
+  }
+  
+  .dark-theme .footer-modern {
+    background-color: #1a1a1a;
+  }
+  
+  .dark-theme .modern-gradient {
+    background: linear-gradient(135deg, #4263eb 0%, #364fc7 100%);
+  }
+  
+  .dark-theme .neomorph {
+    background: #1e1e1e;
+    box-shadow: 
+      8px 8px 15px rgba(0, 0, 0, 0.5),
+      -8px -8px 15px rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark-theme .neomorph:hover {
+    box-shadow: 
+      12px 12px 20px rgba(0, 0, 0, 0.5),
+      -12px -12px 20px rgba(255, 255, 255, 0.1);
+  }

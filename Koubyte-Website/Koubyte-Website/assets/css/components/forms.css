@@ -1,0 +1,112 @@
+/* Forms & Inputs */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: var(--white);
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(23, 81, 232, 0.2);
+  }
+  
+  .form-label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: var(--gray);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: var(--white);
+    padding: 0 5px;
+  }
+  
+  .form-control:focus ~ .form-label,
+  .form-control:not(:placeholder-shown) ~ .form-label {
+    top: -8px;
+    font-size: 12px;
+    color: var(--primary);
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+  }
+  
+  .form-feedback {
+    font-size: 14px;
+    margin-top: 5px;
+    min-height: 20px;
+  }
+  
+  .invalid-feedback {
+    color: var(--danger);
+  }
+  
+  .valid-feedback {
+    color: var(--success);
+  }
+  
+  .form-control.is-invalid {
+    border-color: var(--danger);
+  }
+  
+  .form-control.is-valid {
+    border-color: var(--success);
+  }
+  
+  .form-status-message {
+    margin-bottom: 20px;
+  }
+  
+  .alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .alert-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.2);
+    color: var(--success);
+  }
+  
+  .alert-info {
+    background-color: rgba(23, 162, 184, 0.1);
+    border: 1px solid rgba(23, 162, 184, 0.2);
+    color: var(--info);
+  }
+  
+  .alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.2);
+    color: var(--warning);
+  }
+  
+  .alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    color: var(--danger);
+  }

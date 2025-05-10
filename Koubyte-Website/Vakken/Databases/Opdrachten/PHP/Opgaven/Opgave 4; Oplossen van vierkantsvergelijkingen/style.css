@@ -1,0 +1,8 @@
+input[type="text"] {
+    width: 60px; /* Pas de breedte aan naar wens */
+    height: 30px; /* Pas de hoogte aan naar wens */
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Zorgt ervoor dat padding en border worden meegenomen in de breedte/hoogte */
+}
