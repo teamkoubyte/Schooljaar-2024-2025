@@ -1,47 +1,63 @@
-# 🌍 Oorzaken en Aanleiding Eerste Wereldoorlog
+# 🌍Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
 
-## 🕰️ Belle Époque (1870-1914)
-- Periode van **culturele bloei** en **vrede** tussen Frans-Duitse Oorlog en WOI
-- Naam kwam na de oorlog om contrast te maken met het oorlogsleed
+## ⏰ 📅 Tijdlijn 📆 ⌛
+- **Belle Époque**: 1870-1914 (periode van culturele bloei en vrede in Europa)
+- **Eerste Wereldoorlog**: 1914-1918
 
-## 🔥 Oorzaken van WOI
+## 🔍 🔎 Belangrijkste Oorzaken 🧐 📚
 
-### Politiek
-- 🇫🇷 **Frans Revanchisme**: Wraak voor verlies van Elzas-Lotharingen in 1870-1871
-- 🗺️ **Balkanprobleem**: 
-  * Balkanoorlogen (1912-1913)
-  * Strijd tussen 🇷🇺 Rusland en 🇦🇹 Oostenrijk-Hongarije voor invloed
-  * 🇷🇸 Servië wilde grote Slavische staat (Joegoslavië)
-- 🌐 **Imperialisme**: Duitse Weltpolitik botste met Britse en Franse koloniale belangen
+### 🏛️ Politieke Oorzaken
+- **Agressief nationalisme**
+  - Frans revanchisme na de Frans-Duitse Oorlog (1870-1871)
+  - Verlies van Elzas-Lotharingen → Franse wraakgevoelens
+- **Balkanproblematiek**
+  - Balkanoorlogen (1912-1913) tegen Ottomaanse Rijk en onderling
+  - Strijd om invloed tussen Rusland en Oostenrijk-Hongarije
+  - Servische wens voor een groot Joegoslavië (Slavische staat)
+- **Imperialisme**
+  - Duitse Weltpolitik → verlangen naar meer kolonies
+  - Conflict met bestaande koloniale machten (VK, Frankrijk)
 
-### Economisch
-- 🏭 **Duitse industrialisatie**: Concurrentie met 🇬🇧 Verenigd Koninkrijk
-- 💣 **Wapenwedloop**: Toenemende militaire uitgaven
+### 💰 Economische Oorzaken
+- **Industrialisering van Duitsland** → economische concurrentie met Verenigd Koninkrijk
+- **Behoefte aan grondstoffen**
+- **Wapenwedloop** → opbod in wapenproductie en legeruitbreiding
 
-### Cultureel
-- 🎖️ **Chauvinisme**: Verheerlijking eigen land, andere landen als minderwaardig zien
-- 🎯 **Oorlogsoptimisme**: Geloof in snelle overwinning
+### 🎭 Culturele Oorzaken
+- **Chauvinisme** → extreme vorm van vaderlandsliefde
+  - Andere landen als minderwaardig beschouwen
+  - Geen zelfkritiek
+- **Oorlogsoptimisme**
+  - Na 50 jaar vrede: romantisch beeld van oorlog
+  - Overtuiging van snelle overwinning
+  - Hoge oorlogsbereidheid onder de bevolking
 
-## 🤝 Allianties
+## ⚔️ Militaire Allianties
 
 | Triple Alliantie | Triple Entente |
 |------------------|----------------|
-| 🇩🇪 Duitsland | 🇬🇧 Verenigd Koninkrijk |
-| 🇦🇹 Oostenrijk-Hongarije | 🇫🇷 Frankrijk |
-| 🇮🇹 Italië | 🇷🇺 Rusland |
+| 🇩🇪Duitsland        | 🇬🇧Verenigd Koninkrijk |
+| 🇦🇹Oostenrijk-Hongarije | 🇫🇷Frankrijk  |
+| 🇮🇹Italië           | 🇷🇺Rusland        |
 
-## 📋 Von Schlieffenplan
-- **Doel**: Frankrijk snel uitschakelen via België, daarna Rusland verslaan
-- **Probleem**: Schending Belgische neutraliteit
+### 📝 Strategische Plannen
+- **Von Schlieffenplan (Duitsland)**:
+  1. Snel Frankrijk uitschakelen via België
+  2. Parijs veroveren
+  3. Daarna Rusland verslaan
+  - Probleem: Doorkruisen van neutraal België
 
-## 💥 Aanleiding & Escalatie
-1. **Moord** op kroonprins Franz Ferdinand door Bosnische nationalist
-2. 🇦🇹 **Oostenrijk-Hongarije** verklaart oorlog aan 🇷🇸 Servië (verdacht van steun aan de moord)
-3. **Sneeuwbaleffect**:
-   * 🇷🇺 Rusland mobiliseert ter verdediging van Servië
-   * 🇩🇪 Duitsland verklaart oorlog aan Rusland en Frankrijk
-   * 🇩🇪 Duitsland valt België binnen
-   * 🇬🇧 VK verklaart oorlog aan Duitsland
-   * Allianties trekken elkaar mee in de oorlog
+## 💥 Aanleiding voor de Oorlog
 
-> **Conclusie**: Politieke oorzaken werden versterkt door economische concurrentie en chauvinistische cultuur
+1. **Moord op kroonprins Franz Ferdinand** (Oostenrijk-Hongarije)
+   - Gepleegd door Bosnische nationalist
+   - Servië verdacht van steun aan aanslag
+   - Servië weigert politieonderzoek
+
+2. **Escalatie tot wereldoorlog (Augustus 1914)**:
+   - Oostenrijk-Hongarije verklaart oorlog aan Servië
+   - Rusland mobiliseert ter verdediging van Servië
+   - Duitsland verklaart oorlog aan Rusland en Frankrijk
+   - Duitsland valt België binnen
+   - VK verklaart oorlog aan Duitsland
+   - Sneeuwbaleffect door allianties
