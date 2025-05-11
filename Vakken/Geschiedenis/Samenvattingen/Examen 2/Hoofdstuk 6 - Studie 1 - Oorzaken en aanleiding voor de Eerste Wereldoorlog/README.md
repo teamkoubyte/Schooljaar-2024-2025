@@ -1,10 +1,10 @@
-# 🌍Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
+# 🌍 Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
 
-## ⏰ 📅 Tijdlijn 📆 ⌛
+## 📅 Tijdlijn 
 - **Belle Époque**: 1870-1914 (periode van culturele bloei en vrede in Europa)
 - **Eerste Wereldoorlog**: 1914-1918
 
-## 🔍 🔎 Belangrijkste Oorzaken 🧐 📚
+## 🔎 Belangrijkste Oorzaken
 
 ### 🏛️ Politieke Oorzaken
 - **Agressief nationalisme**
