@@ -17,74 +17,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
     <!-- Animate on Scroll Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- International Telephone Input Library -->  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  <!-- International Telephone Input Library -->  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>  <!-- Telefooninput fix -->
-  <style>
-    /* Nood-fix voor telefooninput dropdown */
-    .iti__country-list {
-      width: 300px !important;
-      max-width: 300px !important;
-      left: 0 !important;
-      overflow-x: hidden !important;
-    }
-    
-    /* Verwijder extra tekst tussen haakjes in landnamen */
-    .iti__country-name {
-      position: relative !important;
-    }
-    
-    /* Hack om tekst tussen haakjes te verbergen */
-    .iti__country-name:after {
-      content: "" !important;
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      background: white !important;
-      z-index: 2 !important;
-    }
-    
-    /* Hack om alleen de echte landnaam te tonen */
-    .iti__country-name:before {
-      content: attr(data-name) !important;
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      z-index: 3 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-    }
-    
-    /* Stijlen voor de landnamen */
-    .iti__country {
-      display: flex !important;
-      align-items: center !important;
-    }
-    
-    @media (max-width: 767px) {
-      .iti__country-list {
-        width: 260px !important;
-        left: auto !important;
-        right: 0 !important;
-      }
-    }
-    
-    .iti__country {
-      width: 100% !important;
-      display: flex !important;
-      align-items: center !important;
-    }
-    
-    .iti__country-name {
-      flex: 1 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-    }
-  </style>
 </head>
 <body>
   
@@ -106,8 +40,7 @@
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      
-      <button class="mobile-menu-toggle" id="hamburger" aria-label="Menu openen">
+        <button class="mobile-menu-toggle" id="hamburger" aria-label="Menu openen" aria-expanded="false" aria-controls="navLinks">
         <span class="hamburger"></span>
       </button>
     </div>
@@ -127,9 +60,8 @@
         </div>
       </div>
     </div>
-    
-    <div class="dots-pattern" style="bottom: 10%; right: 5%;"></div>
-    <div class="dots-pattern" style="top: 15%; left: 5%;"></div>
+      <div class="dots-pattern dots-pattern-bottom-right"></div>
+    <div class="dots-pattern dots-pattern-top-left"></div>
   </section>
   
   <!-- Diensten Section -->
@@ -287,9 +219,8 @@
         </div>
       </div>
     </div>
-    
-    <div class="dots-pattern" style="bottom: 10%; left: 5%;"></div>
-    <div class="dots-pattern" style="top: 20%; right: 8%;"></div>
+      <div class="dots-pattern dots-pattern-bottom-left"></div>
+    <div class="dots-pattern dots-pattern-top-right"></div>
   </section>
 
   <!-- Pakketten Section -->
@@ -586,9 +517,8 @@
   <!-- Contact Section -->
   <section id="contact" class="section gradient-hero">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2 class="section-title" style="color: white;">Contact</h2>
-        <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Neem contact op voor meer informatie</p>
+      <div class="section-header" data-aos="fade-up">        <h2 class="section-title text-white">Contact</h2>
+        <p class="section-subtitle text-white-transparent">Neem contact op voor meer informatie</p>
       </div>
       
       <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
@@ -628,26 +558,24 @@
             <div class="contact-icon">
               <i class="fas fa-comments"></i>
             </div>
-            <div class="contact-text">
-              <h3>Social Media</h3>
+            <div class="contact-text">              <h3>Social Media</h3>
               <div class="contact-social">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/koubyte" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/koubyte" target="_blank" rel="noopener" class="social-link" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://linkedin.com/in/koubyte" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/koubyte" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
         </div>
         
         <div class="contact-map glass-effect">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40137.317885257!2d4.4462207891788825!3d51.02772971438359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e59418440721%3A0x40099ab2f4d5130!2sMechelen!5e0!3m2!1snl!2sbe!4v1683442378135!5m2!1snl!2sbe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40137.317885257!2d4.4462207891788825!3d51.02772971438359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e59418440721%3A0x40099ab2f4d5130!2sMechelen!5e0!3m2!1snl!2sbe!4v1683442378135!5m2!1snl!2sbe" width="100%" height="100%" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
-    
-    <div class="dots-pattern" style="bottom: 10%; right: 5%;"></div>
-    <div class="dots-pattern" style="top: 15%; left: 8%;"></div>
+      <div class="dots-pattern dots-pattern-bottom-right"></div>
+    <div class="dots-pattern dots-pattern-top-left-alt"></div>
   </section>
   
   <!-- FAQ Section -->
@@ -723,13 +651,11 @@
             <div class="footer-logo">
               <span class="logo-text">Kou<span class="accent">byte</span></span>
             </div>
-            <p class="footer-company-desc">Persoonlijke IT & Web oplossingen in Mechelen. Jouw digitale problemen, mijn passie!</p>
-            
-            <div class="footer-social">
-              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <p class="footer-company-desc">Persoonlijke IT & Web oplossingen in Mechelen. Jouw digitale problemen, mijn passie!</p>            <div class="footer-social">
+              <a href="https://facebook.com/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://linkedin.com/in/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://instagram.com/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
           </div>
           

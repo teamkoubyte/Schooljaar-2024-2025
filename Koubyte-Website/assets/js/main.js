@@ -33,8 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function initMobieleNavigatie() {
     const header = document.querySelector('.header');
     const menuToggle = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    const mainNav = document.querySelector('.main-nav');
+    const navList = document.getElementById('navLinks');
     const body = document.body;
+    let overlay = document.querySelector('.nav-overlay');
+
+    // Create overlay if it doesn't exist
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        document.body.appendChild(overlay);
+    }
 
     // Verandert navigatie bij scrollen
     window.addEventListener('scroll', function() {
@@ -45,48 +54,85 @@ function initMobieleNavigatie() {
         }
     });
 
+    // Function to close the menu
+    function closeMenu() {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        overlay.classList.remove('active');
+        
+        // Set focus back to the menu toggle for accessibility
+        menuToggle.focus();
+    }
+
     // Toggle menu voor mobiel
     if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default button behavior
+            
+            const isActive = this.classList.contains('active');
+            
+            // Toggle classes
             this.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            mainNav.classList.toggle('active');
             body.classList.toggle('menu-open');
+            overlay.classList.toggle('active');
             
-            // Maak overlay voor menu
-            if (!document.querySelector('.nav-overlay')) {
-                const overlay = document.createElement('div');
-                overlay.className = 'nav-overlay';
-                document.body.appendChild(overlay);
-            }
-            
-            const overlay = document.querySelector('.nav-overlay');
-            if (this.classList.contains('active')) {
-                overlay.classList.add('active');
-            } else {
-                overlay.classList.remove('active');
-            }
-            
-            // Sluit menu bij klikken op overlay
-            overlay.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                body.classList.remove('menu-open');
-                this.classList.remove('active');
-            });
+            // Set aria-expanded for accessibility
+            this.setAttribute('aria-expanded', !isActive);
         });
     }
 
+    // Sluit menu bij klikken op overlay
+    overlay.addEventListener('click', function() {
+        closeMenu();
+    });
+
+    // Handle escape key to close menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
     // Sluit menu bij klikken op links
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                body.classList.remove('menu-open');
-            
-            const overlay = document.querySelector('.nav-overlay');
-            if (overlay) {
-                overlay.classList.remove('active');
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991) { // Only on mobile
+                closeMenu();
+                
+                // Small delay to allow the click to register before menu closes
+                // Only for internal links, not for links going to other pages
+                const href = this.getAttribute('href');
+                if (href && href.indexOf('#') === 0 && e.currentTarget.hostname === window.location.hostname) {
+                    // Continue with existing smooth scroll code...
+                }
             }
+        });
+    });
+
+    // Close menu on window resize if it goes to desktop size
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 991) {
+            closeMenu();
+        }
+    });
+
+    // Add index to menu items for staggered animation
+    document.querySelectorAll('.nav-list li').forEach((item, index) => {
+        item.style.setProperty('--item-index', index);
+    });
+    
+    // Add touchstart event for better mobile interactions
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('touchstart', function() {
+            this.style.color = 'var(--primary)';
+        });
+        
+        link.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.color = '';
+            }, 300);
         });
     });
 }
@@ -304,6 +350,7 @@ function initTelefoonInput() {
         'es': [9, 9],     // Spanje: 9 cijfers
         'it': [9, 10],    // Italië: 9-10 cijfers
         'pt': [9, 9],     // Portugal: 9 cijfers
+        'gr': [10, 10],   // Griekenland: 10 cijfers
         'ch': [9, 10],    // Zwitserland: 9-10 cijfers
         'at': [9, 11],    // Oostenrijk: 9-11 cijfers
         'dk': [8, 8],     // Denemarken: 8 cijfers
@@ -312,27 +359,435 @@ function initTelefoonInput() {
         'fi': [8, 10],    // Finland: 8-10 cijfers
         'ie': [9, 9],     // Ierland: 9 cijfers
         'pl': [9, 9],     // Polen: 9 cijfers
+        'cz': [9, 9],     // Tsjechië: 9 cijfers
+        'sk': [9, 9],     // Slowakije: 9 cijfers
+        'hu': [9, 9],     // Hongarije: 9 cijfers
+        'ro': [9, 10],    // Roemenië: 9-10 cijfers
+        'bg': [9, 9],     // Bulgarije: 9 cijfers
+        'mc': [8, 9],     // Monaco: 8-9 cijfers
+        'va': [6, 10],    // Vaticaanstad: 6-10 cijfers
+        'sm': [6, 10],    // San Marino: 6-10 cijfers
+        'ad': [6, 9],     // Andorra: 6-9 cijfers
+        'li': [7, 9],     // Liechtenstein: 7-9 cijfers
+        'al': [9, 9],     // Albanië: 9 cijfers
+        'ba': [8, 9],     // Bosnië en Herzegovina: 8-9 cijfers
+        'hr': [8, 9],     // Kroatië: 8-9 cijfers
+        'cy': [8, 8],     // Cyprus: 8 cijfers
+        'ee': [7, 8],     // Estland: 7-8 cijfers
+        'is': [7, 9],     // IJsland: 7-9 cijfers
+        'lv': [8, 8],     // Letland: 8 cijfers
+        'lt': [8, 9],     // Litouwen: 8-9 cijfers
+        'mt': [8, 8],     // Malta: 8 cijfers
+        'md': [8, 8],     // Moldavië: 8 cijfers
+        'me': [8, 8],     // Montenegro: 8 cijfers
+        'mk': [8, 8],     // Noord-Macedonië: 8 cijfers
+        'rs': [8, 9],     // Servië: 8-9 cijfers
+        'si': [8, 9],     // Slovenië: 8-9 cijfers
+        'ua': [9, 10],    // Oekraïne: 9-10 cijfers
+        'by': [9, 9],     // Belarus: 9 cijfers
+        'ru': [10, 10],   // Rusland: 10 cijfers
+        'tr': [10, 11],   // Turkije: 10-11 cijfers
         
         // Noord-Amerika
         'us': [10, 10],   // Verenigde Staten: 10 cijfers
         'ca': [10, 10],   // Canada: 10 cijfers
         'mx': [10, 10],   // Mexico: 10 cijfers
+        'gt': [8, 8],     // Guatemala: 8 cijfers
+        'bz': [7, 7],     // Belize: 7 cijfers
+        'sv': [8, 8],     // El Salvador: 8 cijfers
+        'hn': [8, 8],     // Honduras: 8 cijfers
+        'ni': [8, 8],     // Nicaragua: 8 cijfers
+        'cr': [8, 8],     // Costa Rica: 8 cijfers
+        'pa': [7, 8],     // Panama: 7-8 cijfers
+        
+        // Caribisch gebied
+        'cu': [8, 8],     // Cuba: 8 cijfers
+        'jm': [10, 10],   // Jamaica: 10 cijfers
+        'ht': [8, 8],     // Haïti: 8 cijfers
+        'do': [10, 10],   // Dominicaanse Republiek: 10 cijfers
+        'pr': [10, 10],   // Puerto Rico: 10 cijfers
+        'bs': [7, 7],     // Bahamas: 7 cijfers
+        'bb': [10, 10],   // Barbados: 10 cijfers
+        'tt': [7, 7],     // Trinidad en Tobago: 7 cijfers
+        
+        // Zuid-Amerika
+        'br': [10, 11],   // Brazilië: 10-11 cijfers
+        'ar': [10, 11],   // Argentinië: 10-11 cijfers
+        'cl': [9, 9],     // Chili: 9 cijfers
+        'uy': [8, 9],     // Uruguay: 8-9 cijfers
+        'py': [9, 9],     // Paraguay: 9 cijfers
+        'bo': [8, 8],     // Bolivia: 8 cijfers
+        'pe': [9, 9],     // Peru: 9 cijfers
+        'ec': [9, 9],     // Ecuador: 9 cijfers
+        'co': [10, 10],   // Colombia: 10 cijfers
+        've': [10, 10],   // Venezuela: 10 cijfers
+        'gy': [7, 7],     // Guyana: 7 cijfers
+        'sr': [7, 7],     // Suriname: 7 cijfers
         
         // Azië
         'cn': [11, 11],   // China: 11 cijfers
         'jp': [10, 10],   // Japan: 10 cijfers
         'kr': [9, 10],    // Zuid-Korea: 9-10 cijfers
+        'kp': [10, 10],   // Noord-Korea: 10 cijfers
         'in': [10, 10],   // India: 10 cijfers
+        'id': [9, 12],    // Indonesië: 9-12 cijfers
+        'my': [9, 10],    // Maleisië: 9-10 cijfers
         'sg': [8, 8],     // Singapore: 8 cijfers
+        'th': [9, 10],    // Thailand: 9-10 cijfers
+        'vn': [9, 10],    // Vietnam: 9-10 cijfers
+        'ph': [10, 10],   // Filipijnen: 10 cijfers
+        'sa': [9, 9],     // Saudi-Arabië: 9 cijfers
+        'ae': [9, 9],     // Verenigde Arabische Emiraten: 9 cijfers
+        'qa': [8, 8],     // Qatar: 8 cijfers
+        'kw': [8, 8],     // Koeweit: 8 cijfers
+        'bh': [8, 8],     // Bahrein: 8 cijfers
+        'om': [8, 8],     // Oman: 8 cijfers
+        'il': [9, 9],     // Israël: 9 cijfers
+        'iq': [10, 10],   // Irak: 10 cijfers
+        'ir': [10, 10],   // Iran: 10 cijfers
+        'sy': [9, 9],     // Syrië: 9 cijfers
+        'lb': [7, 8],     // Libanon: 7-8 cijfers
+        'jo': [9, 9],     // Jordanië: 9 cijfers
+        'pk': [10, 10],   // Pakistan: 10 cijfers
+        'af': [9, 9],     // Afghanistan: 9 cijfers
+        'bd': [10, 10],   // Bangladesh: 10 cijfers
+        'np': [10, 10],   // Nepal: 10 cijfers
+        'lk': [9, 9],     // Sri Lanka: 9 cijfers
+        'mm': [8, 11],    // Myanmar: 8-11 cijfers
+        'kh': [8, 9],     // Cambodja: 8-9 cijfers
+        'la': [8, 9],     // Laos: 8-9 cijfers
+        'kz': [10, 10],   // Kazachstan: 10 cijfers
+        'uz': [9, 9],     // Oezbekistan: 9 cijfers
+        'tm': [8, 8],     // Turkmenistan: 8 cijfers
+        'tj': [9, 9],     // Tadzjikistan: 9 cijfers
+        'kg': [9, 9],     // Kirgizië: 9 cijfers
+        'mn': [8, 8],     // Mongolië: 8 cijfers
+        'az': [9, 9],     // Azerbeidzjan: 9 cijfers
+        'am': [8, 8],     // Armenië: 8 cijfers
+        'ge': [9, 9],     // Georgië: 9 cijfers
+        'ye': [9, 9],     // Jemen: 9 cijfers
         
-        // Standaard voor andere landen
-        'default': [7, 15]  // Minimaal 7, maximaal 15 cijfers voor anderen
+        // Afrika
+        'za': [9, 9],     // Zuid-Afrika: 9 cijfers
+        'ng': [10, 11],   // Nigeria: 10-11 cijfers
+        'eg': [10, 11],   // Egypte: 10-11 cijfers
+        'ma': [9, 9],     // Marokko: 9 cijfers
+        'dz': [9, 9],     // Algerije: 9 cijfers
+        'tn': [8, 8],     // Tunesië: 8 cijfers
+        'ly': [9, 10],    // Libië: 9-10 cijfers
+        'sd': [9, 9],     // Soedan: 9 cijfers
+        'et': [9, 9],     // Ethiopië: 9 cijfers
+        'ke': [9, 9],     // Kenia: 9 cijfers
+        'tz': [9, 9],     // Tanzania: 9 cijfers
+        'ug': [9, 9],     // Oeganda: 9 cijfers
+        'rw': [9, 9],     // Rwanda: 9 cijfers
+        'bi': [8, 8],     // Burundi: 8 cijfers
+        'ao': [9, 9],     // Angola: 9 cijfers
+        'na': [9, 9],     // Namibië: 9 cijfers
+        'zw': [9, 10],    // Zimbabwe: 9-10 cijfers
+        'mz': [9, 9],     // Mozambique: 9 cijfers
+        'zm': [9, 9],     // Zambia: 9 cijfers
+        'bw': [8, 8],     // Botswana: 8 cijfers
+        'gh': [9, 10],    // Ghana: 9-10 cijfers
+        'cm': [9, 9],     // Kameroen: 9 cijfers
+        'ci': [8, 8],     // Ivoorkust: 8 cijfers
+        'sn': [9, 9],     // Senegal: 9 cijfers
+        'ml': [8, 8],     // Mali: 8 cijfers
+        'mr': [8, 8],     // Mauritanië: 8 cijfers
+        'ne': [8, 8],     // Niger: 8 cijfers
+        'td': [8, 8],     // Tsjaad: 8 cijfers
+        'mg': [9, 9],     // Madagaskar: 9 cijfers
+        'mu': [8, 8],     // Mauritius: 8 cijfers
+        'ss': [9, 9],     // Zuid-Soedan: 9 cijfers
+        
+        // Oceanië
+        'au': [9, 10],    // Australië: 9-10 cijfers
+        'nz': [8, 10],    // Nieuw-Zeeland: 8-10 cijfers
+        'pg': [7, 8],     // Papoea-Nieuw-Guinea: 7-8 cijfers
+        'fj': [7, 7],     // Fiji: 7 cijfers
+        'sb': [7, 7],     // Salomonseilanden: 7 cijfers
+        'vu': [7, 7],     // Vanuatu: 7 cijfers
+        'ws': [5, 7],     // Samoa: 5-7 cijfers
+        'to': [5, 7],     // Tonga: 5-7 cijfers
+        'nr': [7, 7],     // Nauru: 7 cijfers
+        'pw': [7, 7],     // Palau: 7 cijfers
+        'fm': [7, 7],     // Micronesië: 7 cijfers
+        'mh': [7, 7],     // Marshalleilanden: 7 cijfers
+        'tv': [5, 6],     // Tuvalu: 5-6 cijfers
+        'ki': [5, 8],     // Kiribati: 5-8 cijfers
+        
+        // Extra eilanden en gebieden
+        'ax': [6, 9],     // Ålandeilanden: 6-9 cijfers (volgt Finse standaard)
+        'as': [10, 10],   // Amerikaans-Samoa: 10 cijfers (volgt VS)
+        'ai': [7, 7],     // Anguilla: 7 cijfers
+        'ag': [7, 7],     // Antigua en Barbuda: 7 cijfers
+        'io': [7, 7],     // Brits Indische Oceaanterritorium: 7 cijfers (VK)
+        'vg': [7, 7],     // Britse Maagdeneilanden: 7 cijfers
+        'cv': [7, 7],     // Kaapverdië: 7 cijfers
+        'bq': [7, 7],     // Caribisch Nederland: 7 cijfers (NL)
+        'ky': [7, 7],     // Kaaimaneilanden: 7 cijfers
+        'cf': [8, 8],     // Centraal-Afrikaanse Republiek: 8 cijfers
+        'cx': [8, 8],     // Christmaseiland: 8 cijfers (Australië)
+        'cc': [6, 8],     // Cocoseilanden: 6-8 cijfers (Australië)
+        'ck': [5, 6],     // Cookeilanden: 5-6 cijfers
+        'gq': [9, 9],     // Equatoriaal-Guinea: 9 cijfers
+        'fk': [5, 6],     // Falklandeilanden: 5-6 cijfers
+        'fo': [6, 6],     // Faeröer: 6 cijfers
+        'gf': [9, 9],     // Frans-Guyana: 9 cijfers (Frankrijk)
+        'pf': [6, 8],     // Frans-Polynesië: 6-8 cijfers
+        'im': [6, 10],    // Isle of Man: 6-10 cijfers (VK)
+        'nc': [6, 6],     // Nieuw-Caledonië: 6 cijfers
+        'nf': [6, 6],     // Norfolk: 6 cijfers
+        'mp': [7, 10],    // Noordelijke Marianen: 7-10 cijfers
+        're': [9, 10],    // Réunion: 9-10 cijfers (Frankrijk)
+        'bl': [9, 9],     // Saint-Barthélemy: 9 cijfers
+        'sh': [4, 4],     // Sint-Helena: 4 cijfers
+        'kn': [7, 7],     // Saint Kitts en Nevis: 7 cijfers
+        'lc': [7, 7],     // Saint Lucia: 7 cijfers
+        'mf': [9, 9],     // Sint-Maarten (Frans deel): 9 cijfers
+        'pm': [6, 6],     // Saint-Pierre en Miquelon: 6 cijfers
+        'vc': [7, 7],     // Saint Vincent en de Grenadines: 7 cijfers
+        'st': [7, 7],     // Sao Tomé en Principe: 7 cijfers
+        'sj': [8, 8],     // Spitsbergen en Jan Mayen: 8 cijfers (Noorwegen)
+        'tc': [7, 7],     // Turks- en Caicoseilanden: 7 cijfers
+        'vi': [10, 10],   // Amerikaanse Maagdeneilanden: 10 cijfers (VS)
+        'wf': [6, 6],     // Wallis en Futuna: 6 cijfers
+        'eh': [9, 9],     // Westelijke Sahara: 9 cijfers
+        
+        // Standaard voor eventuele ontbrekende landen
+        'default': [7, 15]  // Minimaal 7, maximaal 15 cijfers voor niet-specifiek opgegeven landen
     };
     
     // Functie om limiet voor een landcode te krijgen
     function getTelefoonnummerLimiet(landcode) {
         landcode = landcode.toLowerCase();
         return telefoonnummerLimieten[landcode] || telefoonnummerLimieten['default'];
+    }
+    
+    // Voorbeeldnummers per land (zonder internationaal voorvoegsel)
+    const voorbeeldTelefoonnummers = {
+        // Europa
+        'be': '470 12 34 56',      // België
+        'nl': '6 12345678',        // Nederland
+        'de': '170 1234567',       // Duitsland
+        'fr': '6 12 34 56 78',     // Frankrijk
+        'lu': '661 123 456',       // Luxemburg
+        'gb': '7700 900123',       // Verenigd Koninkrijk
+        'es': '612 345 678',       // Spanje
+        'it': '312 345 6789',      // Italië
+        'pt': '912 345 678',       // Portugal
+        'gr': '690 123 4567',      // Griekenland
+        'ch': '78 123 45 67',      // Zwitserland
+        'at': '664 123 4567',      // Oostenrijk
+        'dk': '20 12 34 56',       // Denemarken
+        'se': '70 123 45 67',      // Zweden
+        'no': '41 23 45 67',       // Noorwegen
+        'fi': '40 123 4567',       // Finland
+        'ie': '85 123 4567',       // Ierland
+        'pl': '512 345 678',       // Polen
+        'cz': '601 123 456',       // Tsjechië
+        'sk': '912 345 678',       // Slowakije
+        'hu': '30 123 4567',       // Hongarije
+        'ro': '712 345 678',       // Roemenië
+        'bg': '48 123 4567',       // Bulgarije
+        'mc': '6 12 34 56 78',     // Monaco
+        'va': '06 698 12345',      // Vaticaanstad
+        'sm': '66 12 34 56',       // San Marino
+        'ad': '312 345',           // Andorra
+        'li': '660 234 567',       // Liechtenstein
+        'al': '69 123 4567',       // Albanië
+        'ba': '61 234 567',        // Bosnië en Herzegovina
+        'hr': '91 234 5678',       // Kroatië
+        'cy': '96 123456',         // Cyprus
+        'ee': '5123 456',          // Estland
+        'is': '616 1234',          // IJsland
+        'lv': '21 234567',         // Letland
+        'lt': '612 34567',         // Litouwen
+        'mt': '7912 3456',         // Malta
+        'md': '621 12345',         // Moldavië
+        'me': '67 123456',         // Montenegro
+        'mk': '72 123456',         // Noord-Macedonië
+        'rs': '63 1234567',        // Servië
+        'si': '31 234567',         // Slovenië
+        'ua': '50 123 4567',       // Oekraïne
+        'by': '29 123 4567',       // Belarus
+        'ru': '912 345 6789',      // Rusland
+        'tr': '532 123 4567',      // Turkije
+        
+        // Noord-Amerika
+        'us': '202 555 0123',      // Verenigde Staten
+        'ca': '613 555 0123',      // Canada
+        'mx': '222 123 4567',      // Mexico
+        'gt': '5123 4567',         // Guatemala
+        'bz': '622 3456',          // Belize
+        'sv': '7123 4567',         // El Salvador
+        'hn': '9123 4567',         // Honduras
+        'ni': '8123 4567',         // Nicaragua
+        'cr': '8312 3456',         // Costa Rica
+        'pa': '6123 456',          // Panama
+        
+        // Caribisch gebied
+        'cu': '5123 4567',         // Cuba
+        'jm': '876 123 4567',      // Jamaica
+        'ht': '3456 7890',         // Haïti
+        'do': '809 123 4567',      // Dominicaanse Republiek
+        'pr': '787 123 4567',      // Puerto Rico
+        'bs': '242 1234',          // Bahamas
+        'bb': '246 123 4567',      // Barbados
+        'tt': '868 1234',          // Trinidad en Tobago
+        
+        // Zuid-Amerika
+        'br': '11 91234 5678',     // Brazilië
+        'ar': '11 1234 5678',      // Argentinië
+        'cl': '9 1234 5678',       // Chili
+        'uy': '94 123 456',        // Uruguay
+        'py': '981 123456',        // Paraguay
+        'bo': '712 34567',         // Bolivia
+        'pe': '912 345 678',       // Peru
+        'ec': '99 123 4567',       // Ecuador
+        'co': '320 123 4567',      // Colombia
+        've': '412 123 4567',      // Venezuela
+        'gy': '609 1234',          // Guyana
+        'sr': '771 2345',          // Suriname
+        
+        // Azië
+        'cn': '138 1234 5678',     // China
+        'jp': '90 1234 5678',      // Japan
+        'kr': '10 1234 5678',      // Zuid-Korea
+        'kp': '192 1234567',       // Noord-Korea
+        'in': '98765 12345',       // India
+        'id': '812 345 678',       // Indonesië
+        'my': '12 345 6789',       // Maleisië
+        'sg': '8123 4567',         // Singapore
+        'th': '81 234 5678',       // Thailand
+        'vn': '91 234 56 78',      // Vietnam
+        'ph': '917 123 4567',      // Filipijnen
+        'sa': '50 123 4567',       // Saudi-Arabië
+        'ae': '50 123 4567',       // Verenigde Arabische Emiraten
+        'qa': '3312 3456',         // Qatar
+        'kw': '500 12345',         // Koeweit
+        'bh': '3312 3456',         // Bahrein
+        'om': '9123 4567',         // Oman
+        'il': '50 123 4567',       // Israël
+        'iq': '790 123 4567',      // Irak
+        'ir': '912 345 6789',      // Iran
+        'sy': '944 567 890',       // Syrië
+        'lb': '71 123456',         // Libanon
+        'jo': '7 9123 4567',       // Jordanië
+        'pk': '301 2345678',       // Pakistan
+        'af': '70 123 4567',       // Afghanistan
+        'bd': '1712 345678',       // Bangladesh
+        'np': '984 1234567',       // Nepal
+        'lk': '71 2345678',        // Sri Lanka
+        'mm': '9 123 456',         // Myanmar
+        'kh': '85 123 456',        // Cambodja
+        'la': '20 2345 6789',      // Laos
+        'kz': '7123 45678',        // Kazachstan
+        'uz': '91 234 56 78',      // Oezbekistan
+        'tm': '6512 3456',         // Turkmenistan
+        'tj': '917 123 456',       // Tadzjikistan
+        'kg': '700 123 456',       // Kirgizië
+        'mn': '8812 3456',         // Mongolië
+        'az': '50 123 4567',       // Azerbeidzjan
+        'am': '77 123456',         // Armenië
+        'ge': '555 12 34 56',      // Georgië
+        'ye': '712 345 678',       // Jemen
+        
+        // Afrika
+        'za': '71 123 4567',       // Zuid-Afrika
+        'ng': '802 123 4567',      // Nigeria
+        'eg': '10 1234 5678',      // Egypte
+        'ma': '6123 45678',        // Marokko
+        'dz': '551 23 45 67',      // Algerije
+        'tn': '20 123 456',        // Tunesië
+        'ly': '91 234 5678',       // Libië
+        'sd': '91 123 4567',       // Soedan
+        'et': '91 123 4567',       // Ethiopië
+        'ke': '712 345678',        // Kenia
+        'tz': '621 234567',        // Tanzania
+        'ug': '712 345678',        // Oeganda
+        'rw': '72 1234567',        // Rwanda
+        'bi': '61 234567',         // Burundi
+        'ao': '923 456 789',       // Angola
+        'na': '81 1234567',        // Namibië
+        'zw': '71 2345678',        // Zimbabwe
+        'mz': '82 1234567',        // Mozambique
+        'zm': '95 1234567',        // Zambia
+        'bw': '71 123456',         // Botswana
+        'gh': '24 1234567',        // Ghana
+        'cm': '67 123 4567',       // Kameroen
+        'ci': '01 23 45 67',       // Ivoorkust
+        'sn': '77 123 45 67',      // Senegal
+        'ml': '65 01 23 45',       // Mali
+        'mr': '22 12 34 56',       // Mauritanië
+        'ne': '90 12 34 56',       // Niger
+        'td': '63 01 23 45',       // Tsjaad
+        'mg': '32 12 345 67',      // Madagaskar
+        'mu': '5712 3456',         // Mauritius
+        'ss': '977 123 456',       // Zuid-Soedan
+
+        // Oceanië
+        'au': '412 345 678',       // Australië
+        'nz': '21 123 4567',       // Nieuw-Zeeland
+        'pg': '7012 3456',         // Papoea-Nieuw-Guinea
+        'fj': '701 2345',          // Fiji
+        'sb': '74 12345',          // Salomonseilanden
+        'vu': '595 1234',          // Vanuatu
+        'ws': '72 12345',          // Samoa
+        'to': '771 2345',          // Tonga
+        'nr': '555 1234',          // Nauru
+        'pw': '620 1234',          // Palau
+        'fm': '350 1234',          // Micronesië
+        'mh': '235 1234',          // Marshalleilanden
+        'tv': '21 234',            // Tuvalu
+        'ki': '72 12345',          // Kiribati
+        
+        // Extra eilanden en gebieden
+        'ax': '41 2345678',        // Ålandeilanden
+        'as': '733 1234',          // Amerikaans-Samoa
+        'ai': '235 1234',          // Anguilla
+        'ag': '724 1234',          // Antigua en Barbuda
+        'io': '380 1234',          // Brits Indische Oceaanterritorium
+        'vg': '340 1234',          // Britse Maagdeneilanden
+        'cv': '991 2345',          // Kaapverdië
+        'bq': '318 1234',          // Caribisch Nederland
+        'ky': '345 1234',          // Kaaimaneilanden
+        'cf': '70 01 23 45',       // Centraal-Afrikaanse Republiek
+        'cx': '412 345 678',       // Christmaseiland
+        'cc': '412 345 678',       // Cocoseilanden
+        'ck': '55 123',            // Cookeilanden
+        'gq': '222 123 456',       // Equatoriaal-Guinea
+        'fk': '51 234',            // Falklandeilanden
+        'fo': '212 345',           // Faeröer
+        'gf': '694 12 34 56',      // Frans-Guyana
+        'pf': '87 12 34 56',       // Frans-Polynesië
+        'im': '7624 123456',       // Isle of Man
+        'nc': '75 12 34',          // Nieuw-Caledonië
+        'nf': '3 81234',           // Norfolk
+        'mp': '670 1234567',       // Noordelijke Marianen
+        're': '692 12 34 56',      // Réunion
+        'bl': '690 12 34 56',      // Saint-Barthélemy
+        'sh': '2158',              // Sint-Helena
+        'kn': '765 1234',          // Saint Kitts en Nevis
+        'lc': '284 1234',          // Saint Lucia
+        'mf': '690 12 34 56',      // Sint-Maarten (Frans deel)
+        'pm': '41 12 34',          // Saint-Pierre en Miquelon
+        'vc': '784 1234',          // Saint Vincent en de Grenadines
+        'st': '990 1234',          // Sao Tomé en Principe
+        'sj': '79 12 34 56',       // Spitsbergen en Jan Mayen
+        'tc': '231 1234',          // Turks- en Caicoseilanden
+        'vi': '340 1234567',       // Amerikaanse Maagdeneilanden
+        'wf': '50 12 34',          // Wallis en Futuna
+        'eh': '650 123456',        // Westelijke Sahara
+        
+        // Standaard voorbeeld
+        'default': '123 456 7890'  // Standaard voorbeeld
+    };
+    
+    // Functie om voorbeeld telefoonnummer voor een landcode te krijgen
+    function getVoorbeeldTelefoonnummer(landcode) {
+        landcode = landcode.toLowerCase();
+        return voorbeeldTelefoonnummers[landcode] || voorbeeldTelefoonnummers['default'];
     }
     
     // Zoek het telefooninputveld
@@ -606,8 +1061,10 @@ function initTelefoonInput() {
                 'eh': 'Westelijke Sahara'
             },
             customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-                // Voeg code toe om de placeholder aan te passen
-                return "Telefoonnummer";
+                // Haal het voorbeeld telefoonnummer op voor het geselecteerde land
+                const landcode = selectedCountryData.iso2;
+                const voorbeeld = getVoorbeeldTelefoonnummer(landcode);
+                return voorbeeld;
             },
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         };
@@ -770,6 +1227,10 @@ function initTelefoonInput() {
                         infoElement.textContent = `Telefoonnummer moet tussen ${min} en ${max} cijfers bevatten`;
                     }
                 }
+                
+                // Update placeholder met voorbeeldnummer voor het nieuwe land
+                const voorbeeld = getVoorbeeldTelefoonnummer(landcode);
+                telefoonInput.setAttribute('placeholder', voorbeeld);
                 
                 // Valideer nieuwe nummer indien ingevuld
                 const nummer = telefoonInput.value;
