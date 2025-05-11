@@ -1082,35 +1082,55 @@ body.menu-open {
 
 .back-to-top {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  right: 20px;
+  bottom: 180px; /* Verder verhoogd om ruim boven nieuwsbriefformulier te blijven */
+  width: 38px; /* Kleinere knop */
+  height: 38px; /* Kleinere knop */
+  border-radius: 6px; /* Kleinere radius voor kleinere knop */
   background: var(--primary);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 5px 15px rgba(23, 81, 232, 0.3);
+  font-size: 0.9rem; /* Kleinere icoon */
+  box-shadow: 0 3px 8px rgba(23, 81, 232, 0.2);
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   z-index: 90;
 }
 
 .back-to-top:hover {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(23, 81, 232, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(23, 81, 232, 0.3);
 }
 
 .back-to-top.active {
-  opacity: 1;
+  opacity: 0.85; /* Iets transparanter voor een subtielere verschijning */
   visibility: visible;
   transform: translateY(0);
+}
+
+/* Responsieve stijlen voor back-to-top knop */
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 15px;
+    bottom: 220px; /* Veel hoger op mobiel om niet over de nieuwsbriefsectie te vallen */
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra aanpassing voor kleinere mobiele schermen */
+@media (max-width: 480px) {
+  .back-to-top {
+    bottom: 250px; /* Nog hoger op kleinere schermen */
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* Wijzigingen voor titel kleuren in hero secties */
@@ -2433,6 +2453,8 @@ select:focus {
   z-index: 2;
 }
 
+/* Header zindex hoger dan andere elementen */
+.header {
   z-index: 3;
 }
 
@@ -2974,8 +2996,7 @@ select:focus {
   .service-feature-card {
     padding: 1.5rem;
   }
-  
-  /* Footer */
+    /* Footer */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -2983,9 +3004,6 @@ select:focus {
   
   .footer-social {
     justify-content: flex-start;
-  }
-  
-    height: 50px;
   }
 }
 
@@ -3598,5 +3616,349 @@ footer .availability {
   
   .cta-title {
     font-size: 1.8rem;
+  }
+}
+
+/* ===== INTERNATIONAL TELEPHONE INPUT STYLING ===== */
+.iti {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.iti__flag-container {
+  border-radius: 4px 0 0 4px;
+  overflow: hidden;
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+  background-color: rgba(0,0,0,0.03);
+  transition: background-color 0.3s;
+}
+
+.iti--separate-dial-code .iti__selected-flag:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.iti__country-list {
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  max-height: 200px;
+}
+
+/* Validatiemelding stijlen */
+.phone-error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+  display: block;
+}
+
+.phone-info {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 3px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Error state styling */
+input.error {
+  border-color: #e74c3c !important;
+  background-color: rgba(231, 76, 60, 0.05) !important;
+}
+
+/* Animaties voor foutmeldingen */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Internationale telefooninput stijlen */
+.phone-input {
+  width: 100%;
+  height: 45px;
+  padding-left: 90px !important; /* Extra ruimte voor landcode */
+  padding-right: 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--text-sm);
+}
+
+/* Container stijlen */
+.iti {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+/* Landcode dropdown stijlen */
+.iti--separate-dial-code .iti__selected-flag {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.iti--separate-dial-code .iti__selected-dial-code {
+  color: var(--dark);
+}
+
+.iti__flag-container {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.iti__country-list {
+  z-index: 10;
+  border-radius: var(--border-radius);
+}
+
+.phone-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Zorg ervoor dat de telefooninput er hetzelfde uitziet als andere velden */
+.iti + .phone-input {
+  font-size: var(--text-sm);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+}
+
+.iti__country:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Flag container stijlen */
+.iti__flag-container {
+  font-size: 14px;
+}
+
+/* ===== INTERNATIONALE TELEFOON INPUT STYLING ===== */
+/* KOUBYTE TELEFOONDROPDOWN FIX */
+.iti {
+  width: 100% !important;
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.iti__flag-container {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  padding: 1px !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.iti__selected-flag {
+  z-index: 1 !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  padding: 0 6px 0 8px !important;
+}
+
+.phone-input {
+  position: relative !important;
+  z-index: 0 !important;
+  padding-left: 90px !important;
+}
+
+/* CRUCIAAL: Dit is waar de fix plaatsvindt */
+.iti__country-list {
+  position: absolute !important;
+  z-index: 2 !important;
+  list-style: none !important;
+  text-align: left !important;
+  padding: 0 !important;
+  margin: 0 0 0 -1px !important;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2) !important;
+  background-color: white !important;
+  border: 1px solid #CCC !important;
+  white-space: nowrap !important;
+  max-height: 200px !important;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 300px !important;
+  border-radius: 4px !important;
+}
+
+.iti__country {
+  padding: 5px 10px !important;
+  outline: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Speciale stijl voor het opschonen van landnamen */
+.iti__country-list .iti__country-name {
+  display: inline-block;
+  position: relative;
+}
+
+/* Verberg de originele tekst */
+.iti__country-list .iti__country-name:not([data-name]) {
+  color: rgba(0,0,0,0.9);
+}
+
+/* Toon alleen de opgeschoonde landnaam wanneer data-name is ingesteld */
+.iti__country-list .iti__country-name[data-name]:before {
+  content: attr(data-name);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(0,0,0,0.9);
+  background-color: white;
+  z-index: 1;
+}
+
+/* Zorg dat het eruit ziet als normale tekst */
+.iti__country-list .iti__country-name[data-name] {
+  color: transparent;
+}
+
+.iti__country-name {
+  margin-right: 6px !important;
+  color: #000 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  flex: 1 !important;
+}
+
+.iti__dial-code {
+  color: #999 !important;
+  font-size: 0.9em !important;
+}
+
+.iti__flag-box {
+  margin-right: 6px !important;
+}
+
+/* Mobile-specific fixes */
+@media only screen and (max-width: 767px) {
+  .iti__country-list {
+    width: 260px !important;
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  .iti__selected-flag {
+    padding-left: 10px !important;
+  }
+  
+  .phone-input {
+    font-size: 16px !important; /* prevent iOS zoom */
+    padding-left: 85px !important;
+  }
+}
+
+/* Fix voor popup container */
+.iti--container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  padding: 0 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  z-index: 1050 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.iti--container .iti__country-list {
+  position: relative !important;
+  display: block !important;
+  max-height: 80vh !important;
+  width: 90% !important;
+  max-width: 350px !important;
+  margin: 0 auto !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Specifiek voor de dropdownpositie op het afspraakformulier */
+#appointmentForm .iti__country-list {
+  top: calc(100% + 3px) !important;
+  left: 0 !important;
+}
+
+/* Firefox-specifieke hacks */
+@-moz-document url-prefix() {
+  .iti__country-list {
+    scrollbar-width: thin !important;
+    scrollbar-color: #CCC transparent !important;
+  }
+  
+  .phone-input.firefox-input {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: 45px !important;
+  }
+}
+
+/* Voeg overgangseffect toe */
+.iti__country-list {
+  transition: opacity 0.2s ease !important;
+}
+
+/* Foutmelding stijl */
+.phone-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Error state voor het veld */
+.phone-input.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Firefox-specifieke stijlen */
+@-moz-document url-prefix() {
+  .iti__flag-container {
+    height: 45px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .iti--separate-dial-code .iti__selected-flag {
+    padding-top: 1px;
+  }
+  
+  .iti__country-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  }
+    /* Toevoeging voor firefox-specifieke input */
+  .firefox-input {
+    -moz-appearance: none;
+    appearance: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 45px;
+    line-height: 45px;
+  }
+  
+  /* Zorg ervoor dat de dropdown juist gepositioneerd is in Firefox */
+  .iti__country-list {
+    max-height: 200px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 }
