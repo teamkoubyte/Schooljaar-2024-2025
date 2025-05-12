@@ -399,6 +399,7 @@ p {
   transition: all 0.4s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1rem 0;
+  margin-bottom: 2rem; /* Extra ruimte onder de header */
 }
 
 .header.scrolled {
@@ -446,38 +447,10 @@ p {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem;
+  gap: 2.5rem; /* Vergroot de ruimte tussen navigatielinks */
 }
 
-.nav-link {
-  color: var(--secondary);
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  padding: 0.5rem 0;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-  color: var(--primary);
-}
-
-.nav-link::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--primary), var(--primary-light));
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
-
-.nav-link:hover::before,
-.nav-link.active::before {
-  width: 100%;
-}
+/* Nav-link styling wordt nu alleen aan het einde van het bestand toegepast voor consistentie */
 
 /* Mobile menu toggle functionaliteit */
 .mobile-menu-toggle {
@@ -584,7 +557,7 @@ body.menu-open {
     width: 280px;
     height: 100vh;
     background-color: white;
-    padding: 80px 0 2rem;
+    padding: 60px 0 2rem;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     transform: translateX(100%);
@@ -601,7 +574,8 @@ body.menu-open {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
+    margin-top: -10px;
     gap: 0;
     width: 100%;
   }
@@ -753,50 +727,7 @@ body.menu-open {
 }
 
 /* --- Navigatie Links & Pijlen --- */
-.nav-link {
-  position: relative;
-  transition: all 0.3s ease;
-  padding: 8px 0;
-  color: var(--secondary);
-  font-weight: 500;
-}
-
-.nav-link:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--primary), var(--primary-light));
-  transition: width 0.3s ease;
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
-.nav-link:hover:before,
-.nav-link.active:before {
-  width: 100%;
-}
-
-.nav-link:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background: radial-gradient(circle, rgba(23, 81, 232, 0.1) 0%, transparent 70%);
-  opacity: 0;
-  transition: all 0.3s ease;
-  transform: translateY(10px);
-}
-
-.nav-link:hover:after,
-.nav-link.active:after {
-  opacity: 1;
-  transform: translateY(3px);
-}
+/* Navigatielink styling nu centraal gedefinieerd aan het einde van het bestand */
 
 /* Fix voor de pijltjes bij submenu's */
 .nav-link.has-arrow {
@@ -804,7 +735,8 @@ body.menu-open {
   padding-right: 20px;
 }
 
-.nav-link.has-arrow:after {
+/* Specifieke uitzondering voor dropdown pijltjes, voorkomt conflict met algemene .nav-link::after regel */
+.nav-link.has-arrow::after {
   content: '›';
   position: absolute;
   right: 0;
@@ -816,9 +748,10 @@ body.menu-open {
   opacity: 0.8;
   height: auto;
   width: auto;
+  display: block !important; /* Overschrijft de algemene display: none regel */
 }
 
-.nav-link.has-arrow:hover:after {
+.nav-link.has-arrow:hover::after {
   opacity: 1;
   transform: translateY(-50%) rotate(90deg) translateX(2px);
 }
@@ -903,7 +836,7 @@ body.menu-open {
     background-color: var(--white);
     flex-direction: column;
     align-items: flex-start;
-    padding: 80px 2rem 2rem;
+    padding: 60px 2rem 2rem;
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     z-index: 1000;
@@ -914,15 +847,12 @@ body.menu-open {
   .nav-links.active {
     right: 0;
   }
-  
-  .nav-link {
+    .nav-link {
     width: 100%;
     padding: 10px 0;
   }
   
-  .nav-link:after {
-    display: none;
-  }
+  /* Verwijderd: nav-link:after definitie om dubbele strepen te voorkomen */
   
   body.menu-open {
     overflow: hidden;
@@ -978,6 +908,10 @@ body.menu-open {
   padding-bottom: 2rem;
 }
 
+/* Legacy footer logo style - removed to prevent conflicts with modern footer styling */
+/* 
+/* Oude footer-logo styling uitcommentariëren om conflicten te voorkomen */
+/* 
 .footer-logo {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -994,6 +928,8 @@ body.menu-open {
   background: linear-gradient(to right, var(--primary), var(--primary-light));
   border-radius: 3px;
 }
+*/
+*/
 
 .footer-links-column {
   flex: 1;
@@ -2624,17 +2560,47 @@ select:focus {
   margin-bottom: 25px;
   position: relative;
   display: inline-block;
+  padding: 8px 15px;
+  border-radius: var(--border-radius-md);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.footer-logo .logo-text {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: white;
+.footer-logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }
+
+/* Verwijderd omdat de logo-text klasse niet gebruikt wordt in de footer-logo HTML */
 
 .footer-logo .accent {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff !important;
+  font-weight: 800;
 }
+
+/* Voeg pulsanimatie toe zoals in de in-ontwikkeling pagina */
+.footer-logo:hover .accent {
+  animation: footerLogoPulse 1s infinite;
+}
+
+@keyframes footerLogoPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* CSS-regel voor icoon verwijderd aangezien het icoon niet meer gebruikt wordt */
 
 .footer-company-desc {
   color: rgba(255, 255, 255, 0.7);
@@ -3580,7 +3546,7 @@ footer .availability {
   position: relative;
   padding: 6rem 0 4rem; /* Kleinere padding boven en onder */
   overflow: hidden;
-  margin-top: 76px; /* Hoogte van de header compenseren */
+  margin-top: 110px; /* Verder verhoogde ruimte om de header te compenseren */
 }
 
 .gradient-hero {
@@ -4505,7 +4471,7 @@ input.error {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.1;
 }
 
@@ -4541,7 +4507,7 @@ input.error {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.1;
 }
 .cyber-hero-content {
@@ -4643,7 +4609,7 @@ input.error {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.1;
 }
 
@@ -4739,37 +4705,10 @@ input.error {
   gap: 5px;
 }
 
-.nav-link {
-  color: #2c3e50;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 10px 15px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  position: relative;
-}
+/* Verwijderd: dubbele .nav-link definitie om dubbele strepen te voorkomen */
 
-.nav-link:hover {
-  color: #1751E8;
-  background: rgba(23, 81, 232, 0.08);
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #1751E8;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 30px;
-}
+/* Verwijderd: dubbele nav-link::after styling voor betere consistentie */
+/* Verwijderd: dubbele nav-link:hover::after styling voor betere consistentie */
 
 .mobile-menu-toggle {
   display: none;
@@ -4855,4 +4794,41 @@ input.error {
     transform: rotate(-45deg);
     bottom: 0;
   }
+}
+
+/* Definitieve oplossing voor dubbele onderstrepen in navigatielinks */
+.nav-link {
+  position: relative;
+  padding: 0.75rem 0.5rem; /* Voeg horizontale padding toe en vergroot verticale padding */
+  transition: all 0.3s ease;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Eén enkele, duidelijke definitie voor het hover-effect met ::before pseudo-element */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+}
+
+/* Voorkom extra pseudo-elementen op alle navigation links */
+.nav-link::after {
+  display: none !important;
+}
+
+.nav-link:hover {
+  color: var(--primary);
 }
