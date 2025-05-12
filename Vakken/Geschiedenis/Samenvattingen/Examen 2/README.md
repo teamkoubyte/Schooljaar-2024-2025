@@ -1,4 +1,4 @@
-# 📚 Het moderne imperialisme (1870-1914)
+# 📚 Hoofdstuk 5 - Studie 1 - Het moderne imperialisme (1870-1914)
 
 ## ⏰ Tijdlijn
 - **1885**: Conferentie van Berlijn
@@ -66,7 +66,7 @@ Het imperialisme zorgde voor een wederzijdse beïnvloeding tussen kolonies en mo
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-# Internationale-Handel-en-Migratie
+# 🌍 Hoofdstuk 5 - Studie 2 & Studie 3 - Internationale Handel en Migratie
 
 ## ⏰ Belangrijke Periodes
 - **Opiumoorlogen en Perry Expeditie:** 1840-1860
@@ -122,7 +122,7 @@ Het imperialisme zorgde voor een wederzijdse beïnvloeding tussen kolonies en mo
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-# 📚 Onderzoek: Congo-Vrijstaat onder Leopold II
+# 📚 Hoofdstuk 5 - Onderzoeksopdracht: Congo-Vrijstaat onder Leopold II
 
 ## 🗺️ Tijd en Ruimte
 | Periode      | Gebeurtenis            |
@@ -190,7 +190,7 @@ De Congo-Vrijstaat onder Leopold II was een periode van brute uitbuiting, vermom
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-# 🌍 Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
+# 🌍 Hoofstuk 6 - Studie 1 - Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
 
 ## 📅 Tijdlijn 
 - **Belle Époque**: 1870-1914 (periode van culturele bloei en vrede in Europa)
