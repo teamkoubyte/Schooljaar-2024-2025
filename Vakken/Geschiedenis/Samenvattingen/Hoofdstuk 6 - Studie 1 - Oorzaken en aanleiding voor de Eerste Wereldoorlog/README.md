@@ -36,9 +36,9 @@
 
 | Triple Alliantie | Triple Entente |
 |------------------|----------------|
-| 🇩🇪Duitsland        | 🇬🇧Verenigd Koninkrijk |
-| 🇦🇹Oostenrijk-Hongarije | 🇫🇷Frankrijk  |
-| 🇮🇹Italië           | 🇷🇺Rusland        |
+| 🇩🇪 Duitsland        | 🇬🇧 Verenigd Koninkrijk |
+| 🇦🇹 Oostenrijk-Hongarije | 🇫🇷 Frankrijk  |
+| 🇮🇹 Italië           | 🇷🇺 Rusland        |
 
 ### 📝 Strategische Plannen
 - **Von Schlieffenplan (Duitsland)**:
