@@ -229,15 +229,20 @@ function initFaqAccordeon() {
         
         if (question) {
             question.addEventListener('click', function() {
-                // Sluit andere items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
                 // Toggle huidige item
                 item.classList.toggle('active');
+                
+                // Update icon als er een toggle icon is
+                const toggle = item.querySelector('.faq-toggle i');
+                if (toggle) {
+                    if (item.classList.contains('active')) {
+                        toggle.classList.remove('fa-plus');
+                        toggle.classList.add('fa-minus');
+                    } else {
+                        toggle.classList.remove('fa-minus');
+                        toggle.classList.add('fa-plus');
+                    }
+                }
             });
         }
     });

@@ -1,6 +1,7 @@
 /* 
  * Koubyte Website - Geoptimaliseerde CSS
  * Dit bestand bevat alle CSS stijlen voor de Koubyte website
+ * Bevat zowel de hoofdstijlen als de header en navigatie verbeteringen
  * Gemaakt om de prestaties te verbeteren door het aantal HTTP-verzoeken te verminderen
  */
 
@@ -4831,4 +4832,125 @@ input.error {
 
 .nav-link:hover {
   color: var(--primary);
+}
+/* Verbeterde header en navigatiebalk styling */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+/* Desktop navigatielinks verbetering */
+.nav-list {
+  gap: 2.5rem !important; /* Meer ruimte tussen links */
+}
+
+.nav-link {
+  padding: 0.75rem 0.5rem !important; /* Meer padding rond links */
+}
+
+/* Hero aanpassing om ruimte onder header toe te voegen */
+.hero {
+  position: relative;
+  padding: 6rem 0 4rem; 
+  overflow: hidden;
+  margin-top: 110px; /* Verhoogd om meer ruimte onder de header te maken */
+}
+
+/* Mobiele navigatie verbeteringen */
+@media (max-width: 991px) {
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: white;
+    padding: 60px 0 2rem; /* Minder padding aan bovenkant */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateX(100%);
+    z-index: 1000;
+    overflow-y: auto;
+    max-width: 85vw;
+  }
+  
+  .main-nav.active {
+    transform: translateX(0);
+  }
+    .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 2rem;
+    gap: 0;
+    width: 100%;
+    margin-top: -20px; /* Verder vermindert de ruimte boven de menu-items */
+  }
+    .mobile-menu-toggle {
+    z-index: 1001;
+    margin-bottom: 5px; /* Voeg een kleine ruimte toe onder de hamburger-knop */
+  }
+}
+
+/* Verbeteringen voor kleinere mobiele schermen */
+@media (max-width: 767px) {
+  .header {
+    padding: 0.75rem 0;
+  }
+  
+  .nav-list {
+    padding: 0 1.5rem;
+    margin-top: 0; /* Nog minder ruimte voor kleinere schermen */
+  }
+    .nav-link {
+    padding: 0.85rem 0; /* Iets minder padding voor beter ruimtegebruik */
+    font-size: 1.15rem;
+    width: 100%;
+    display: block;
+    text-align: left;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+    /* Centreren van sociale media icons op mobiel */
+  .footer-social {
+    justify-content: center !important;
+  }
+  
+  /* Centreren van contact sociale media sectie */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+/* Extra verbeteringen voor zeer kleine mobiele schermen */
+@media (max-width: 575px) {
+  /* Behoud centrering van sociale media op zeer kleine schermen */
+  .footer-social {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  .contact-socials {
+    text-align: center;
+  }
+  
+  .contact-socials h4 {
+    text-align: center;
+  }
+  
+  /* Verbeterde spacing voor social icons */
+  .social-icons {
+    margin-top: 10px;
+  }
 }
