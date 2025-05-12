@@ -182,7 +182,7 @@ Verminkte Congolese kinderen
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-# 🌍 Hoofstuk 6 - Studie 1 - Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
+# 🌍 Hoofdstuk 6 - Studie 1 - Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
 
 ## 📅 Tijdlijn 
 - **Belle Époque**: 1870-1914 (periode van culturele bloei en vrede in Europa)
