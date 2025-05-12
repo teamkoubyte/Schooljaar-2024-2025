@@ -60,13 +60,3 @@
 | **Kroondomein** | Persoonlijk domein van Leopold II, vooral voor rubberontginning |
 
 ---
-
-## 📌 Conclusie
-
-De Congo-Vrijstaat onder Leopold II was een periode van brute uitbuiting, vermomd als beschaving en wetenschappelijk onderzoek. De ware aard – economisch gewin ten koste van de Congolese bevolking – leidde uiteindelijk tot wereldwijde verontwaardiging en een politieke overname door België.
-
-> ⚠️ **Een donkere bladzijde in de koloniale geschiedenis van Europa.**
-
----
-
-🛑 *Laten we blijven herinneren, reflecteren en onderwijzen.*

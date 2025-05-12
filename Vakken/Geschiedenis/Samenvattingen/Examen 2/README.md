@@ -180,14 +180,6 @@ Verminkte Congolese kinderen
 | **Concessies** | Verhuur van Congolese grond aan bedrijven |
 | **Kroondomein** | Persoonlijk domein van Leopold II, vooral voor rubberontginning |
 
----
-
-## 📌 Conclusie
-
-De Congo-Vrijstaat onder Leopold II was een periode van brute uitbuiting, vermomd als beschaving en wetenschappelijk onderzoek. De ware aard – economisch gewin ten koste van de Congolese bevolking – leidde uiteindelijk tot wereldwijde verontwaardiging en een politieke overname door België.
-
-> ⚠️ **Een donkere bladzijde in de koloniale geschiedenis van Europa.**
-
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 # 🌍 Hoofstuk 6 - Studie 1 - Oorzaken en Aanleiding voor de Eerste Wereldoorlog 
@@ -255,5 +247,4 @@ De Congo-Vrijstaat onder Leopold II was een periode van brute uitbuiting, vermom
    - Sneeuwbaleffect door allianties
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-
 
