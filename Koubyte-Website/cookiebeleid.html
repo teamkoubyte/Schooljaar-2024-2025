@@ -22,8 +22,7 @@
   <!-- Leaflet CSS voor kaart -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
 </head>
-<body>
-  <!-- Header -->
+<body>  <!-- Header -->
   <header class="header">
     <div class="container">
       <div class="logo-container">
@@ -33,7 +32,7 @@
       </div>
       
       <nav class="main-nav">
-        <ul class="nav-list">
+        <ul class="nav-list" id="navLinks">
           <li><a href="index.html#diensten" class="nav-link">Diensten</a></li>
           <li><a href="index.html#pakketten" class="nav-link">Pakketten</a></li>
           <li><a href="index.html#over-mij" class="nav-link">Over Mij</a></li>
@@ -41,8 +40,7 @@
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      
-      <button class="mobile-menu-toggle" aria-label="Menu openen">
+        <button class="mobile-menu-toggle" id="hamburger" aria-label="Menu openen" aria-expanded="false" aria-controls="navLinks">
         <span class="hamburger"></span>
       </button>
     </div>
@@ -129,78 +127,76 @@
           <p>Dit cookiebeleid is opgesteld in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG), de ePrivacy Richtlijn en andere toepasselijke Belgische en Europese wetgeving inzake gegevensbescherming.</p>
         </div>
       </div>
-    </div>
+  </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer cyber-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo" data-aos="fade-right">
-          <span class="logo-text">Kou<span class="accent">byte</span></span>
-          <p class="footer-tagline">IT-oplossingen die werken voor jou</p>
-          
-          <div class="cyber-trust-badges">
-            <div class="trust-badge">
-              <i class="fas fa-certificate"></i>
-              <span>Gecertificeerd</span>
-            </div>
-            <div class="trust-badge">
-              <i class="fas fa-shield-alt"></i>
-              <span>Betrouwbaar</span>
-            </div>
-            <div class="trust-badge">
-              <i class="fas fa-hand-holding-heart"></i>
-              <span>Persoonlijk</span>
+  <!-- Nieuwe Footer -->
+  <footer class="modern-footer">
+    <div class="footer-main">
+      <div class="footer-container">
+        <div class="footer-grid">          <!-- Bedrijfsinfo kolom -->          <div class="footer-company-info">
+            <a href="index.html" class="footer-logo" data-aos="fade-right">
+              Kou<span class="accent">byte</span>
+            </a><p class="footer-company-desc">Persoonlijke IT & Web oplossingen in Mechelen. Jouw digitale problemen, mijn passie!</p><div class="footer-social">
+              <a href="https://www.facebook.com/people/Koubyte/61576324675690/" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="X"><i class="fab fa-x"></i></a>
+              <a href="https://linkedin.com/in/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://instagram.com/koubyte" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
           </div>
-        </div>
-        
-        <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
-          <div class="footer-links-column">
-            <h3 class="footer-links-title">Diensten</h3>
-            <ul class="footer-links-list">
-              <li><a href="services/it-helpdesk.html">IT Helpdesk</a></li>
-              <li><a href="services/webontwikkeling.html">Webontwikkeling</a></li>
-              <li><a href="services/cyberbeveiliging.html">Cyberbeveiliging</a></li>
+          
+          <!-- Diensten kolom -->
+          <div class="footer-links-block">
+            <h4 class="footer-title">Diensten</h4>
+            <ul class="footer-links">
+              <li><a href="services/it-helpdesk.html"><i class="fas fa-angle-right"></i> IT Helpdesk</a></li>
+              <li><a href="services/webontwikkeling.html"><i class="fas fa-angle-right"></i> Webontwikkeling</a></li>
+              <li><a href="services/cyberbeveiliging.html"><i class="fas fa-angle-right"></i> Cyberbeveiliging</a></li>
+              <li><a href="index.html#pakketten"><i class="fas fa-angle-right"></i> Service pakketten</a></li>
             </ul>
           </div>
           
-          <div class="footer-links-column">
-            <h3 class="footer-links-title">Bedrijf</h3>
-            <ul class="footer-links-list">
-              <li><a href="index.html#over-mij">Over Mij</a></li>
-              <li><a href="index.html#contact">Contact</a></li>
-              <li><a href="privacybeleid.html">Privacybeleid</a></li>
-              <li><a href="voorwaarden.html">Algemene Voorwaarden</a></li>
+          <!-- Support kolom -->
+          <div class="footer-links-block">
+            <h4 class="footer-title">Support</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#afspraak"><i class="fas fa-angle-right"></i> Afspraak maken</a></li>
+              <li><a href="index.html#faq"><i class="fas fa-angle-right"></i> Veelgestelde vragen</a></li>
+              <li><a href="voorwaarden.html"><i class="fas fa-angle-right"></i> Algemene voorwaarden</a></li>
+              <li><a href="privacybeleid.html"><i class="fas fa-angle-right"></i> Privacybeleid</a></li>
             </ul>
           </div>
           
-          <div class="footer-links-column">
-            <h3 class="footer-links-title">Contact</h3>
-            <ul class="footer-contact-list">
+          <!-- Contact kolom -->
+          <div class="footer-contact-block">
+            <h4 class="footer-title">Contact Info</h4>
+            <ul class="footer-contact-info">
               <li><i class="fas fa-map-marker-alt"></i> Mechelen, België</li>
               <li><i class="fas fa-phone"></i> <a href="tel:+32484522662">+32 484 52 26 62</a></li>
               <li><i class="fas fa-envelope"></i> <a href="mailto:info@koubyte.be">info@koubyte.be</a></li>
+              <li class="availability"><i class="fas fa-clock"></i> Bereikbaar: Ma-Vr: 9:00 - 18:00</li>
             </ul>
             
             <div class="footer-newsletter">
-              <h4>Blijf op de hoogte</h4>
-              <p>Ontvang IT tips en updates</p>
+              <h4 class="footer-title">Nieuwsbrief</h4>
               <form class="newsletter-form">
-                <input type="email" placeholder="Uw e-mailadres" required>
+                <input type="email" placeholder="E-mailadres">
                 <button type="submit"><i class="fas fa-paper-plane"></i></button>
               </form>
             </div>
           </div>
         </div>
       </div>
-      
-      <div class="footer-bottom" data-aos="fade-up" data-aos-delay="200">
-        <p class="copyright">&copy; 2025 Koubyte. Alle rechten voorbehouden.</p>        <div class="social-links">          <a href="https://facebook.com/koubyte" target="_blank" rel="noopener" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://x.com/koubyte" target="_blank" rel="noopener" aria-label="X" class="social-link"><i class="fab fa-x"></i></a>
-          <a href="https://linkedin.com/in/koubyte" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://instagram.com/koubyte" target="_blank" rel="noopener" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-container">
+        <div class="footer-copyright">
+          <p>&copy; 2024 Koubyte. Alle rechten voorbehouden.</p>
+        </div>        <div class="footer-bottom-links">
+          <a href="privacybeleid.html"><i class="fas fa-angle-right"></i> Privacy</a>
+          <a href="voorwaarden.html"><i class="fas fa-angle-right"></i> Voorwaarden</a>
+          <a href="cookiebeleid.html"><i class="fas fa-angle-right"></i> Cookie-beleid</a>
         </div>
       </div>
     </div>
@@ -208,10 +204,10 @@
   
   <!-- Back To Top Button -->
   <a href="#" class="back-to-top" aria-label="Terug naar boven">
-    <i class="fas fa-arrow-up"></i>
+    <i class="fas fa-chevron-up"></i>
   </a>
 
   <!-- JavaScript -->
   <script src="assets/js/main.js"></script>
 </body>
-</html> 
+</html>
