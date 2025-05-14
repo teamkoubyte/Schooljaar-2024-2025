@@ -1,9 +1,10 @@
 <?php
-include "connectie.php";
+include "connect.php";
 
-$sql = "select * from leerlingen" ;
+$sql = "SELECT * FROM leerlingen";
 $resultaat = $mysqli->query($sql);
-echo "<table>";
+echo "<table border='1'>";
+echo "<tr><th>ID</th><th>Telefoonnummer</th><th>Voornaam</th><th>Naam</th><th>Straat</th><th>Postcode</th><th>Plaats</th><th>Geboortedatum</th><th colspan='2'>Acties</th></tr>";
 while ($row = $resultaat->fetch_assoc()) {
     echo "<tr><td>". $row['id'] ."</td>
     <td>". $row['telefoonnummer'] ."</td>
@@ -13,9 +14,10 @@ while ($row = $resultaat->fetch_assoc()) {
     <td>". $row['postcode'] . "</td>
     <td>". $row['plaats'] . "</td>
     <td>". $row['geboortedatum'] . "</td>
-    <td><a href=wis.php?tewissen=" . $row['id'].">Wissen</a></td><td>
-    <a href=wijzig.php?teveranderen". $row['id'].">Wijzigen</a></td></tr>";
+    <td><a href='wis.php?teVerwijderen=" . $row['id']."'>Wissen</a></td>
+    <td><a href='wijzig.php?teWijzigen=" . $row['id']."'>Wijzigen</a></td></tr>";
 }
+
 echo "</table>";
 print "<a href=toevoegen.php>Voeg een record toe</a>";
 ?>

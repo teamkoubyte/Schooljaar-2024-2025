@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # PHP en Apache webserver
+  webserver:
+    build: .
+    ports:
+      - "8080:80"  # Poort 8080 op je computer wordt verbonden met poort 80 in de container
+    volumes:
+      - ./src:/var/www/html  # Koppelt de src map aan de webserver map
+    depends_on:
+      - db
+    networks:
+      - php-network
+
+  # MySQL database server
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootwachtwoord
+      MYSQL_DATABASE: phpdatabase
+      MYSQL_USER: phpuser
+      MYSQL_PASSWORD: phpwachtwoord
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - php-network
+
+  # PHPMyAdmin voor database beheer (optioneel maar handig)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootwachtwoord
+    depends_on:
+      - db
+    networks:
+      - php-network
+
+networks:
+  php-network:
+
+volumes:
+  mysql-data:
