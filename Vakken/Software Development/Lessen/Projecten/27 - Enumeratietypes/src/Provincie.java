@@ -1,0 +1,12 @@
+public enum Provincie {
+    ANTWERPEN,
+    LIMBURG,
+    OOST_VLAANDEREN,
+    VLAAMS_BRABANT,
+    WEST_VLAANDEREN,
+    HENEGOUWEN,
+    LUIK,
+    WAALS_BRABANT,
+    LUXEMBURG,
+    NAMEN
+}
