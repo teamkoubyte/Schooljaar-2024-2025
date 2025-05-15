@@ -1,65 +1,51 @@
 public class Main {
     public static void main(String[] args) {
-        boolean[][] aanwezigheidsMatrix = {
-                {true, true, false, true},
-                {false, true, false, false},
-                {false, true, false, true},
-                {false, true, false, false},
-                {false, true, false, true},
-        };
+        boolean[][] aanwezigheidsMatrix = {{true, true, false, true}, {false, true, false, false}, {false, true, false, true}, {false, true, false, false}, {false, true, false, true},};
         boolean[][] legeAanwezigheidsMatrix = {};
         System.out.println(berekenAantalAfwezigheden(aanwezigheidsMatrix));
         System.out.println(berekenAantalAfwezigheden(legeAanwezigheidsMatrix));
-        System.out.println(berekenAantalAfwezighedenOpDag
-                (aanwezigheidsMatrix, 2));
-        System.out.println(berekenAantalAfwezighedenOpDag
-                (legeAanwezigheidsMatrix, 2));
+        System.out.println(berekenAantalAfwezighedenOpDag(aanwezigheidsMatrix, 2));
+        System.out.println(berekenAantalAfwezighedenOpDag(legeAanwezigheidsMatrix, 2));
         System.out.println(berekenAantalAfwezighedenVoorLeerling(aanwezigheidsMatrix, 2));
     }
 
-    public static int berekenAantalAfwezigheden (boolean[][] aanwezigheidsMatrix) {
+    public static int berekenAantalAfwezigheden(boolean[][] aanwezigheidsMatrix) {
         int aantal = 0;
         boolean element;
 
-        for (int rijTeller = 0;rijTeller < aanwezigheidsMatrix.length;rijTeller++) {
-            for (int kolomTeller = 0;
-                 kolomTeller < aanwezigheidsMatrix[rijTeller].length;
-                 kolomTeller++) {
+        for (int rijTeller = 0; rijTeller < aanwezigheidsMatrix.length; rijTeller++) {
+            for (int kolomTeller = 0; kolomTeller < aanwezigheidsMatrix[rijTeller].length; kolomTeller++) {
                 element = aanwezigheidsMatrix[rijTeller][kolomTeller];
                 if (!element) {
                     aantal++;
                 }
             }
         }
-        return(aantal);
+        return (aantal);
     }
 
-    public static Integer berekenAantalAfwezighedenOpDag
-            (boolean[][] aanwezighedenMatrix,
-             int dagNummer) {
+    public static Integer berekenAantalAfwezighedenOpDag(boolean[][] aanwezighedenMatrix, int dagNummer) {
         int aantal = 0;
         boolean element;
 
         if (dagNummer >= aanwezighedenMatrix.length) {
-            return(null);
+            return (null);
         }
-        for (int kolomTeller = 0;
-             kolomTeller < aanwezighedenMatrix[dagNummer].length;
-             kolomTeller++) {
+        for (int kolomTeller = 0; kolomTeller < aanwezighedenMatrix[dagNummer].length; kolomTeller++) {
             element = aanwezighedenMatrix[dagNummer][kolomTeller];
             if (!element) {
                 aantal++;
             }
         }
-        return(aantal);
+        return (aantal);
     }
 
-    public static Integer berekenAantalAfwezighedenVoorLeerling (boolean[][] aanwezighedenMatrix, int leerlingNummer) {
+    public static Integer berekenAantalAfwezighedenVoorLeerling(boolean[][] aanwezighedenMatrix, int leerlingNummer) {
         boolean element;
         int aantalAfwezigheden = 0;
 
         if (leerlingNummer >= aanwezighedenMatrix.length) {
-            return(null);
+            return (null);
         }
 
         for (int rijTeller = 0; rijTeller < aanwezighedenMatrix.length; rijTeller++) {
@@ -69,6 +55,19 @@ public class Main {
             }
         }
         return aantalAfwezigheden;
+    }
+
+    public static int berekenGemiddeldAantalAfwezihedenOverAlleDagen(boolean[][] aanwezighedenMatrix) {
+        int aantalAfwezigheden = 0;
+        int aantalDagen = aanwezighedenMatrix.length;
+        for (int rijTeller = 0; rijTeller < aantalDagen; rijTeller++) {
+            for (int kolomTeller = 0; kolomTeller < aanwezighedenMatrix[rijTeller].length; kolomTeller++) {
+                if (!aanwezighedenMatrix[rijTeller][kolomTeller]) {
+                    aantalAfwezigheden++;
+                }
+            }
+        }
+        return (aantalAfwezigheden / aantalDagen);
     }
 }
 
