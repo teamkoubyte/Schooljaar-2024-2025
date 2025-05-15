@@ -14,6 +14,7 @@ public class Main {
                 (aanwezigheidsMatrix, 2));
         System.out.println(berekenAantalAfwezighedenOpDag
                 (legeAanwezigheidsMatrix, 2));
+        System.out.println(berekenAantalAfwezighedenVoorLeerling(aanwezigheidsMatrix, 2));
     }
 
     public static int berekenAantalAfwezigheden (boolean[][] aanwezigheidsMatrix) {
@@ -51,6 +52,23 @@ public class Main {
             }
         }
         return(aantal);
+    }
+
+    public static Integer berekenAantalAfwezighedenVoorLeerling (boolean[][] aanwezighedenMatrix, int leerlingNummer) {
+        boolean element;
+        int aantalAfwezigheden = 0;
+
+        if (leerlingNummer >= aanwezighedenMatrix.length) {
+            return(null);
+        }
+
+        for (int rijTeller = 0; rijTeller < aanwezighedenMatrix.length; rijTeller++) {
+            element = aanwezighedenMatrix[rijTeller][leerlingNummer];
+            if (!element) {
+                aantalAfwezigheden++;
+            }
+        }
+        return aantalAfwezigheden;
     }
 }
 
