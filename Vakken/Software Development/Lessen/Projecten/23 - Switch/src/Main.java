@@ -1,23 +1,43 @@
+
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-     Scanner toetsenbord = new Scanner(System.in);
+        Scanner toetsenbord = new Scanner(System.in);
 
+        String stad, provincie;
+        System.out.print("Geef een stad: ");
+        stad = toetsenbord.nextLine().trim();
 
-
-     for (int teller = 0; teller < stad.length() / 2; teller ++) {
-         karakter = stad.charAt(teller);
-         System.out.print(karakter);
-     }
-
-     System.out.println("*** Toon de tweede helft van de string ***");
-     for (int teller = stad.length() / 2; teller < stad.length(); teller++) {
-         karakter = stad.charAt(teller);
-         System.out.print(karakter);
-     }
-
-        System.out.println();
+        switch (stad.toUpperCase()) {
+            case "MECHELEN" , "ANTWERPEN":
+                provincie = "Antwerpen";
+                break;
+            case "LEUVEN" , "AARSCHOT":
+                provincie = "Vlaams-Brabant";
+                break;
+            case "GENT":
+                provincie = "Oost-Vlaanderen";
+                break;
+            case "OOSTENDE", "BRUGGE":
+                provincie = "West-Vlaanderen";
+                break;
+            case "CHARLEROI":
+                provincie = "Henegouwen";
+                break;
+            case "WAVER":
+                provincie = "Waals-Brabant";
+                break;
+            default:
+                provincie = "";
+        }
+        if (provincie.isEmpty()) {
+            System.out.println("De provincie is niet gekend voor de stad " + stad + ".");
+        } else {
+            System.out.println((stad + " ligt in de provincie " + provincie + "."));
+        }
 
     }
 }
+
