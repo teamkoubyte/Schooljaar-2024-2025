@@ -57,9 +57,9 @@ public class Main {
         return aantalAfwezigheden;
     }
 
-    public static int berekenGemiddeldAantalAfwezihedenOverAlleDagen(boolean[][] aanwezighedenMatrix) {
-        int aantalAfwezigheden = 0;
-        int aantalDagen = aanwezighedenMatrix.length;
+    public static double berekenGemiddeldAantalAfwezihedenOverAlleDagen(boolean[][] aanwezighedenMatrix) {
+        double aantalAfwezigheden = 0;
+        double aantalDagen = aanwezighedenMatrix.length;
         for (int rijTeller = 0; rijTeller < aantalDagen; rijTeller++) {
             for (int kolomTeller = 0; kolomTeller < aanwezighedenMatrix[rijTeller].length; kolomTeller++) {
                 if (!aanwezighedenMatrix[rijTeller][kolomTeller]) {
