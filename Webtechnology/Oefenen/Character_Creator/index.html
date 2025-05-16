@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eenvoudige Character Creator</title>
+    <link rel="stylesheet" href="style.css"></head>
+<body>
+    <div class="container">
+        <h1>Mijn Character Creator</h1>
+        
+        <div class="character-container">
+            <div class="character-card">
+                <div class="character-preview">
+                    <!-- Gebruik een eenvoudige gekleurde div als avatar -->
+                    <div id="avatar" class="character-image"></div>
+                    <h3 id="character-name">Naam</h3>
+                </div>
+                
+                <div class="character-form">
+                    <div class="form-group">
+                        <label for="name">Naam:</label>
+                        <input type="text" id="name" placeholder="Voer naam in">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-type">Type:</label>
+                        <select id="character-type">
+                            <option value="warrior">Krijger</option>
+                            <option value="mage">Tovenaar</option>
+                            <option value="archer">Boogschutter</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="level">Level:</label>
+                        <input type="number" id="level" min="1" max="100" value="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Vaardigheden:</label>
+                        <div class="skills">
+                            <div class="stat">
+                                <div class="stat-value">
+                                    <label for="strength">Kracht:</label>
+                                    <span id="strength-value">5</span>
+                                </div>
+                                <input type="range" id="strength" min="1" max="10" value="5">
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">
+                                    <label for="speed">Snelheid:</label>
+                                    <span id="speed-value">5</span>
+                                </div>
+                                <input type="range" id="speed" min="1" max="10" value="5">
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">
+                                    <label for="intelligence">Intelligentie:</label>
+                                    <span id="intelligence-value">5</span>
+                                </div>
+                                <input type="range" id="intelligence" min="1" max="10" value="5">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="create-button">Maak Character</button>
+                </div>
+            </div>
+            
+            <div id="result" class="stats-card hidden">
+                <h3>Jouw Character Info</h3>
+                <div class="character-stats">
+                    <div class="stat">
+                        <div class="stat-value">
+                            <span>Naam:</span>
+                            <span id="result-name"></span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">
+                            <span>Type:</span>
+                            <span id="result-type"></span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">
+                            <span>Level:</span>
+                            <span id="result-level"></span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">
+                            <span>Kracht:</span>
+                            <span id="result-strength"></span>
+                        </div>
+                        <div class="stat-bar">
+                            <div id="strength-bar" class="stat-fill"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">
+                            <span>Snelheid:</span>
+                            <span id="result-speed"></span>
+                        </div>
+                        <div class="stat-bar">
+                            <div id="speed-bar" class="stat-fill"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">
+                            <span>Intelligentie:</span>
+                            <span id="result-intelligence"></span>
+                        </div>
+                        <div class="stat-bar">
+                            <div id="intelligence-bar" class="stat-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">    </script>
+</body>
+</html>
