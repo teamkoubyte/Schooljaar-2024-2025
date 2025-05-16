@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: purple;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    max-width: 600px;
+
+}
+
+nav li {
+    color: white;
+    font-size: 1.2em;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    display: inline-block;
+}
+
+#hamburger {
+    justify-content: center;
+}
+
+#pizza {
+    justify-content: center;
+}
+
+#taco {
+    justify-content: center;
+}
+
+img {
+    width: 30%;
+    max-width: 300px;
+}
+
+@media screen and (orientation: portrait) {
+    img {
+        width: 100%;
+        border-radius: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+     #pizza, #taco  {
+        display: none;
+     }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px)  {
+    #hamburger, #taco {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+     #pizza, #hamburger  {
+        display: none;
+     }
+}
