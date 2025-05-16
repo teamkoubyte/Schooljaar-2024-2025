@@ -58,16 +58,12 @@ public class Main {
     }
 
     public static double berekenGemiddeldAantalAfwezihedenOverAlleDagen(boolean[][] aanwezighedenMatrix) {
-        double aantalAfwezigheden = 0;
-        double aantalDagen = aanwezighedenMatrix.length;
-        for (int rijTeller = 0; rijTeller < aantalDagen; rijTeller++) {
-            for (int kolomTeller = 0; kolomTeller < aanwezighedenMatrix[rijTeller].length; kolomTeller++) {
-                if (!aanwezighedenMatrix[rijTeller][kolomTeller]) {
-                    aantalAfwezigheden++;
-                }
-            }
+        int som = 0;
+
+        for (int dagTeller = 0; dagTeller < aanwezighedenMatrix.length; dagTeller++) {
+            som += berekenAantalAfwezighedenOpDag(aanwezighedenMatrix, dagTeller);
         }
-        return (aantalAfwezigheden / aantalDagen);
+        return (som / aanwezighedenMatrix.length);
     }
 }
 
