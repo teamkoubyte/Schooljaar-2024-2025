@@ -12,11 +12,12 @@ services:
       - db
     networks:
       - php-network
+
   # MySQL database server
   db:
     image: mysql:8.0
     ports:
-      - "3307:3306"  # Poort 3307 op je computer wordt verbonden met poort 3306 in de container
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: rootwachtwoord
       MYSQL_DATABASE: phpdatabase

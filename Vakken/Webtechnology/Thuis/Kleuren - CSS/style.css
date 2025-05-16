@@ -1,0 +1,19 @@
+body {
+    background-color: #545454;
+}
+
+#p1 {
+    color: rgb(255, 99, 71);
+}
+
+#p2 {
+    color: rgb(102, 222, 255);
+}
+
+#p3 {
+    color: #59FF5F;
+}
+
+#p4 {
+    color: hsl(283, 100%, 64%);
+}
