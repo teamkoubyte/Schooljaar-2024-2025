@@ -11,15 +11,36 @@ if(isset($_POST['veranderen'])){
     $postcode = $_POST['postcode'];
     $plaats = $_POST['plaats'];
     $geboortedatum = $_POST['geboortedatum'];
-    $sql = "UPDATE leerlingen SET telefoonnummer = '$telefoonnummer', voornaam = '$voornaam', naam = '$naam', straat = '$straat', postcode = '$postcode', plaats = '$plaats', geboortedatum = '$geboortedatum' WHERE id = $id";
+    
+    $checkSql = "SELECT * FROM postcodes WHERE postcode = '$postcode'";
+    $checkResult = $mysqli->query($checkSql);
+    
+    if ($checkResult->num_rows == 0) {
+        $insertPostcode = "INSERT INTO postcodes (postcode, plaats) VALUES ('$postcode', '$plaats')";
+        if (!$mysqli->query($insertPostcode)){
+            echo "ERROR bij toevoegen postcode: " . $mysqli->error;
+            exit;
+        }
+    } else {
+        $postcodeRij = $checkResult->fetch_assoc();
+        if ($postcodeRij['plaats'] != $plaats) {
+            $updatePlaats = "UPDATE postcodes SET plaats = '$plaats' WHERE postcode = '$postcode'";
+            if (!$mysqli->query($updatePlaats)){
+                echo "ERROR bij bijwerken plaats: " . $mysqli->error;
+                exit;
+            }
+        }
+    }
+    
     if($mysqli->query($sql)){
         echo "Record is gewijzigd";
     } else {
         echo "ERROR: " . $mysqli->error;
     }
     print "<br><a href='index.php'>Terug naar overzicht</a>";
-}   else {
-    $sql = "SELECT * FROM leerlingen WHERE id = " . $_GET['teWijzigen'];
+}   else {    $sql = "SELECT leerlingen.*, postcodes.plaats FROM leerlingen 
+            JOIN postcodes ON leerlingen.postcode = postcodes.postcode
+            WHERE leerlingen.id = " . $_GET['teWijzigen'];
     $resultaat = $mysqli->query($sql);
     $row = $resultaat->fetch_assoc();
     echo '<table>

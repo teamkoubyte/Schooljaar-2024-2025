@@ -1,5 +1,5 @@
-CREATE DATABASE klas;
-USE klas;
+CREATE DATABASE klas1;
+USE klas1;
 
 CREATE TABLE leerlingen (
     id INT AUTO_INCREMENT PRIMARY KEY,
