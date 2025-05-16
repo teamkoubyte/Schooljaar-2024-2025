@@ -24,4 +24,4 @@ VALUES
 ('0479123456', 'Sara', 'Mertens', 'Haverwerf 6', '2800', 'Mechelen', '2001-11-08'),
 ('0488123456', 'Bart', 'Jacobs', 'Vismarkt 9', '2800', 'Mechelen', '2000-12-30'),
 ('0477123456', 'Emma', 'Willems', 'Schuttersvest 25', '2800', 'Mechelen', '2004-06-18'),
-('0476123456', 'Liam', 'Dupont', 'Kerkstraat 12', '2800', 'Mechelen', '2000-01-01'),
+('0476123456', 'Liam', 'Dupont', 'Kerkstraat 12', '2800', 'Mechelen', '2000-01-01');

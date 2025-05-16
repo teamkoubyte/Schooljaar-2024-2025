@@ -7,6 +7,7 @@ public class Main {
         System.out.println(berekenAantalAfwezighedenOpDag(aanwezigheidsMatrix, 2));
         System.out.println(berekenAantalAfwezighedenOpDag(legeAanwezigheidsMatrix, 2));
         System.out.println(berekenAantalAfwezighedenVoorLeerling(aanwezigheidsMatrix, 2));
+        System.out.println(berekenGemiddeldAantalAfwezihedenOverAlleDagen(aanwezigheidsMatrix));
     }
 
     public static int berekenAantalAfwezigheden(boolean[][] aanwezigheidsMatrix) {
@@ -63,7 +64,7 @@ public class Main {
         for (int dagTeller = 0; dagTeller < aanwezighedenMatrix.length; dagTeller++) {
             som += berekenAantalAfwezighedenOpDag(aanwezighedenMatrix, dagTeller);
         }
-        return (som / aanwezighedenMatrix.length);
+        return ((double) som / (double) aanwezighedenMatrix.length);
     }
 }
 
