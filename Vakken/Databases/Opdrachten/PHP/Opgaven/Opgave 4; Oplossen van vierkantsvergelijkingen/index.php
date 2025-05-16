@@ -38,7 +38,6 @@ if ($a !== null && $b !== null && $c !== null) {
     <!DOCTYPE html>
     <html>
     <head><title>Vierkantsvergelijkingen oplossen</title>
-    <link rel="stylesheet" href="style.css">    
     </head>
     <body>
         <h1>Vierkantsvergelijkingen oplossen</h1>
