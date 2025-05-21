@@ -1,6 +1,17 @@
 <?php
 include "connect.php";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leerlingen Overzicht</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Leerlingen Overzicht</h1>
 
+<?php
 $sql = "SELECT leerlingen.id, leerlingen.telefoonnummer, leerlingen.voornaam, leerlingen.naam, 
        leerlingen.straat, leerlingen.postcode, postcodes.plaats, leerlingen.geboortedatum 
        FROM leerlingen
@@ -27,8 +38,10 @@ if (!$resultaat) {
         <td><a href='wis.php?teVerwijderen=" . $row['id']."'>Wissen</a></td>
         <td><a href='wijzig.php?teWijzigen=" . $row['id']."'>Wijzigen</a></td></tr>";
     }
-    
-    echo "</table>";
+      echo "</table>";
     echo "<p><a href='toevoegen.php'>Voeg een record toe</a></p>";
 }
 ?>
+
+</body>
+</html>

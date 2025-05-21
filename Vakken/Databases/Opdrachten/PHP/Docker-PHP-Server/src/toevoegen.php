@@ -1,8 +1,62 @@
 <?php
 include "connect.php";
-echo "<h1>Record Toevoegen</h1>";
-
-if(isset($_POST['toevoegen'])){
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record Toevoegen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Record Toevoegen</h1>
+    
+<?php
+// Stap 1: Controleer of een postcode bestaat
+if(isset($_POST['controleer_postcode'])) {
+    $postcode = $_POST['postcode'];
+    
+    // Check of de postcode al bestaat in de database
+    $check_sql = "SELECT * FROM postcodes WHERE postcode = '$postcode'";
+    $check_result = $mysqli->query($check_sql);
+    
+    if ($check_result->num_rows > 0) {
+        // Postcode bestaat, haal de plaats op
+        $row = $check_result->fetch_assoc();
+        $plaats = $row['plaats'];
+        
+        // Toon het volledige formulier met de gevonden plaats
+        echo '<table>
+            <form action="toevoegen.php" method="post">
+            <tr><td>Telefoonnummer</td> <td><input type="text" name="telefoonnummer"></td></tr>
+            <tr><td>Voornaam</td> <td><input type="text" name="voornaam"></td></tr>
+            <tr><td>Naam</td> <td><input type="text" name="naam"></td></tr>
+            <tr><td>Straat</td> <td><input type="text" name="straat"></td></tr>
+            <tr><td>Postcode</td> <td><input type="text" name="postcode" value="' . $postcode . '" readonly></td></tr>
+            <tr><td>Plaats</td> <td><input type="text" name="plaats" value="' . $plaats . '" readonly></td></tr>
+            <tr><td>Geboortedatum</td><td><input type="date" name="geboortedatum"></td></tr>
+            <tr><td colspan="2"><input type="submit" name="toevoegen" value="Record toevoegen"></td></tr>
+            </form>
+            </table>';
+    } else {
+        // Postcode bestaat niet, vraag om plaatsnaam
+        echo '<p><strong>Deze postcode bestaat nog niet in het systeem. Vul a.u.b. de plaatsnaam in:</strong></p>';
+        echo '<table>
+            <form action="toevoegen.php" method="post">
+            <tr><td>Telefoonnummer</td> <td><input type="text" name="telefoonnummer" value="' . (isset($_POST['telefoonnummer']) ? $_POST['telefoonnummer'] : '') . '"></td></tr>
+            <tr><td>Voornaam</td> <td><input type="text" name="voornaam" value="' . (isset($_POST['voornaam']) ? $_POST['voornaam'] : '') . '"></td></tr>
+            <tr><td>Naam</td> <td><input type="text" name="naam" value="' . (isset($_POST['naam']) ? $_POST['naam'] : '') . '"></td></tr>
+            <tr><td>Straat</td> <td><input type="text" name="straat" value="' . (isset($_POST['straat']) ? $_POST['straat'] : '') . '"></td></tr>
+            <tr><td>Postcode</td> <td><input type="text" name="postcode" value="' . $postcode . '" readonly></td></tr>
+            <tr><td>Plaats</td> <td><input type="text" name="plaats" required></td></tr>
+            <tr><td>Geboortedatum</td><td><input type="date" name="geboortedatum" value="' . (isset($_POST['geboortedatum']) ? $_POST['geboortedatum'] : '') . '"></td></tr>
+            <tr><td colspan="2"><input type="submit" name="toevoegen" value="Record toevoegen"></td></tr>
+            </form>
+            </table>';
+    }
+}
+// Stap 2: Verwerk het toevoegen van een nieuw record
+else if(isset($_POST['toevoegen'])){
     $telefoonnummer = $_POST['telefoonnummer'];
     $voornaam = $_POST['voornaam'];
     $naam = $_POST['naam'];
@@ -26,23 +80,29 @@ if(isset($_POST['toevoegen'])){
 
     if($mysqli->query($leerling_sql)){
         echo "Record is toegevoegd";
+        echo "<p><a href='index.php'>Terug naar overzicht</a></p>";
     } else {
         echo "Fout bij toevoegen leerling: " . $mysqli->error;
+        echo "<p><a href='toevoegen.php'>Probeer opnieuw</a></p>";
     }
 }
-
-echo '<table>
-    <form action="toevoegen.php" method="post">
-    <tr><td>Telefoonnummer</td> <td><input type="text" name="telefoonnummer"></td></tr>
-    <tr><td>Voornaam</td> <td><input type="text" name="voornaam"></td></tr>
-    <tr><td>Naam</td> <td><input type="text" name="naam"></td></tr>
-    <tr><td>Straat</td> <td><input type="text" name="straat"></td></tr>
-    <tr><td>Postcode</td> <td><input type="text" name="postcode"></td></tr>
-    <tr><td>Plaats</td> <td><input type="text" name="plaats"></td></tr>
-    <tr><td>Geboortedatum</td><td><input type="date" name="geboortedatum"></td></tr>
-    <tr><td colspan="2"><input type="submit" name="toevoegen" value="Record toevoegen"></td></tr>
-    </form>
-    </table>';
+// Stap 0: Toon het eerste formulier om postcode te controleren
+else {
+    echo '<table>
+        <form action="toevoegen.php" method="post">
+        <tr><td>Telefoonnummer</td> <td><input type="text" name="telefoonnummer"></td></tr>
+        <tr><td>Voornaam</td> <td><input type="text" name="voornaam"></td></tr>
+        <tr><td>Naam</td> <td><input type="text" name="naam"></td></tr>
+        <tr><td>Straat</td> <td><input type="text" name="straat"></td></tr>
+        <tr><td>Postcode</td> <td><input type="text" name="postcode"></td></tr>
+        <tr><td>Geboortedatum</td><td><input type="date" name="geboortedatum"></td></tr>
+        <tr><td colspan="2"><input type="submit" name="controleer_postcode" value="Voeg toe"></td></tr>
+        </form>
+        </table>';
+}    
 
 echo "<p><a href='index.php'>Terug naar overzicht</a></p>";
 ?>
+
+</body>
+</html>

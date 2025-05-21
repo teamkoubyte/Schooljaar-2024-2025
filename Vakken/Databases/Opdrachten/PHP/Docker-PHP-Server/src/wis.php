@@ -1,7 +1,17 @@
 <?php
 include "connect.php";
-echo "<h1>Record Verwijderen</h1>";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record Verwijderen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Record Verwijderen</h1>
 
+<?php
 if (isset($_GET['teVerwijderen'])) {
     $id = intval($_GET['teVerwijderen']);
     
@@ -14,5 +24,8 @@ if (isset($_GET['teVerwijderen'])) {
 }
 
 $mysqli->close();
-print "<p><a href='index.php'>Terug naar overzicht</a></p>"
+print "<p><a href='index.php'>Terug naar overzicht</a></p>";
 ?>
+
+</body>
+</html>

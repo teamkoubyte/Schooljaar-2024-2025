@@ -1,6 +1,17 @@
 <?php
-echo "<h1>Record Wijzigen</h1>";
 include "connect.php";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record Wijzigen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Record Wijzigen</h1>
+
+<?php
 if(isset($_POST['veranderen'])){
     
     $id = $_POST['id'];
@@ -14,8 +25,7 @@ if(isset($_POST['veranderen'])){
     
     $checkSql = "SELECT * FROM postcodes WHERE postcode = '$postcode'";
     $checkResult = $mysqli->query($checkSql);
-    
-    if ($checkResult->num_rows == 0) {
+      if ($checkResult->num_rows == 0) {
         $insertPostcode = "INSERT INTO postcodes (postcode, plaats) VALUES ('$postcode', '$plaats')";
         if (!$mysqli->query($insertPostcode)){
             echo "ERROR bij toevoegen postcode: " . $mysqli->error;
@@ -31,6 +41,16 @@ if(isset($_POST['veranderen'])){
             }
         }
     }
+    
+    // Update de leerling gegevens
+    $sql = "UPDATE leerlingen SET 
+            telefoonnummer = '$telefoonnummer',
+            voornaam = '$voornaam',
+            naam = '$naam',
+            straat = '$straat',
+            postcode = '$postcode',
+            geboortedatum = '$geboortedatum'
+            WHERE id = $id";
     
     if($mysqli->query($sql)){
         echo "Record is gewijzigd";
@@ -58,8 +78,10 @@ if(isset($_POST['veranderen'])){
 
             </form>
             </table>';
-    
-    print "<br><a href='index.php'>Terug naar overzicht</a>";
+      print "<br><a href='index.php'>Terug naar overzicht</a>";
 }
 $mysqli->close();
 ?>
+
+</body>
+</html>
