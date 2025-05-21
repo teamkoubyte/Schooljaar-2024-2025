@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +13,16 @@ include "connect.php";
     <h1>Record Toevoegen</h1>
     
 <?php
-// Stap 1: Controleer of een postcode bestaat
 if(isset($_POST['controleer_postcode'])) {
     $postcode = $_POST['postcode'];
     
-    // Check of de postcode al bestaat in de database
     $check_sql = "SELECT * FROM postcodes WHERE postcode = '$postcode'";
     $check_result = $mysqli->query($check_sql);
     
     if ($check_result->num_rows > 0) {
-        // Postcode bestaat, haal de plaats op
-        $row = $check_result->fetch_assoc();
-        $plaats = $row['plaats'];
+        $rij = $check_result->fetch_assoc();
+        $plaats = $rij['plaats'];
         
-        // Toon het volledige formulier met de gevonden plaats
         echo '<table>
             <form action="toevoegen.php" method="post">
             <tr><td>Telefoonnummer</td> <td><input type="text" name="telefoonnummer"></td></tr>
@@ -39,7 +36,6 @@ if(isset($_POST['controleer_postcode'])) {
             </form>
             </table>';
     } else {
-        // Postcode bestaat niet, vraag om plaatsnaam
         echo '<p><strong>Deze postcode bestaat nog niet in het systeem. Vul a.u.b. de plaatsnaam in:</strong></p>';
         echo '<table>
             <form action="toevoegen.php" method="post">
@@ -55,7 +51,7 @@ if(isset($_POST['controleer_postcode'])) {
             </table>';
     }
 }
-// Stap 2: Verwerk het toevoegen van een nieuw record
+
 else if(isset($_POST['toevoegen'])){
     $telefoonnummer = $_POST['telefoonnummer'];
     $voornaam = $_POST['voornaam'];
@@ -86,7 +82,7 @@ else if(isset($_POST['toevoegen'])){
         echo "<p><a href='toevoegen.php'>Probeer opnieuw</a></p>";
     }
 }
-// Stap 0: Toon het eerste formulier om postcode te controleren
+
 else {
     echo '<table>
         <form action="toevoegen.php" method="post">

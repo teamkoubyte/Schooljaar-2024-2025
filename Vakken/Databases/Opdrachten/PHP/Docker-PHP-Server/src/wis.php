@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +14,10 @@ include "connect.php";
 
 <?php
 if (isset($_GET['teVerwijderen'])) {
-    $id = intval($_GET['teVerwijderen']);
     
+    $id = intval($_GET['teVerwijderen']);
     $sql = "DELETE FROM leerlingen WHERE id = $id";
+
     if ($mysqli->query($sql)) {
         echo "<p>Record is verwijderd</p>";
     } else {
