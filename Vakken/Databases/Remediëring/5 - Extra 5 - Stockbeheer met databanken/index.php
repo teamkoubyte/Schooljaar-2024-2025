@@ -12,8 +12,8 @@
 
 <?php
 include 'connect.php';
-$query = "SELECT * FROM tblProducten";
-$result = $mysqli->query($query);
+$sqlQuery = "SELECT * FROM tblProducten";
+$resultaat = $mysqli->query($sqlQuery);
 ?>
   <h2>Productenlijst</h2>
 <table border="1" cellpadding="5">
@@ -21,12 +21,11 @@ $result = $mysqli->query($query);
         <th>ID</th>
         <th>Productnaam</th>
         <th>Stock</th>
-    </tr>
-    <?php while ($rij = $result->fetch_assoc()): ?>
+    </tr>    <?php while ($rij = $resultaat->fetch_assoc()): ?>
     <tr>
         <td><?php echo $rij['id']; ?></td>
-        <td><?php echo $rij['productnaam']; ?></td>
-        <td><?php echo $rij['stock']; ?></td>
+        <td><?php echo htmlspecialchars($rij['naam']); ?></td>
+        <td><?php echo $rij['voorraad']; ?></td>
     </tr>
     <?php endwhile; ?>
 </table>
