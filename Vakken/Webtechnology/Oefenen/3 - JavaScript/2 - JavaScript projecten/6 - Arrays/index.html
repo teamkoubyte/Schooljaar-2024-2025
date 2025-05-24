@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <form>
+      <label>Toe te voegen element:</label>
+      <input type="text" id="textID" placeholder="Nieuw element" />
+    </form>
+
+    <br />
+    <a href="#" onclick="voegToeOnderaan()"
+      >Voeg toe <strong>onderaan</strong> de lijst</a
+    ><br />
+    <a href="#" onclick="voegToeBovenaan()"
+      >Voeg toe <strong>bovenaan</strong> de lijst</a
+    ><br />
+    <br />
+    <a href="#" onclick="verwijderOnderste()"
+      >Verwijder het <strong>onderste</strong> element</a
+    ><br />
+    <a href="#" onclick="verwijderBovenste()"
+      >Verwijder het <strong>bovenste</strong> element</a
+    ><br />
+    <br />
+
+    De lijst:
+    <ul id="lijstID"></ul>
+
+    <script src="script.js"></script>
+  </body>
+</html>
