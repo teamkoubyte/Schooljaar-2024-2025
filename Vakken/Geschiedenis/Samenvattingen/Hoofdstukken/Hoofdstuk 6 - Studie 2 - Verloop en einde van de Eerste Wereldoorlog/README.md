@@ -1,10 +1,4 @@
-# ⚔️ Verlo| Geallieerden | Centralen |
-|--------------|-----------|
-| 🇫🇷 Frankrijk | 🇩🇪 Duitsland |
-| 🇬🇧 Verenigd Koninkrijk | 🇦🇹 Oostenrijk-Hongarije |
-| 🇷🇺 Rusland | 🇹🇷 Ottomaanse Rijk |
-| 🇮🇹 Italië (vanaf 1915) | |
-| 🇺🇸 Verenigde Staten (vanaf 1917) | |inde van de Eerste Wereldoorlog
+# ⚔️ Verloop en Einde van de Eerste Wereldoorlog
 
 ## 📅 Tijdlijn
 - **Eerste Wereldoorlog**: 1914-1918
@@ -22,7 +16,7 @@
 | 🇮🇹 Italië (vanaf 1915) | |
 | 🇺🇸 Verenigde Staten (vanaf 1917) | |
 
-## 🌍 De Oorlog in Europa
+## 🇪🇺 De Oorlog in Europa
 
 ### 🇧🇪 Invasie van België (Augustus 1914)
 - **Duitse verwachting**: Vrije doorgang naar Frankrijk
